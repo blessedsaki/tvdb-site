@@ -1,105 +1,227 @@
-<!DOCTYPE html><html lang="zh-CN"><head><base href="/tvdb-site/"><meta charset="utf-8">
+<!DOCTYPE html><html lang="en"><head><base href="/tvdb-site/"><meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>账号 387243643 · tvdb</title><style>
-:root{--bg:#0a0b0f;--card:#12141b;--card2:#171a23;--line:#242838;--fg:#e8ecf5;
---dim:#8b95a7;--accent:#6aa6ff;--ok:#3ddc97;--warn:#ffb84d;--err:#ff6b6b}
+:root{
+ --bg:#f4f2ec; --side:#fbfaf5; --card:#ffffff; --card2:#f3f1e9;
+ --line:#e2ddd0; --line2:#efece1;
+ --fg:#1d1e1a; --dim:#6c6a5e; --dim2:#98937f;
+ --accent:#1f4e79; --accent2:#2a5f90; --soft:#e9f0f6; --soft2:#f4f6f8;
+ --ok:#2e6a45; --warn:#8c611c; --err:#a3342b;
+}
 *{box-sizing:border-box}
-body{margin:0;background:var(--bg);color:var(--fg);font:14px/1.55 -apple-system,
-"PingFang SC","Microsoft YaHei",sans-serif;
-background-image:radial-gradient(900px 460px at 12% -10%,rgba(46,88,165,.26) 0,transparent 60%);
-background-attachment:fixed}
-.wrap{max-width:1280px;margin:0 auto;padding:20px 18px 60px}
-a{color:var(--accent);text-decoration:none} a:hover{text-decoration:underline}
-h1{font-size:21px;margin:0 0 3px;letter-spacing:-.02em;
-background:linear-gradient(92deg,#f2f7ff,#9dc4ff 55%,#b39bff);
--webkit-background-clip:text;background-clip:text;color:transparent}
-.sub{color:var(--dim);font-size:12.5px;margin-bottom:16px}
-nav{margin:0 0 16px;display:flex;gap:6px;flex-wrap:wrap}
-nav a{padding:7px 13px;border:1px solid var(--line);border-radius:9px;background:var(--card);
-font-size:13px;color:var(--fg)}
-nav a.on{border-color:var(--accent);color:#fff}
-.card{background:var(--card);border:1px solid var(--line);border-radius:13px;padding:15px;margin-bottom:13px}
-.card h2{font-size:12.5px;margin:0 0 11px;color:var(--dim);font-weight:600;
-letter-spacing:.06em;text-transform:uppercase}
-table{width:100%;border-collapse:collapse;font-size:12.5px}
-th,td{text-align:left;padding:7px 6px;border-bottom:1px solid var(--line);vertical-align:top}
-th{color:var(--dim);font-weight:500;font-size:11.5px}
-tr:hover td{background:rgba(106,166,255,.04)}
+body{margin:0;background:var(--bg);color:var(--fg);
+ font:14.5px/1.62 -apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC",
+ "Noto Sans SC","Microsoft YaHei",sans-serif;-webkit-font-smoothing:antialiased;
+ display:grid;grid-template-columns:238px minmax(0,1fr);align-items:start}
+a{color:var(--accent);text-decoration:none}
+a:hover{text-decoration:underline;text-underline-offset:2px}
+/* ---------- 左侧栏 ---------- */
+.side{position:sticky;top:0;height:100vh;display:flex;flex-direction:column;gap:16px;
+ padding:22px 15px 16px;background:var(--side);border-right:1px solid var(--line);overflow:auto}
+.brand a{font-size:20px;font-weight:700;letter-spacing:-.3px;color:var(--fg)}
+.brand a:hover{text-decoration:none;color:var(--accent)}
+.brand .tag{font-size:11px;color:var(--dim2);line-height:1.5;margin-top:3px}
+.side nav{display:flex;flex-direction:column;gap:1px}
+.side nav a{padding:7px 10px;border-radius:6px;color:var(--dim);font-size:13.5px}
+.side nav a:hover{background:var(--soft2);color:var(--fg);text-decoration:none}
+.side nav a.on{background:var(--soft);color:var(--accent);font-weight:600;
+ box-shadow:inset 2px 0 0 var(--accent)}
+.lang{display:flex;gap:6px;margin-top:auto}
+.lang button{flex:1;padding:5px 0;white-space:nowrap;font-size:12px;background:transparent;border:1px solid var(--line);
+ border-radius:6px;color:var(--dim);cursor:pointer;font-weight:500}
+.lang button.on{background:var(--accent);border-color:var(--accent);color:#fff}
+.lang button:hover{border-color:var(--accent2);color:var(--accent)}
+.lang button.on:hover{color:#fff}
+.sidefoot{font-size:11px;color:var(--dim2);line-height:1.6;border-top:1px solid var(--line);padding-top:12px}
+/* ---------- 主区 ---------- */
+.main{padding:28px 34px 90px;max-width:1120px;min-width:0}
+h1{font-size:25px;line-height:1.3;margin:0 0 6px;font-weight:650;letter-spacing:-.3px}
+.sub{color:var(--dim);font-size:13px;max-width:76ch;line-height:1.65;margin:0 0 20px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:10px;
+ padding:16px 18px;margin-bottom:14px}
+.card h2{font-size:13px;margin:0 0 12px;color:var(--fg);font-weight:650;
+ letter-spacing:.02em;padding-bottom:9px;border-bottom:1px solid var(--line2);display:flex;
+ align-items:baseline;gap:8px;flex-wrap:wrap}
+table{width:100%;border-collapse:collapse;font-size:12.8px}
+th,td{text-align:left;padding:8px;border-bottom:1px solid var(--line2);vertical-align:top}
+th{color:var(--dim2);font-weight:600;font-size:11.5px;letter-spacing:.02em;
+ border-bottom:1px solid var(--line);white-space:nowrap}
+tr:hover td{background:#faf9f4}
 .num{text-align:right;font-variant-numeric:tabular-nums}
+.nf{white-space:nowrap}
 .muted{color:var(--dim);font-size:12px}
-.tag{font-size:11px;padding:1px 7px;border-radius:5px;background:var(--card2);
-color:var(--dim);display:inline-block;margin:1px 2px 1px 0}
-.tag.s{color:var(--accent)}
-.tag.g{color:var(--ok)} .tag.w{color:var(--warn)} .tag.e{color:var(--err)}
-.stats{display:flex;gap:22px;flex-wrap:wrap}
+.tag{font-size:11px;padding:1px 7px;border-radius:4px;background:var(--card2);color:var(--dim);
+ display:inline-block;margin:1px 2px 1px 0;border:1px solid var(--line2)}
+.tag.s{color:var(--accent);background:var(--soft);border-color:#d5e1ec}
+.tag.g{color:var(--ok);background:#eef5ef;border-color:#d6e6dc}
+.tag.w{color:var(--warn);background:#fbf4e5;border-color:#eddfc4}
+.tag.e{color:var(--err);background:#fbeeed;border-color:#f0d6d3}
+.stats{display:flex;gap:28px;flex-wrap:wrap;padding:2px 0}
 .stats div{font-size:12px;color:var(--dim)}
-.stats b{display:block;font-size:19px;color:var(--fg);font-weight:600}
-input,select,button{background:var(--card2);border:1px solid var(--line);color:var(--fg);
-border-radius:8px;padding:7px 10px;font-size:13px;outline:none}
-input:focus,select:focus{border-color:var(--accent)}
+.stats b{display:block;font-size:20px;color:var(--fg);font-weight:600;letter-spacing:-.2px}
+input,select,button{background:#fff;border:1px solid var(--line);color:var(--fg);
+ border-radius:7px;padding:7px 10px;font-size:13px;outline:none;font-family:inherit}
+input:focus,select:focus{border-color:var(--accent2);box-shadow:0 0 0 3px var(--soft)}
+button{cursor:pointer;background:var(--soft);border-color:#d5e1ec;color:var(--accent);font-weight:600}
+button:hover{background:#dfe9f2}
 form.row{display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin-bottom:12px}
-input.grow{flex:1;min-width:180px}
+input.grow{flex:1;min-width:200px}
 .cvrow{display:flex;gap:4px}
 a.cv{display:block;width:84px;height:48px;overflow:hidden;border-radius:4px;
-border:1px solid var(--line);background:var(--card2)}
+ border:1px solid var(--line);background:var(--card2)}
 a.cv img{width:100%;height:100%;object-fit:cover;display:block}
-a.cv:hover{border-color:var(--accent)}
+a.cv:hover{border-color:var(--accent2)}
 td.covs{white-space:nowrap}
-.foot{margin:34px 0 10px;padding-top:14px;border-top:1px solid var(--line);
-color:var(--dim);font-size:12px;line-height:1.7}
+.foot{margin:34px 0 8px;padding-top:14px;border-top:1px solid var(--line);
+ color:var(--dim2);font-size:11.5px;line-height:1.75}
 .tabrow{display:flex;gap:8px;flex-wrap:wrap;margin:4px 0 10px}
-a.tabk{padding:5px 12px;border:1px solid var(--line);border-radius:16px;
-font-size:12.5px;text-decoration:none;color:var(--dim)}
-a.tabk.sel{background:var(--accent);color:#0a0b0f;border-color:var(--accent);font-weight:600}
-a.tabk:hover{border-color:var(--accent);color:var(--accent)}
-a.tabk.sel:hover{color:#0a0b0f}
+a.tabk{padding:5px 12px;border:1px solid var(--line);border-radius:16px;background:#fff;
+ font-size:12.5px;text-decoration:none;color:var(--dim)}
+a.tabk.sel{background:var(--accent);color:#fff;border-color:var(--accent);font-weight:600}
+a.tabk:hover{border-color:var(--accent2);color:var(--accent)}
+a.tabk.sel:hover{color:#fff}
 td.act{white-space:nowrap}
 button.byes,button.bno{padding:4px 12px;border-radius:6px;border:1px solid var(--line);
-background:var(--card2);color:var(--fg);font-size:12px;cursor:pointer;margin-right:4px}
-button.byes:hover{background:#3ddc97;color:#0a0b0f;border-color:#3ddc97}
-button.bno:hover{background:#ff6b6b;color:#0a0b0f;border-color:#ff6b6b}
+ background:#fff;color:var(--fg);font-size:12px;cursor:pointer;margin-right:4px}
+button.byes:hover{background:var(--ok);color:#fff;border-color:var(--ok)}
+button.bno:hover{background:var(--err);color:#fff;border-color:var(--err)}
 .small{font-size:11px;color:var(--dim);max-width:200px}
 .avrow{display:flex;flex-wrap:wrap;gap:10px}
 .avline{display:flex;flex-direction:column;align-items:center;width:56px;gap:3px;
-text-decoration:none;color:var(--dim);font-size:10px;text-align:center}
+ text-decoration:none;color:var(--dim);font-size:10px;text-align:center}
 .avline img{width:40px;height:40px;border-radius:50%;object-fit:cover;
-background:var(--card2);border:1px solid var(--line)}
+ background:var(--card2);border:1px solid var(--line)}
 .avline:hover{color:var(--accent)}
-.avline:hover img{border-color:var(--accent)}
+.avline:hover img{border-color:var(--accent2)}
 a.more{color:var(--accent);font-size:12.5px;text-decoration:none}
 a.more:hover{text-decoration:underline}
 td.av{width:44px;padding-right:0}
 td.av img{width:36px;height:36px;border-radius:50%;object-fit:cover;display:block;
-background:var(--card2);border:1px solid var(--line)}
+ background:var(--card2);border:1px solid var(--line)}
 td.av a{display:block}
 a.upname{font-weight:600;text-decoration:none;color:var(--fg)}
 a.upname:hover{color:var(--accent);text-decoration:underline}
-a.detail{font-size:10.5px;color:var(--dim);text-decoration:none;border:1px solid var(--line);
-border-radius:4px;padding:1px 4px;margin-left:2px}
-a.detail:hover{color:var(--accent);border-color:var(--accent)}
-td.note{max-width:520px;font-size:11.5px;line-height:1.5;color:#b8c4d8}
+a.detail{font-size:10.5px;color:var(--dim2);text-decoration:none;border:1px solid var(--line);
+ border-radius:4px;padding:1px 4px;margin-left:2px}
+a.detail:hover{color:var(--accent);border-color:var(--accent2)}
+td.note{max-width:520px;font-size:11.5px;line-height:1.55;color:var(--dim)}
 td.note b{color:var(--accent);font-weight:600}
 .sig{color:var(--dim);font-size:11.5px;max-width:340px;overflow:hidden;
-text-overflow:ellipsis;white-space:nowrap;display:inline-block;vertical-align:bottom}
-.warnbox{border-left:3px solid var(--warn);background:rgba(255,184,77,.07);
-padding:9px 12px;border-radius:0 8px 8px 0;font-size:12.5px;color:#e8d5b0;margin:10px 0}
-</style></head><body><div class="wrap">
-<h1>tvdb</h1><div class="sub">TV 系内容观测库 · 中国社会的一个窗口</div>
-<nav><a href="index.html">概览</a><a href="ups.html" class=on>账号</a><a href="series.html">系列</a><a href="themes.html">大主题</a><a href="community.html">圈子</a><a href="memes.html">梗</a><a href="report.html">调研报告</a></nav><div class=card><h2>亚里土缺德</h2>
+ text-overflow:ellipsis;white-space:nowrap;display:inline-block;vertical-align:bottom}
+.warnbox{border-left:3px solid #d8a84a;background:#fdf8ec;color:#5d4a26;
+ padding:11px 14px;border-radius:0 8px 8px 0;font-size:12.5px;margin:10px 0;line-height:1.7}
+.warnbox code{background:#f3ead4;color:#7a5a1c}
+code{background:var(--card2);padding:1px 5px;border-radius:4px;font-size:12px}
+.prose{font-size:13.5px;line-height:1.75;margin:4px 0 10px;max-width:88ch}
+details.orig{margin:8px 0 4px;border-top:1px dashed var(--line);padding-top:6px}
+details.orig summary{cursor:pointer;font-size:11.5px;color:var(--dim2);outline:none}
+details.orig summary:hover{color:var(--accent)}
+details.orig > div{font-size:12.5px;color:var(--dim);line-height:1.75;margin-top:8px;max-width:86ch}
+.md{font-size:13.5px;line-height:1.75;color:var(--fg);max-width:92ch}
+.md h1{font-size:20px;margin:6px 0 10px;font-weight:650}
+.md h2{font-size:16px;margin:22px 0 8px;font-weight:650;border-bottom:1px solid var(--line2);padding-bottom:5px}
+.md h3{font-size:14px;margin:16px 0 6px;font-weight:650}
+.md p{margin:8px 0}
+.md ul,.md ol{margin:8px 0 8px 20px;padding:0}
+.md li{margin:3px 0}
+.md blockquote{margin:10px 0;padding:6px 12px;border-left:3px solid var(--line);color:var(--dim);background:#faf9f4}
+.md table{font-size:12px;margin:10px 0}
+.md th,.md td{padding:5px 8px}
+.md code{font-size:12px}
+.md hr{border:0;border-top:1px solid var(--line2);margin:16px 0}
+/* ---------- 窄屏 ---------- */
+@media (max-width:900px){
+ body{display:block}
+ .side{position:static;height:auto;flex-direction:row;align-items:center;flex-wrap:wrap;
+  gap:10px;padding:12px 14px;border-right:0;border-bottom:1px solid var(--line);overflow:visible}
+ .brand .tag{display:none}
+ .side nav{flex-direction:row;flex:1;overflow-x:auto;gap:2px;min-width:0}
+ .side nav a{white-space:nowrap;padding:6px 9px}
+ .side nav a.on{box-shadow:none;background:var(--soft)}
+ .lang{margin-top:0;flex:0 0 auto}
+ .lang button{padding:5px 10px}
+ .sidefoot{display:none}
+ .main{padding:18px 14px 64px;max-width:none}
+ h1{font-size:21px}
+ .card{padding:13px 12px;overflow-x:auto}
+ table{min-width:560px}
+}
+</style></head><body data-lang="en">
+<aside class="side">
+  <div class="brand"><a href="index.html">tvdb</a>
+    <div class="tag" data-i18n="site.tag">TV-culture field archive</div></div>
+  <nav><a href="index.html"><span data-i18n="nav.overview">Overview</span></a><a href="ups.html" class=on><span data-i18n="nav.ups">Accounts</span></a><a href="series.html"><span data-i18n="nav.series">Series</span></a><a href="themes.html"><span data-i18n="nav.themes">Themes</span></a><a href="community.html"><span data-i18n="nav.community">Scenes</span></a><a href="memes.html"><span data-i18n="nav.memes">Memes</span></a><a href="report.html"><span data-i18n="nav.report">Report</span></a></nav>
+  <div class="lang"><button data-l="en" class="on">EN</button><button data-l="zh">中文</button></div>
+  <div class="sidefoot" data-i18n="site.note">Built from public Bilibili data. Snapshots, not a live feed.</div>
+</aside>
+<main class="main"><h1>账号 387243643</h1><div class="sub" data-i18n="ups.sub">Account detail</div><div class=card><h2>亚里土缺德</h2>
 <table>
 <tr><th>mid</th><td><code>387243643</code></td></tr>
-<tr><th>粉丝</th><td>36.4万</td></tr>
-<tr><th>投稿数</th><td>1389</td></tr>
-<tr><th>签名</th><td>抽象蒙太奇   
+<tr><th><span data-i18n="th.followers">Followers</span></th><td><span class="nf" data-n="363743">363.7K</span></td></tr>
+<tr><th><span data-i18n="th.uploads2">Uploads</span></th><td>1389</td></tr>
+<tr><th><span data-i18n="th.bio">Bio</span></th><td>抽象蒙太奇   
 商务+v：yalituquede（本人请备注来意）</td></tr>
-<tr><th>状态</th><td>正常</td></tr>
+<tr><th><span data-i18n="th.status">Status</span></th><td><span data-i18n="th.alive">Active</span></td></tr>
 </table></div>
-<div class=card><h2>角色判定</h2>
-<table><tr><th>角色</th><th class=num>置信度</th><th>依据</th></tr><tr><td>搬运号 <span class=muted>reposter</span></td><td class=num>0.55</td><td class=muted>1 条样本，TV 标题占比 100%（样本不足，待复核）</td></tr></table></div>
-<div class=card><h2>粉丝轨迹</h2>
-<table><tr><th>时间</th><th class=num>粉丝</th><th class=num>投稿</th></tr><tr><td class=muted>2026-11-22 05:30</td><td class=num>36.4万</td><td class=num>1389</td></tr><tr><td class=muted>2026-11-21 10:45</td><td class=num>36.4万</td><td class=num>1387</td></tr><tr><td class=muted>2026-11-21 09:26</td><td class=num>36.4万</td><td class=num>1387</td></tr></table></div>
-<div class=card><h2>投稿（15）</h2>
-<table><tr><th>标题</th><th class=num>播放</th><th class=num>时长</th><th>发布</th><th></th></tr><tr><td><a href='https://www.bilibili.com/video/BV1TUWR6aEaN'>《腊肉TV》六年的老腊肉</a></td><td class=num>1.8万</td><td class=num>6:5s</td><td class=muted>2026-11-12 10:30</td><td></td></tr><tr><td><a href='https://www.bilibili.com/video/BV176jm6uEgi'>《弗雷尔卓德料理》老八当年是不是拿大酱糊弄我呢</a></td><td class=num>19.5万</td><td class=num>149s</td><td class=muted>2026-06-25 10:13</td><td></td></tr><tr><td><a href='https://www.bilibili.com/video/BV1cvVh6oEdY'>《满崽而归3》依旧流心大福带回家</a></td><td class=num>11.3万</td><td class=num>135s</td><td class=muted>2026-05-29 11:36</td><td></td></tr><tr><td><a href='https://www.bilibili.com/video/BV1vHZcBgEYP'>《精致集美服务区过夜》我勒个高铁上搭帐篷</a></td><td class=num>32.2万</td><td class=num>284s</td><td class=muted>2026-04-26 11:39</td><td></td></tr><tr><td><a href='https://www.bilibili.com/video/BV1tBoQBqEsS'>《精致富婆消费的一天》BYD小时代看多了是吧</a></td><td class=num>10.7万</td><td class=num>277s</td><td class=muted>2026-04-25 14:17</td><td></td></tr><tr><td><a href='https://www.bilibili.com/video/BV18bXpBjEnM'>《缺德TV》网上说说得了现实中谁不想谈个混的入</a></td><td class=num>10.4万</td><td class=num>6:9s</td><td class=muted>2026-03-26 10:37</td><td></td></tr><tr><td><a href='https://www.bilibili.com/video/BV1LqAgzUE9j'>《大果TV》没吃的赶紧戒哈</a></td><td class=num>25.4万</td><td class=num>196s</td><td class=muted>2026-03-22 10:00</td><td></td></tr><tr><td><a href='https://www.bilibili.com/video/BV1xZwfzvEmU'>《赌狗TV》依旧最后一次，依旧回本</a></td><td class=num>4.7万</td><td class=num>319s</td><td class=muted>2026-03-21 10:00</td><td></td></tr><tr><td><a href='https://www.bilibili.com/video/BV1PLw1zoEEA'>《教育TV》依旧愧疚式教育</a></td><td class=num>17.7万</td><td class=num>4:55s</td><td class=muted>2026-03-20 10:55</td><td></td></tr><tr><td><a href='https://www.bilibili.com/video/BV1NRwezhEmr'>《古法养娃》孩子不长肉，米油需管够</a></td><td class=num>8.2万</td><td class=num>5:42s</td><td class=muted>2026-03-18 11:11</td><td></td></tr><tr><td><a href='https://www.bilibili.com/video/BV1PVahzoEDF'>《信誉厨房》2:穿个凶兆吧</a></td><td class=num>4.6万</td><td class=num>3:59s</td><td class=muted>2025-09-05 13:59</td><td></td></tr><tr><td><a href='https://www.bilibili.com/video/BV1SotdzfE1a'>《米油女儿》百日则肥白</a></td><td class=num>29.9万</td><td class=num>3:1s</td><td class=muted>2025-08-12 10:41</td><td></td></tr><tr><td><a href='https://www.bilibili.com/video/BV1oC8iz9EeE'>《古法小孩》喝水不如喝津液</a></td><td class=num>16.1万</td><td class=num>165s</td><td class=muted>2025-07-27 06:17</td><td></td></tr><tr><td><a href='https://www.bilibili.com/video/BV1DCTyzjEfE'>《精致女生上厕所》经典马桶做饭</a></td><td class=num>18.3万</td><td class=num>265s</td><td class=muted>2025-06-07 11:27</td><td></td></tr><tr><td><a href='https://www.bilibili.com/video/BV13T421r7XB'>《集美tv》之价格表明细</a></td><td class=num>13.1万</td><td class=num>4:41s</td><td class=muted>2024-07-31 12:24</td><td></td></tr></table></div>
-<div class=foot>本页数据全部来自 B站 公开可见的账号与视频信息，仅作网络亚文化研究用。
-封面与视频版权归原 UP 主所有。如对收录有异议，请通过页面所附账号联系删除。</div>
-</div></body></html>
+<div class=card><h2><span data-i18n="th.verdict">Role</span></h2>
+<table><tr><th><span data-i18n="th.role">Role</span></th><th class=num><span data-i18n="th.conf">Confidence</span></th><th><span data-i18n="th.basis">Basis</span></th></tr><tr><td>搬运号 <span class=muted>reposter</span></td><td class=num>0.55</td><td class=muted>1 条样本，TV 标题占比 100%（样本不足，待复核）</td></tr></table></div>
+<div class=card><h2><span data-i18n="th.history">Follower history</span></h2>
+<table><tr><th><span data-i18n="th.time">Time</span></th><th class=num><span data-i18n="th.followers">Followers</span></th><th class=num><span data-i18n="th.uploads">Uploads</span></th></tr><tr><td class=muted>2026-11-22 05:30</td><td class=num><span class="nf" data-n="363743">363.7K</span></td><td class=num>1389</td></tr><tr><td class=muted>2026-11-21 10:45</td><td class=num><span class="nf" data-n="363728">363.7K</span></td><td class=num>1387</td></tr><tr><td class=muted>2026-11-21 09:26</td><td class=num><span class="nf" data-n="363726">363.7K</span></td><td class=num>1387</td></tr></table></div>
+<div class=card><h2><span data-i18n="up.uploads">Uploads</span> · 15</h2>
+<table><tr><th><span data-i18n="th.title">Title</span></th><th class=num><span data-i18n="th.views2">Views</span></th><th class=num><span data-i18n="th.duration">Length</span></th><th><span data-i18n="th.published">Published</span></th><th></th></tr><tr><td><a href='https://www.bilibili.com/video/BV1TUWR6aEaN'>《腊肉TV》六年的老腊肉</a></td><td class=num><span class="nf" data-n="18205">18.2K</span></td><td class=num>6:5s</td><td class=muted>2026-11-12 10:30</td><td></td></tr><tr><td><a href='https://www.bilibili.com/video/BV176jm6uEgi'>《弗雷尔卓德料理》老八当年是不是拿大酱糊弄我呢</a></td><td class=num><span class="nf" data-n="195313">195.3K</span></td><td class=num>149s</td><td class=muted>2026-06-25 10:13</td><td></td></tr><tr><td><a href='https://www.bilibili.com/video/BV1cvVh6oEdY'>《满崽而归3》依旧流心大福带回家</a></td><td class=num><span class="nf" data-n="113427">113.4K</span></td><td class=num>135s</td><td class=muted>2026-05-29 11:36</td><td></td></tr><tr><td><a href='https://www.bilibili.com/video/BV1vHZcBgEYP'>《精致集美服务区过夜》我勒个高铁上搭帐篷</a></td><td class=num><span class="nf" data-n="321668">321.7K</span></td><td class=num>284s</td><td class=muted>2026-04-26 11:39</td><td></td></tr><tr><td><a href='https://www.bilibili.com/video/BV1tBoQBqEsS'>《精致富婆消费的一天》BYD小时代看多了是吧</a></td><td class=num><span class="nf" data-n="106986">107.0K</span></td><td class=num>277s</td><td class=muted>2026-04-25 14:17</td><td></td></tr><tr><td><a href='https://www.bilibili.com/video/BV18bXpBjEnM'>《缺德TV》网上说说得了现实中谁不想谈个混的入</a></td><td class=num><span class="nf" data-n="103535">103.5K</span></td><td class=num>6:9s</td><td class=muted>2026-03-26 10:37</td><td></td></tr><tr><td><a href='https://www.bilibili.com/video/BV1LqAgzUE9j'>《大果TV》没吃的赶紧戒哈</a></td><td class=num><span class="nf" data-n="253659">253.7K</span></td><td class=num>196s</td><td class=muted>2026-03-22 10:00</td><td></td></tr><tr><td><a href='https://www.bilibili.com/video/BV1xZwfzvEmU'>《赌狗TV》依旧最后一次，依旧回本</a></td><td class=num><span class="nf" data-n="46855">46.9K</span></td><td class=num>319s</td><td class=muted>2026-03-21 10:00</td><td></td></tr><tr><td><a href='https://www.bilibili.com/video/BV1PLw1zoEEA'>《教育TV》依旧愧疚式教育</a></td><td class=num><span class="nf" data-n="177144">177.1K</span></td><td class=num>4:55s</td><td class=muted>2026-03-20 10:55</td><td></td></tr><tr><td><a href='https://www.bilibili.com/video/BV1NRwezhEmr'>《古法养娃》孩子不长肉，米油需管够</a></td><td class=num><span class="nf" data-n="81998">82.0K</span></td><td class=num>5:42s</td><td class=muted>2026-03-18 11:11</td><td></td></tr><tr><td><a href='https://www.bilibili.com/video/BV1PVahzoEDF'>《信誉厨房》2:穿个凶兆吧</a></td><td class=num><span class="nf" data-n="46498">46.5K</span></td><td class=num>3:59s</td><td class=muted>2025-09-05 13:59</td><td></td></tr><tr><td><a href='https://www.bilibili.com/video/BV1SotdzfE1a'>《米油女儿》百日则肥白</a></td><td class=num><span class="nf" data-n="299016">299.0K</span></td><td class=num>3:1s</td><td class=muted>2025-08-12 10:41</td><td></td></tr><tr><td><a href='https://www.bilibili.com/video/BV1oC8iz9EeE'>《古法小孩》喝水不如喝津液</a></td><td class=num><span class="nf" data-n="160933">160.9K</span></td><td class=num>165s</td><td class=muted>2025-07-27 06:17</td><td></td></tr><tr><td><a href='https://www.bilibili.com/video/BV1DCTyzjEfE'>《精致女生上厕所》经典马桶做饭</a></td><td class=num><span class="nf" data-n="182537">182.5K</span></td><td class=num>265s</td><td class=muted>2025-06-07 11:27</td><td></td></tr><tr><td><a href='https://www.bilibili.com/video/BV13T421r7XB'>《集美tv》之价格表明细</a></td><td class=num><span class="nf" data-n="130900">130.9K</span></td><td class=num>4:41s</td><td class=muted>2024-07-31 12:24</td><td></td></tr></table></div><div class="foot i18n-en" data-block="foot.legal">Every record comes from publicly visible Bilibili accounts and videos, collected for research on Chinese internet subcultures. Covers and videos belong to their uploaders. If you want something removed, contact the account listed on the page.</div><div class="foot i18n-zh" data-block="foot.legal" hidden>本页数据全部来自 B站 公开可见的账号与视频信息，仅作网络亚文化研究用。封面与视频版权归原 UP 主所有。如对收录有异议，请通过页面所附账号联系删除。</div></main>
+<script>window.__ZH={"nav.overview": "概览", "nav.ups": "账号", "nav.series": "系列", "nav.themes": "大主题", "nav.community": "圈子", "nav.memes": "梗", "nav.report": "调研报告", "nav.review": "人工复核", "nav.backup": "下载进度", "nav.crawls": "抓取记录", "ov.scale": "规模", "th.videos": "视频", "ov.core": "核心UP", "th.comments": "评论", "th.tags": "标签", "th.gone": "已注销", "ov.series_dist": "系列分布（按入库视频数）", "th.category": "类别", "th.views": "总播放", "ov.roles": "角色分布（自动判定，待人工复核）", "th.role": "角色", "th.accounts": "账号数", "th.avg_conf": "平均置信度", "ov.crawls": "最近抓取", "th.kind": "类型", "th.seed": "种子", "th.status": "状态", "th.new": "新增", "th.views2": "播放", "th.followers": "粉丝", "th.uploads": "投稿", "th.uploads2": "投稿数", "th.co": "共现", "th.covers": "最近封面", "th.what": "这个号在干什么", "th.inarchive": "库内", "th.title": "标题", "th.duration": "时长", "th.published": "发布", "th.bio": "签名", "th.alive": "正常", "th.verdict": "角色判定", "th.conf": "置信度", "th.basis": "依据", "th.unclassified": "未判定", "th.history": "粉丝轨迹", "th.time": "时间", "th.onesnap": "只有一次快照", "th.up": "UP主", "th.covers_long": "最近封面（点开看原视频）", "th.note_long": "这个号在干什么（备注）", "th.noseries": "无专属系列", "th.archived": "已备份", "th.source": "来源", "th.themes": "所属主题", "th.intheme": "主题内", "th.series_match": "系列匹配", "series.taxonomy": "系列分类学", "th.literal": "字面", "th.real": "实际指向", "th.morphemes": "语素", "th.irony": "反讽", "cat.species": "物种系", "cat.subject": "题材系", "cat.circumstance": "处境系", "cat.mood": "情绪系", "cat.abstract": "抽象系", "cat.desire": "欲望系", "cat.teach": "教学系", "cat.region": "地域系", "role.original": "原始主体", "role.selfshot": "自拍原生创作者", "role.shooter": "原创拍摄者", "role.repost": "搬运号", "role.editor": "二创号", "role.researcher": "研究型", "role.commenter": "评论号", "role.meta": "元内容号", "role.viewer": "观众", "bool.yes": "是", "bool.no": "否", "form.search": "搜索", "form.apply": "筛选", "form.all_roles": "全部角色", "sort.co": "按共现度", "sort.fans": "按粉丝", "sort.videos": "按视频数", "sort.views": "按总播放", "sort.name": "按名字", "scope.tv": "TV 系（已判定）", "scope.pending": "待核实", "scope.all": "全部（含噪音）", "scope.sets": "全部（不限选择集）", "th.method": "方法", "th.whatsurf": "看什么", "th.why": "为什么单列", "th.axis": "降格维度", "themes.title": "八个大主题 —— 系列之上的一层", "memes.term": "词", "memes.videos": "覆盖视频", "memes.sample": "样例", "report.sources": "数据源全图（人工撰写）", "report.data": "数据化报告（自动生成）", "ph.ups": "搜名字 / 签名 / 备注 / 视频标题（有搜索词时自动跨全部账号）", "ph.series": "搜系列名 / 字面 / 实际指向 / 视频标题", "ph.themes": "在大主题里搜：账号名 / 备注 / 视频标题 / 系列名", "ph.ups_static": "搜账号名 / 系列 / 标题 / 备注（支持繁简）", "ph.videos": "搜标题 / 简介", "title.overview": "概览", "title.overview.sub": "中国「TV 系」内容的观测库：谁在做、怎么互相命名、每个名字在看什么。", "title.overview.title": "概览 · tvdb", "title.ups": "账号", "title.ups.sub": "核心账号，按与已确认 TV 系内容的共现度排序。", "title.ups.title": "账号 · tvdb", "title.series": "系列", "title.series.sub": "命名位：系列名从 4.6 万条视频标题里自动抽出，不手工维护。", "title.series.title": "系列 · tvdb", "title.themes": "大主题", "title.themes.sub": "八个大主题：每个名字在围观哪种处境。", "title.themes.title": "大主题 · tvdb", "title.community": "圈子", "title.community.sub": "从共现图自动聚出的圈子。用来认人，不用来判定。", "title.community.title": "圈子 · tvdb", "title.memes": "梗", "title.memes.sub": "用 LLM 从评论区挖出来的黑话。", "title.memes.title": "梗 · tvdb", "title.report": "调研报告", "title.report.sub": "这个库建立在哪些田野笔记上。", "title.report.title": "调研报告 · tvdb", "title.review": "人工复核", "title.review.sub": "人工复核队列（只在本地）。", "title.review.title": "人工复核 · tvdb", "title.backup": "下载进度", "title.backup.sub": "存档下载进度（只在本地）。", "title.backup.title": "下载进度 · tvdb", "title.crawls": "抓取记录", "title.crawls.sub": "抓取流水（只在本地）。", "title.crawls.title": "抓取记录 · tvdb", "title.404": "404", "title.404.sub": "没有这个页面。", "title.404.title": "404 · tvdb", "title.error": "错误", "title.error.sub": "出错了。", "title.error.title": "错误 · tvdb", "unit.accounts": "个号", "ov.videos2": "视频", "ov.core2": "核心UP", "ov.comments2": "评论", "ov.tags2": "标签", "ov.gone2": "已消失", "ov.series2": "系列", "ov.memes2": "梗", "ov.db2": "（上限）", "unit.views": "播放", "theme.viewall": "查看全部", "series.members": "参与账号", "series.videos": "视频", "up.uploads": "投稿", "theme.accounts": "这个主题下的号", "comm.title": "圈子", "comm.confirmed": "已确认核心", "comm.view": "查看这些人", "unit.scene": "社区", "memes.title": "评论区挖出的梗", "ups.count": "账号", "ov.db": "数据库", "site.tag": "「TV 系」内容观测库", "site.note": "数据来自 B站 公开信息，按快照更新，不是实时。", "ups.sub": "账号详情", "series.sub": "系列详情", "themes.sub": "主题详情"};</script>
+<script>
+(function(){
+  var ZH = window.__ZH || {};
+  var LANG = localStorage.getItem('tvdb-lang') || 'en';
+  function fmtN(v, lang){
+    var n = Number(v) || 0;
+    if (lang === 'zh'){
+      if (n >= 1e8) return (n/1e8).toFixed(1) + '亿';
+      if (n >= 1e4) return (n/1e4).toFixed(1) + '万';
+      return String(n);
+    }
+    if (n >= 1e9) return (n/1e9).toFixed(1) + 'B';
+    if (n >= 1e6) return (n/1e6).toFixed(1) + 'M';
+    if (n >= 1e3) return (n/1e3).toFixed(1) + 'K';
+    return String(n);
+  }
+  window.__fmtN = fmtN;
+  window.__lang = function(){ return LANG; };
+  function apply(l){
+    LANG = l;
+    document.documentElement.lang = (l === 'zh') ? 'zh-CN' : 'en';
+    document.body.setAttribute('data-lang', l);
+    document.querySelectorAll('[data-i18n]').forEach(function(el){
+      if (!el.hasAttribute('data-en')) el.setAttribute('data-en', el.textContent);
+      var en = el.getAttribute('data-en'), k = el.getAttribute('data-i18n');
+      el.textContent = (l === 'zh' && ZH[k]) ? ZH[k] : en;
+    });
+    document.querySelectorAll('[data-i18n-ph]').forEach(function(el){
+      if (!el.hasAttribute('data-en-ph')) el.setAttribute('data-en-ph', el.placeholder);
+      var k = el.getAttribute('data-i18n-ph');
+      el.placeholder = (l === 'zh' && ZH[k]) ? ZH[k] : el.getAttribute('data-en-ph');
+    });
+    document.querySelectorAll('.nf[data-n]').forEach(function(el){
+      el.textContent = fmtN(el.getAttribute('data-n'), l);
+    });
+    document.querySelectorAll('.i18n-en').forEach(function(e){ e.hidden = (l !== 'en'); });
+    document.querySelectorAll('.i18n-zh').forEach(function(e){ e.hidden = (l !== 'zh'); });
+    document.querySelectorAll('.lang button').forEach(function(b){
+      b.classList.toggle('on', b.getAttribute('data-l') === l);
+    });
+    try { window.dispatchEvent(new Event('langchange')); } catch(e){}
+  }
+  window.__setLang = apply;
+  document.addEventListener('DOMContentLoaded', function(){
+    document.querySelectorAll('.lang button').forEach(function(b){
+      b.addEventListener('click', function(){
+        apply(b.getAttribute('data-l'));
+        try { localStorage.setItem('tvdb-lang', b.getAttribute('data-l')); } catch(e){}
+      });
+    });
+    apply(LANG);
+  });
+})();
+</script>
+</body></html>
