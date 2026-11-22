@@ -1,0 +1,104 @@
+<!DOCTYPE html><html lang="zh-CN"><head><base href="/tvdb-site/"><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>账号 356597340 · tvdb</title><style>
+:root{--bg:#0a0b0f;--card:#12141b;--card2:#171a23;--line:#242838;--fg:#e8ecf5;
+--dim:#8b95a7;--accent:#6aa6ff;--ok:#3ddc97;--warn:#ffb84d;--err:#ff6b6b}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);font:14px/1.55 -apple-system,
+"PingFang SC","Microsoft YaHei",sans-serif;
+background-image:radial-gradient(900px 460px at 12% -10%,rgba(46,88,165,.26) 0,transparent 60%);
+background-attachment:fixed}
+.wrap{max-width:1280px;margin:0 auto;padding:20px 18px 60px}
+a{color:var(--accent);text-decoration:none} a:hover{text-decoration:underline}
+h1{font-size:21px;margin:0 0 3px;letter-spacing:-.02em;
+background:linear-gradient(92deg,#f2f7ff,#9dc4ff 55%,#b39bff);
+-webkit-background-clip:text;background-clip:text;color:transparent}
+.sub{color:var(--dim);font-size:12.5px;margin-bottom:16px}
+nav{margin:0 0 16px;display:flex;gap:6px;flex-wrap:wrap}
+nav a{padding:7px 13px;border:1px solid var(--line);border-radius:9px;background:var(--card);
+font-size:13px;color:var(--fg)}
+nav a.on{border-color:var(--accent);color:#fff}
+.card{background:var(--card);border:1px solid var(--line);border-radius:13px;padding:15px;margin-bottom:13px}
+.card h2{font-size:12.5px;margin:0 0 11px;color:var(--dim);font-weight:600;
+letter-spacing:.06em;text-transform:uppercase}
+table{width:100%;border-collapse:collapse;font-size:12.5px}
+th,td{text-align:left;padding:7px 6px;border-bottom:1px solid var(--line);vertical-align:top}
+th{color:var(--dim);font-weight:500;font-size:11.5px}
+tr:hover td{background:rgba(106,166,255,.04)}
+.num{text-align:right;font-variant-numeric:tabular-nums}
+.muted{color:var(--dim);font-size:12px}
+.tag{font-size:11px;padding:1px 7px;border-radius:5px;background:var(--card2);
+color:var(--dim);display:inline-block;margin:1px 2px 1px 0}
+.tag.s{color:var(--accent)}
+.tag.g{color:var(--ok)} .tag.w{color:var(--warn)} .tag.e{color:var(--err)}
+.stats{display:flex;gap:22px;flex-wrap:wrap}
+.stats div{font-size:12px;color:var(--dim)}
+.stats b{display:block;font-size:19px;color:var(--fg);font-weight:600}
+input,select,button{background:var(--card2);border:1px solid var(--line);color:var(--fg);
+border-radius:8px;padding:7px 10px;font-size:13px;outline:none}
+input:focus,select:focus{border-color:var(--accent)}
+form.row{display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin-bottom:12px}
+input.grow{flex:1;min-width:180px}
+.cvrow{display:flex;gap:4px}
+a.cv{display:block;width:84px;height:48px;overflow:hidden;border-radius:4px;
+border:1px solid var(--line);background:var(--card2)}
+a.cv img{width:100%;height:100%;object-fit:cover;display:block}
+a.cv:hover{border-color:var(--accent)}
+td.covs{white-space:nowrap}
+.foot{margin:34px 0 10px;padding-top:14px;border-top:1px solid var(--line);
+color:var(--dim);font-size:12px;line-height:1.7}
+.tabrow{display:flex;gap:8px;flex-wrap:wrap;margin:4px 0 10px}
+a.tabk{padding:5px 12px;border:1px solid var(--line);border-radius:16px;
+font-size:12.5px;text-decoration:none;color:var(--dim)}
+a.tabk.sel{background:var(--accent);color:#0a0b0f;border-color:var(--accent);font-weight:600}
+a.tabk:hover{border-color:var(--accent);color:var(--accent)}
+a.tabk.sel:hover{color:#0a0b0f}
+td.act{white-space:nowrap}
+button.byes,button.bno{padding:4px 12px;border-radius:6px;border:1px solid var(--line);
+background:var(--card2);color:var(--fg);font-size:12px;cursor:pointer;margin-right:4px}
+button.byes:hover{background:#3ddc97;color:#0a0b0f;border-color:#3ddc97}
+button.bno:hover{background:#ff6b6b;color:#0a0b0f;border-color:#ff6b6b}
+.small{font-size:11px;color:var(--dim);max-width:200px}
+.avrow{display:flex;flex-wrap:wrap;gap:10px}
+.avline{display:flex;flex-direction:column;align-items:center;width:56px;gap:3px;
+text-decoration:none;color:var(--dim);font-size:10px;text-align:center}
+.avline img{width:40px;height:40px;border-radius:50%;object-fit:cover;
+background:var(--card2);border:1px solid var(--line)}
+.avline:hover{color:var(--accent)}
+.avline:hover img{border-color:var(--accent)}
+a.more{color:var(--accent);font-size:12.5px;text-decoration:none}
+a.more:hover{text-decoration:underline}
+td.av{width:44px;padding-right:0}
+td.av img{width:36px;height:36px;border-radius:50%;object-fit:cover;display:block;
+background:var(--card2);border:1px solid var(--line)}
+td.av a{display:block}
+a.upname{font-weight:600;text-decoration:none;color:var(--fg)}
+a.upname:hover{color:var(--accent);text-decoration:underline}
+a.detail{font-size:10.5px;color:var(--dim);text-decoration:none;border:1px solid var(--line);
+border-radius:4px;padding:1px 4px;margin-left:2px}
+a.detail:hover{color:var(--accent);border-color:var(--accent)}
+td.note{max-width:520px;font-size:11.5px;line-height:1.5;color:#b8c4d8}
+td.note b{color:var(--accent);font-weight:600}
+.sig{color:var(--dim);font-size:11.5px;max-width:340px;overflow:hidden;
+text-overflow:ellipsis;white-space:nowrap;display:inline-block;vertical-align:bottom}
+.warnbox{border-left:3px solid var(--warn);background:rgba(255,184,77,.07);
+padding:9px 12px;border-radius:0 8px 8px 0;font-size:12.5px;color:#e8d5b0;margin:10px 0}
+</style></head><body><div class="wrap">
+<h1>tvdb</h1><div class="sub">TV 系内容观测库 · 中国社会的一个窗口</div>
+<nav><a href="index.html">概览</a><a href="ups.html" class=on>账号</a><a href="series.html">系列</a><a href="themes.html">大主题</a><a href="community.html">圈子</a><a href="memes.html">梗</a><a href="report.html">调研报告</a></nav><div class=card><h2>碧桑驾dell</h2>
+<table>
+<tr><th>mid</th><td><code>356597340</code></td></tr>
+<tr><th>粉丝</th><td>28.7万</td></tr>
+<tr><th>投稿数</th><td>747</td></tr>
+<tr><th>签名</th><td>没有活了</td></tr>
+<tr><th>状态</th><td>正常</td></tr>
+</table></div>
+<div class=card><h2>角色判定</h2>
+<table><tr><th>角色</th><th class=num>置信度</th><th>依据</th></tr><tr><td>搬运号 <span class=muted>reposter</span></td><td class=num>0.55</td><td class=muted>1 条样本，TV 标题占比 100%（样本不足，待复核）</td></tr></table></div>
+<div class=card><h2>粉丝轨迹</h2>
+<table><tr><th>时间</th><th class=num>粉丝</th><th class=num>投稿</th></tr><tr><td class=muted>2026-11-22 05:31</td><td class=num>28.7万</td><td class=num>747</td></tr></table></div>
+<div class=card><h2>投稿（42）</h2>
+<table><tr><th>标题</th><th class=num>播放</th><th class=num>时长</th><th>发布</th><th></th></tr><tr><td><a href='/video/BV1UTWR68ETP'>碧桑驾dell嘲笑李文亚 逻辑不通</a></td><td class=num>5.3万</td><td class=num>200s</td><td class=muted>2026-11-12 12:39</td><td></td></tr><tr><td><a href='/video/BV1HnHM67EqS'>「民科otto」李文亚被 气成偏瘫！痛斥科学论文</a></td><td class=num>10.3万</td><td class=num>158s</td><td class=muted>2026-10-24 14:33</td><td></td></tr><tr><td><a href='/video/BV1JUJk6uEVz'>「民科」李文亚 炮打 微分流形 批判柯西黎曼，巴拿赫，希尔伯特，斯托克斯</a></td><td class=num>11.2万</td><td class=num>195s</td><td class=muted>2026-10-15 05:19</td><td></td></tr><tr><td><a href='/video/BV1vQaz6XEc2'>“老吴，你个你个你个你个ner～”教学</a></td><td class=num>88.4万</td><td class=num>180s</td><td class=muted>2026-10-01 15:01</td><td></td></tr><tr><td><a href='/video/BV1TWYF6YEHR'>有人要过不好国庆咯</a></td><td class=num>14.1万</td><td class=num>227s</td><td class=muted>2026-09-30 13:03</td><td></td></tr><tr><td><a href='/video/BV1mCh86VEaj'>「民科ai」李文亚痛批 GPT 降智</a></td><td class=num>22.5万</td><td class=num>259s</td><td class=muted>2026-09-23 12:53</td><td></td></tr><tr><td><a href='/video/BV1jFeP6bEC3'>「枪币tv」李文亚 炮打“微分方程，混沌，马蹄映射”</a></td><td class=num>11.9万</td><td class=num>240s</td><td class=muted>2026-09-16 13:00</td><td></td></tr><tr><td><a href='/video/BV1YkYN6REWo'>「民科ktv」碧桑驾dell 嘲笑🤣李文亚声乐比赛 并弹《彩云追月》回应</a></td><td class=num>6.8万</td><td class=num>256s</td><td class=muted>2026-09-10 04:58</td><td></td></tr><tr><td><a href='/video/BV1NWt96eE4G'>「民科」碧桑驾dell 嘲笑😝李文亚《泉水叮咚》并弹理查德《星空》</a></td><td class=num>13.2万</td><td class=num>264s</td><td class=muted>2026-09-03 03:37</td><td></td></tr><tr><td><a href='/video/BV1W4tJ6eEqM'>「民科tv」碧桑驾dell 被恶势力控制电脑 不能写作了！</a></td><td class=num>8.6万</td><td class=num>125s</td><td class=muted>2026-09-02 08:52</td><td></td></tr><tr><td><a href='/video/BV1vp8h6XEFK'>「民科」碧桑驾dell拒绝摔跤！回应 假冒陈人杰</a></td><td class=num>13.2万</td><td class=num>188s</td><td class=muted>2026-08-23 15:16</td><td></td></tr><tr><td><a href='/video/BV1SE8p6WEVg'>「民科」同病相怜！碧桑驾dell 与李文亚教授同遭干扰，英雄相惜</a></td><td class=num>13.3万</td><td class=num>178s</td><td class=muted>2026-08-19 15:23</td><td></td></tr><tr><td><a href='/video/BV1WYbX6aExM'>「民科」，碧桑驾dell邀请 高育良 摔跤</a></td><td class=num>12.6万</td><td class=num>235s</td><td class=muted>2026-08-16 12:44</td><td></td></tr><tr><td><a href='/video/BV1wqg566EFq'>碧桑驾dell 公布 枪币名单，痛斥白锁成叛变</a></td><td class=num>14.0万</td><td class=num>221s</td><td class=muted>2026-08-12 11:59</td><td></td></tr><tr><td><a href='/video/BV1HTuG6bEEE'>「民科」碧桑驾dell 首次哈气！力挺肖副教授反对李文亚教授</a></td><td class=num>16.9万</td><td class=num>187s</td><td class=muted>2026-08-08 12:22</td><td></td></tr><tr><td><a href='/video/BV11x3t6JEmx'>「民科」碧桑驾dell痛批 李文亚 搞掉白锁成教授职称</a></td><td class=num>18.2万</td><td class=num>242s</td><td class=muted>2026-07-30 08:26</td><td></td></tr><tr><td><a href='/video/BV1PHgk6sE2r'>「民科笑传」碧桑驾dell即将联合 数十位教授 讨伐李文亚教授</a></td><td class=num>36.6万</td><td class=num>214s</td><td class=muted>2026-07-22 12:26</td><td></td></tr><tr><td><a href='/video/BV1w4Km6QEFd'>碧桑驾dell回应 破坏李文亚电脑，干扰写作事件</a></td><td class=num>28.5万</td><td class=num>219s</td><td class=muted>2026-07-20 09:13</td><td></td></tr><tr><td><a href='/video/BV1GRKJ6fE9R'>「民科tv」碧桑驾dell 痛批 李文亚获得9178研究所奖项</a></td><td class=num>16.4万</td><td class=num>177s</td><td class=muted>2026-07-17 09:06</td><td></td></tr><tr><td><a href='/video/BV1ZGNb6sEWq'>「民科笑传之call call back」碧桑驾dell 回应 李文亚 回应 碧桑 回应 李文亚</a></td><td class=num>31.1万</td><td class=num>243s</td><td class=muted>2026-07-14 11:14</td><td></td></tr><tr><td><a href='/video/BV1qKTj6ZEz9'>能蹦跶几天？我72岁还可以蹦起来！（李文亚再次批判 碧桑驾dell ）</a></td><td class=num>36.4万</td><td class=num>191s</td><td class=muted>2026-07-02 10:09</td><td></td></tr><tr><td><a href='/video/BV1u67V6NEXB'>「民科tv」碧桑驾dell 批判 李文亚 批判 碧桑模仿李文亚 批判别人</a></td><td class=num>30.4万</td><td class=num>232s</td><td class=muted>2026-06-26 11:44</td><td></td></tr><tr><td><a href='/video/BV1xLEG6xENk'>李文亚“噫噫呜呜哟齁齁齁”教学</a></td><td class=num>175.4万</td><td class=num>158s</td><td class=muted>2026-06-08 13:31</td><td></td></tr><tr><td><a href='/video/BV1SZLu6EEx7'>「复刻」李文亚通过观测网站，提取到“白体生物”，系黑体生物的反物质，颠覆之前的理论！</a></td><td class=num>49.3万</td><td class=num>227s</td><td class=muted>2026-05-16 08:54</td><td></td></tr><tr><td><a href='/video/BV1fcdZBAEUV'>「复刻演绎」李文亚炮打“轻食套餐”，称其是压迫学生的东西</a></td><td class=num>32.8万</td><td class=num>158s</td><td class=muted>2026-04-19 09:55</td><td></td></tr><tr><td><a href='/video/BV1P6D9BpEv7'>「复刻演绎」李文亚被AI误导，卸载删除了自己的学术成果，痛斥智能体！</a></td><td class=num>29.5万</td><td class=num>206s</td><td class=muted>2026-04-12 12:02</td><td></td></tr><tr><td><a href='/video/BV1uU9jBAEvq'>「复刻演绎」李文亚：炮打“线性代数”，称发明人脑子是线性的</a></td><td class=num>40.1万</td><td class=num>169s</td><td class=muted>2026-04-01 10:06</td><td></td></tr><tr><td><a href='/video/BV1WWqfBaEyh'>bro考试不定积分记错了 belike（李文亚版）</a></td><td class=num>41.9万</td><td class=num>73s</td><td class=muted>2025-12-19 08:36</td><td></td></tr><tr><td><a href='/video/BV1YT83zGEFh'>复刻良子弹幕拉黑这一块</a></td><td class=num>75.5万</td><td class=num>147s</td><td class=muted>2025-07-27 11:02</td><td></td></tr><tr><td><a href='/video/BV1tNiBYDETk'>复刻电棍笑传之踩踩背（小作坊加料版）</a></td><td class=num>12.9万</td><td class=num>116s</td><td class=muted>2024-12-06 11:34</td><td></td></tr><tr><td><a href='/video/BV1yZ421E7Hh'>复刻私人丽丽</a></td><td class=num>54.7万</td><td class=num>61s</td><td class=muted>2024-05-05 09:02</td><td></td></tr><tr><td><a href='/video/BV1Px421y79X'>复刻mc村民版《马云你听我说》有私人音效</a></td><td class=num>31.0万</td><td class=num>67s</td><td class=muted>2024-03-14 14:40</td><td></td></tr><tr><td><a href='/video/BV1Bc411d7vV'>学高数学的</a></td><td class=num>123.7万</td><td class=num>278s</td><td class=muted>2023-11-01 14:44</td><td></td></tr><tr><td><a href='/video/BV1EC4y1Z75P'>复刻王源恶搞和丽丽装死</a></td><td class=num>56.3万</td><td class=num>42s</td><td class=muted>2023-10-05 10:00</td><td></td></tr><tr><td><a href='/video/BV1oC4y1f7Mw'>声道复训，复刻黑手神鹰哥</a></td><td class=num>182.9万</td><td class=num>38s</td><td class=muted>2023-09-16 10:13</td><td></td></tr><tr><td><a href='/video/BV1yu411P7UG'>这一套军体拳，直接让教官破防</a></td><td class=num>601.0万</td><td class=num>130s</td><td class=muted>2023-09-05 13:36</td><td></td></tr><tr><td><a href='/video/BV19X4y1r7ju'>爷不玩的不是抽象，是浮夸</a></td><td class=num>257.2万</td><td class=num>239s</td><td class=muted>2023-04-01 13:58</td><td></td></tr><tr><td><a href='/video/BV1mD4y1J7Nq'>抽象好汉复刻“茄子”经典之《老马呀》</a></td><td class=num>16.5万</td><td class=num>33s</td><td class=muted>2023-02-02 10:00</td><td></td></tr><tr><td><a href='/video/BV1Av4y1q74j'>健身房小伙不讲武德，把大师眼睛打肿了</a></td><td class=num>91.9万</td><td class=num>175s</td><td class=muted>2023-01-05 13:57</td><td></td></tr><tr><td><a href='/video/BV1ir4y1g7Q6'>《你好李鑫》《啥呢》诺贝尔抽象奖级别の复刻</a></td><td class=num>172.6万</td><td class=num>149s</td><td class=muted>2022-06-26 11:42</td><td></td></tr><tr><td><a href='/video/BV1M34y1i7FJ'>还原孙笑川“邻里和睦”之《你再骂》</a></td><td class=num>495.2万</td><td class=num>54s</td><td class=muted>2022-04-17 12:20</td><td></td></tr><tr><td><a href='/video/BV1wtNu6CEvd'>「民科tv」碧桑驾dell回应 李文亚重出江湖 批判碧桑模仿 李文亚</a></td><td class=num>61.8万</td><td class=num>232s</td><td class=muted>—</td><td><span class="tag g">已备份</span></td></tr></table></div>
+<div class=foot>本页数据全部来自 B站 公开可见的账号与视频信息，仅作网络亚文化研究用。
+封面与视频版权归原 UP 主所有。如对收录有异议，请通过页面所附账号联系删除。</div>
+</div></body></html>

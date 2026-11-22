@@ -1,0 +1,107 @@
+<!DOCTYPE html><html lang="zh-CN"><head><base href="/tvdb-site/"><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>账号 3546706318723730 · tvdb</title><style>
+:root{--bg:#0a0b0f;--card:#12141b;--card2:#171a23;--line:#242838;--fg:#e8ecf5;
+--dim:#8b95a7;--accent:#6aa6ff;--ok:#3ddc97;--warn:#ffb84d;--err:#ff6b6b}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);font:14px/1.55 -apple-system,
+"PingFang SC","Microsoft YaHei",sans-serif;
+background-image:radial-gradient(900px 460px at 12% -10%,rgba(46,88,165,.26) 0,transparent 60%);
+background-attachment:fixed}
+.wrap{max-width:1280px;margin:0 auto;padding:20px 18px 60px}
+a{color:var(--accent);text-decoration:none} a:hover{text-decoration:underline}
+h1{font-size:21px;margin:0 0 3px;letter-spacing:-.02em;
+background:linear-gradient(92deg,#f2f7ff,#9dc4ff 55%,#b39bff);
+-webkit-background-clip:text;background-clip:text;color:transparent}
+.sub{color:var(--dim);font-size:12.5px;margin-bottom:16px}
+nav{margin:0 0 16px;display:flex;gap:6px;flex-wrap:wrap}
+nav a{padding:7px 13px;border:1px solid var(--line);border-radius:9px;background:var(--card);
+font-size:13px;color:var(--fg)}
+nav a.on{border-color:var(--accent);color:#fff}
+.card{background:var(--card);border:1px solid var(--line);border-radius:13px;padding:15px;margin-bottom:13px}
+.card h2{font-size:12.5px;margin:0 0 11px;color:var(--dim);font-weight:600;
+letter-spacing:.06em;text-transform:uppercase}
+table{width:100%;border-collapse:collapse;font-size:12.5px}
+th,td{text-align:left;padding:7px 6px;border-bottom:1px solid var(--line);vertical-align:top}
+th{color:var(--dim);font-weight:500;font-size:11.5px}
+tr:hover td{background:rgba(106,166,255,.04)}
+.num{text-align:right;font-variant-numeric:tabular-nums}
+.muted{color:var(--dim);font-size:12px}
+.tag{font-size:11px;padding:1px 7px;border-radius:5px;background:var(--card2);
+color:var(--dim);display:inline-block;margin:1px 2px 1px 0}
+.tag.s{color:var(--accent)}
+.tag.g{color:var(--ok)} .tag.w{color:var(--warn)} .tag.e{color:var(--err)}
+.stats{display:flex;gap:22px;flex-wrap:wrap}
+.stats div{font-size:12px;color:var(--dim)}
+.stats b{display:block;font-size:19px;color:var(--fg);font-weight:600}
+input,select,button{background:var(--card2);border:1px solid var(--line);color:var(--fg);
+border-radius:8px;padding:7px 10px;font-size:13px;outline:none}
+input:focus,select:focus{border-color:var(--accent)}
+form.row{display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin-bottom:12px}
+input.grow{flex:1;min-width:180px}
+.cvrow{display:flex;gap:4px}
+a.cv{display:block;width:84px;height:48px;overflow:hidden;border-radius:4px;
+border:1px solid var(--line);background:var(--card2)}
+a.cv img{width:100%;height:100%;object-fit:cover;display:block}
+a.cv:hover{border-color:var(--accent)}
+td.covs{white-space:nowrap}
+.foot{margin:34px 0 10px;padding-top:14px;border-top:1px solid var(--line);
+color:var(--dim);font-size:12px;line-height:1.7}
+.tabrow{display:flex;gap:8px;flex-wrap:wrap;margin:4px 0 10px}
+a.tabk{padding:5px 12px;border:1px solid var(--line);border-radius:16px;
+font-size:12.5px;text-decoration:none;color:var(--dim)}
+a.tabk.sel{background:var(--accent);color:#0a0b0f;border-color:var(--accent);font-weight:600}
+a.tabk:hover{border-color:var(--accent);color:var(--accent)}
+a.tabk.sel:hover{color:#0a0b0f}
+td.act{white-space:nowrap}
+button.byes,button.bno{padding:4px 12px;border-radius:6px;border:1px solid var(--line);
+background:var(--card2);color:var(--fg);font-size:12px;cursor:pointer;margin-right:4px}
+button.byes:hover{background:#3ddc97;color:#0a0b0f;border-color:#3ddc97}
+button.bno:hover{background:#ff6b6b;color:#0a0b0f;border-color:#ff6b6b}
+.small{font-size:11px;color:var(--dim);max-width:200px}
+.avrow{display:flex;flex-wrap:wrap;gap:10px}
+.avline{display:flex;flex-direction:column;align-items:center;width:56px;gap:3px;
+text-decoration:none;color:var(--dim);font-size:10px;text-align:center}
+.avline img{width:40px;height:40px;border-radius:50%;object-fit:cover;
+background:var(--card2);border:1px solid var(--line)}
+.avline:hover{color:var(--accent)}
+.avline:hover img{border-color:var(--accent)}
+a.more{color:var(--accent);font-size:12.5px;text-decoration:none}
+a.more:hover{text-decoration:underline}
+td.av{width:44px;padding-right:0}
+td.av img{width:36px;height:36px;border-radius:50%;object-fit:cover;display:block;
+background:var(--card2);border:1px solid var(--line)}
+td.av a{display:block}
+a.upname{font-weight:600;text-decoration:none;color:var(--fg)}
+a.upname:hover{color:var(--accent);text-decoration:underline}
+a.detail{font-size:10.5px;color:var(--dim);text-decoration:none;border:1px solid var(--line);
+border-radius:4px;padding:1px 4px;margin-left:2px}
+a.detail:hover{color:var(--accent);border-color:var(--accent)}
+td.note{max-width:520px;font-size:11.5px;line-height:1.5;color:#b8c4d8}
+td.note b{color:var(--accent);font-weight:600}
+.sig{color:var(--dim);font-size:11.5px;max-width:340px;overflow:hidden;
+text-overflow:ellipsis;white-space:nowrap;display:inline-block;vertical-align:bottom}
+.warnbox{border-left:3px solid var(--warn);background:rgba(255,184,77,.07);
+padding:9px 12px;border-radius:0 8px 8px 0;font-size:12.5px;color:#e8d5b0;margin:10px 0}
+</style></head><body><div class="wrap">
+<h1>tvdb</h1><div class="sub">TV 系内容观测库 · 中国社会的一个窗口</div>
+<nav><a href="index.html">概览</a><a href="ups.html" class=on>账号</a><a href="series.html">系列</a><a href="themes.html">大主题</a><a href="community.html">圈子</a><a href="memes.html">梗</a><a href="report.html">调研报告</a></nav><div class=card><h2>集贸哥二台</h2>
+<table>
+<tr><th>mid</th><td><code>3546706318723730</code></td></tr>
+<tr><th>粉丝</th><td>3.4万</td></tr>
+<tr><th>投稿数</th><td>461</td></tr>
+<tr><th>签名</th><td>全平台同名
+v：jimao6667
+q群：1098297828
+935962975</td></tr>
+<tr><th>状态</th><td>正常</td></tr>
+</table></div>
+<div class=card><h2>角色判定</h2>
+<table><tr><th>角色</th><th class=num>置信度</th><th>依据</th></tr><tr><td>搬运号 <span class=muted>reposter</span></td><td class=num>0.55</td><td class=muted>1 条样本，TV 标题占比 100%（样本不足，待复核）</td></tr></table></div>
+<div class=card><h2>粉丝轨迹</h2>
+<table><tr><th>时间</th><th class=num>粉丝</th><th class=num>投稿</th></tr><tr><td colspan=3 class=muted>只有一次快照</td></tr></table></div>
+<div class=card><h2>投稿（33）</h2>
+<table><tr><th>标题</th><th class=num>播放</th><th class=num>时长</th><th>发布</th><th></th></tr><tr><td><a href='/video/BV1rjsB6GEQk'>刀工上麦了</a></td><td class=num>7287</td><td class=num>1:5s</td><td class=muted>2026-11-20 03:53</td><td></td></tr><tr><td><a href='/video/BV1k5sB6CEDX'>刀工的续费制婚姻</a></td><td class=num>1.1万</td><td class=num>1:12s</td><td class=muted>2026-11-20 03:52</td><td></td></tr><tr><td><a href='/video/BV1A5sB6yEGM'>仇人看了释怀，债主看了捐款</a></td><td class=num>22.8万</td><td class=num>94s</td><td class=muted>2026-11-20 03:51</td><td></td></tr><tr><td><a href='/video/BV1kjsB6GEJE'>刀工tv陨落了</a></td><td class=num>5.2万</td><td class=num>28s</td><td class=muted>2026-11-20 03:46</td><td></td></tr><tr><td><a href='/video/BV1ejs86gELm'>刀工做饭有罪论</a></td><td class=num>1.9万</td><td class=num>0:42s</td><td class=muted>2026-11-19 05:40</td><td></td></tr><tr><td><a href='/video/BV1qjsF6ZEyj'>我搜力霸天怎么干这来了</a></td><td class=num>2.5万</td><td class=num>72s</td><td class=muted>2026-11-16 02:09</td><td></td></tr><tr><td><a href='/video/BV1ojsF6ZEBc'>刀工下暴雨不配回家</a></td><td class=num>5.7万</td><td class=num>1:8s</td><td class=muted>2026-11-16 02:08</td><td></td></tr><tr><td><a href='/video/BV1YqWF6nE4x'>剁椒鱼头实验来了，依旧基米斗，依旧王牌对王牌，依旧低头玩手机</a></td><td class=num>9884</td><td class=num>107s</td><td class=muted>2026-10-13 04:51</td><td></td></tr><tr><td><a href='/video/BV1WKpg6bEgk'>刀工tv 新娘结婚了，新郎有两位</a></td><td class=num>1.8万</td><td class=num>1:10s</td><td class=muted>2026-10-10 11:37</td><td></td></tr><tr><td><a href='/video/BV1vUHz6bEAj'>刀工被自己女儿起诉了</a></td><td class=num>11.2万</td><td class=num>1:18s</td><td class=muted>2026-10-04 01:19</td><td></td></tr><tr><td><a href='/video/BV1k2t86hEix'>中午吃了顿沙县4个人a不开一个人多掏了两毛吵架</a></td><td class=num>15.0万</td><td class=num>78s</td><td class=muted>2026-08-31 10:50</td><td></td></tr><tr><td><a href='/video/BV1nz3X62EwM'>姐妹奶茶店孤立同事这一块</a></td><td class=num>74.0万</td><td class=num>62s</td><td class=muted>2026-08-02 04:19</td><td></td></tr><tr><td><a href='/video/BV1ZtK16GEeQ'>情绪还没6岁小孩稳定，富面相还是太权威了</a></td><td class=num>17.9万</td><td class=num>84s</td><td class=muted>2026-07-20 05:42</td><td></td></tr><tr><td><a href='/video/BV1orMu6yE5S'>《咱妈tv》有没有体面点的赢法，依旧没了这火罐他连站起来都费劲这一块</a></td><td class=num>28.0万</td><td class=num>88s</td><td class=muted>2026-07-05 04:19</td><td></td></tr><tr><td><a href='/video/BV18w7B6TEcj'>全女咖啡厅完结散花，亏本硬开5个月</a></td><td class=num>32.4万</td><td class=num>116s</td><td class=muted>2026-06-26 01:37</td><td></td></tr><tr><td><a href='/video/BV1a2ji6vE11'>比傅本人都像的来了</a></td><td class=num>16.0万</td><td class=num>54s</td><td class=muted>2026-06-19 06:31</td><td></td></tr><tr><td><a href='/video/BV1xgju6LE6K'>网上说说得了，现实真叫套狗侠了</a></td><td class=num>2.4万</td><td class=num>59s</td><td class=muted>2026-06-16 07:11</td><td></td></tr><tr><td><a href='/video/BV1LWDZBSEj2'>网恋可以瓜分男生财产吗，闹麻求了</a></td><td class=num>16.5万</td><td class=num>42s</td><td class=muted>2026-04-10 04:23</td><td></td></tr><tr><td><a href='/video/BV18oDVBJE2y'>演都不演了，连午休时间都要压榨</a></td><td class=num>41.6万</td><td class=num>54s</td><td class=muted>2026-04-05 04:26</td><td></td></tr><tr><td><a href='/video/BV1vYXhB1Ebh'>别丢人了</a></td><td class=num>162.3万</td><td class=num>51s</td><td class=muted>2026-03-30 07:05</td><td></td></tr><tr><td><a href='/video/BV1WQXbBRESn'>神人表白失败食堂上演龙卷风摧毁停车场</a></td><td class=num>26.4万</td><td class=num>76s</td><td class=muted>2026-03-27 02:08</td><td></td></tr><tr><td><a href='/video/BV1aMPDz9EwJ'>人类一败涂地，ch圈已经没救了，看完更想反ch了</a></td><td class=num>22.9万</td><td class=num>64s</td><td class=muted>2026-03-09 05:27</td><td></td></tr><tr><td><a href='/video/BV159PpzJE7a'>全女tv，211岁全女家庭各个八离世家小红薯大将军</a></td><td class=num>23.0万</td><td class=num>77s</td><td class=muted>2026-03-06 04:46</td><td></td></tr><tr><td><a href='/video/BV15zFdzPERG'>全女家庭解散是因为被x骚扰，前夫刷到笑到缺氧才走，5个人想了一个礼拜想出这种理由，无敌了</a></td><td class=num>81.3万</td><td class=num>68s</td><td class=muted>2026-02-11 03:40</td><td></td></tr><tr><td><a href='/video/BV1hvzhBMEhG'>4月大女婴在母婴店泡四五十分钟药浴后离世</a></td><td class=num>3.0万</td><td class=num>47s</td><td class=muted>2026-01-26 04:13</td><td></td></tr><tr><td><a href='/video/BV1pNz7BnEJ2'>劳中医tv  上一个吃硫磺的已经两岁了</a></td><td class=num>12.4万</td><td class=num>48s</td><td class=muted>2026-01-21 16:07</td><td></td></tr><tr><td><a href='/video/BV1CwksBjEL1'>ghg tv，落井下石这一块</a></td><td class=num>5.0万</td><td class=num>56s</td><td class=muted>2026-01-18 02:31</td><td></td></tr><tr><td><a href='/video/BV1GcqoBzELi'>胆小女生如何从98回家，高危工作者这一块</a></td><td class=num>6.7万</td><td class=num>48s</td><td class=muted>2025-12-19 06:08</td><td></td></tr><tr><td><a href='/video/BV1SQ2DBkEcX'>ghg这一块</a></td><td class=num>32.4万</td><td class=num>47s</td><td class=muted>2025-12-09 09:45</td><td></td></tr><tr><td><a href='/video/BV1Mo2rBEEtM'>烂铛库tv</a></td><td class=num>4.9万</td><td class=num>52s</td><td class=muted>2025-12-08 03:40</td><td></td></tr><tr><td><a href='/video/BV1Mo2rBEEoT'>谁家少爷吃到猪肉了</a></td><td class=num>44.2万</td><td class=num>41s</td><td class=muted>2025-12-08 03:39</td><td></td></tr><tr><td><a href='/video/BV1WHuLzdEAt'>直立猿tv，协调能力堪比刚出生的动物</a></td><td class=num>7.2万</td><td class=num>32s</td><td class=muted>2025-07-11 23:44</td><td></td></tr><tr><td><a href='/video/BV1Lig9z9Eqz'>见过飞竹战车吗？最高40km那种</a></td><td class=num>10.1万</td><td class=num>26s</td><td class=muted>2025-06-28 16:25</td><td></td></tr></table></div>
+<div class=foot>本页数据全部来自 B站 公开可见的账号与视频信息，仅作网络亚文化研究用。
+封面与视频版权归原 UP 主所有。如对收录有异议，请通过页面所附账号联系删除。</div>
+</div></body></html>

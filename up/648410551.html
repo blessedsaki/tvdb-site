@@ -1,0 +1,104 @@
+<!DOCTYPE html><html lang="zh-CN"><head><base href="/tvdb-site/"><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>账号 648410551 · tvdb</title><style>
+:root{--bg:#0a0b0f;--card:#12141b;--card2:#171a23;--line:#242838;--fg:#e8ecf5;
+--dim:#8b95a7;--accent:#6aa6ff;--ok:#3ddc97;--warn:#ffb84d;--err:#ff6b6b}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);font:14px/1.55 -apple-system,
+"PingFang SC","Microsoft YaHei",sans-serif;
+background-image:radial-gradient(900px 460px at 12% -10%,rgba(46,88,165,.26) 0,transparent 60%);
+background-attachment:fixed}
+.wrap{max-width:1280px;margin:0 auto;padding:20px 18px 60px}
+a{color:var(--accent);text-decoration:none} a:hover{text-decoration:underline}
+h1{font-size:21px;margin:0 0 3px;letter-spacing:-.02em;
+background:linear-gradient(92deg,#f2f7ff,#9dc4ff 55%,#b39bff);
+-webkit-background-clip:text;background-clip:text;color:transparent}
+.sub{color:var(--dim);font-size:12.5px;margin-bottom:16px}
+nav{margin:0 0 16px;display:flex;gap:6px;flex-wrap:wrap}
+nav a{padding:7px 13px;border:1px solid var(--line);border-radius:9px;background:var(--card);
+font-size:13px;color:var(--fg)}
+nav a.on{border-color:var(--accent);color:#fff}
+.card{background:var(--card);border:1px solid var(--line);border-radius:13px;padding:15px;margin-bottom:13px}
+.card h2{font-size:12.5px;margin:0 0 11px;color:var(--dim);font-weight:600;
+letter-spacing:.06em;text-transform:uppercase}
+table{width:100%;border-collapse:collapse;font-size:12.5px}
+th,td{text-align:left;padding:7px 6px;border-bottom:1px solid var(--line);vertical-align:top}
+th{color:var(--dim);font-weight:500;font-size:11.5px}
+tr:hover td{background:rgba(106,166,255,.04)}
+.num{text-align:right;font-variant-numeric:tabular-nums}
+.muted{color:var(--dim);font-size:12px}
+.tag{font-size:11px;padding:1px 7px;border-radius:5px;background:var(--card2);
+color:var(--dim);display:inline-block;margin:1px 2px 1px 0}
+.tag.s{color:var(--accent)}
+.tag.g{color:var(--ok)} .tag.w{color:var(--warn)} .tag.e{color:var(--err)}
+.stats{display:flex;gap:22px;flex-wrap:wrap}
+.stats div{font-size:12px;color:var(--dim)}
+.stats b{display:block;font-size:19px;color:var(--fg);font-weight:600}
+input,select,button{background:var(--card2);border:1px solid var(--line);color:var(--fg);
+border-radius:8px;padding:7px 10px;font-size:13px;outline:none}
+input:focus,select:focus{border-color:var(--accent)}
+form.row{display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin-bottom:12px}
+input.grow{flex:1;min-width:180px}
+.cvrow{display:flex;gap:4px}
+a.cv{display:block;width:84px;height:48px;overflow:hidden;border-radius:4px;
+border:1px solid var(--line);background:var(--card2)}
+a.cv img{width:100%;height:100%;object-fit:cover;display:block}
+a.cv:hover{border-color:var(--accent)}
+td.covs{white-space:nowrap}
+.foot{margin:34px 0 10px;padding-top:14px;border-top:1px solid var(--line);
+color:var(--dim);font-size:12px;line-height:1.7}
+.tabrow{display:flex;gap:8px;flex-wrap:wrap;margin:4px 0 10px}
+a.tabk{padding:5px 12px;border:1px solid var(--line);border-radius:16px;
+font-size:12.5px;text-decoration:none;color:var(--dim)}
+a.tabk.sel{background:var(--accent);color:#0a0b0f;border-color:var(--accent);font-weight:600}
+a.tabk:hover{border-color:var(--accent);color:var(--accent)}
+a.tabk.sel:hover{color:#0a0b0f}
+td.act{white-space:nowrap}
+button.byes,button.bno{padding:4px 12px;border-radius:6px;border:1px solid var(--line);
+background:var(--card2);color:var(--fg);font-size:12px;cursor:pointer;margin-right:4px}
+button.byes:hover{background:#3ddc97;color:#0a0b0f;border-color:#3ddc97}
+button.bno:hover{background:#ff6b6b;color:#0a0b0f;border-color:#ff6b6b}
+.small{font-size:11px;color:var(--dim);max-width:200px}
+.avrow{display:flex;flex-wrap:wrap;gap:10px}
+.avline{display:flex;flex-direction:column;align-items:center;width:56px;gap:3px;
+text-decoration:none;color:var(--dim);font-size:10px;text-align:center}
+.avline img{width:40px;height:40px;border-radius:50%;object-fit:cover;
+background:var(--card2);border:1px solid var(--line)}
+.avline:hover{color:var(--accent)}
+.avline:hover img{border-color:var(--accent)}
+a.more{color:var(--accent);font-size:12.5px;text-decoration:none}
+a.more:hover{text-decoration:underline}
+td.av{width:44px;padding-right:0}
+td.av img{width:36px;height:36px;border-radius:50%;object-fit:cover;display:block;
+background:var(--card2);border:1px solid var(--line)}
+td.av a{display:block}
+a.upname{font-weight:600;text-decoration:none;color:var(--fg)}
+a.upname:hover{color:var(--accent);text-decoration:underline}
+a.detail{font-size:10.5px;color:var(--dim);text-decoration:none;border:1px solid var(--line);
+border-radius:4px;padding:1px 4px;margin-left:2px}
+a.detail:hover{color:var(--accent);border-color:var(--accent)}
+td.note{max-width:520px;font-size:11.5px;line-height:1.5;color:#b8c4d8}
+td.note b{color:var(--accent);font-weight:600}
+.sig{color:var(--dim);font-size:11.5px;max-width:340px;overflow:hidden;
+text-overflow:ellipsis;white-space:nowrap;display:inline-block;vertical-align:bottom}
+.warnbox{border-left:3px solid var(--warn);background:rgba(255,184,77,.07);
+padding:9px 12px;border-radius:0 8px 8px 0;font-size:12.5px;color:#e8d5b0;margin:10px 0}
+</style></head><body><div class="wrap">
+<h1>tvdb</h1><div class="sub">TV 系内容观测库 · 中国社会的一个窗口</div>
+<nav><a href="index.html">概览</a><a href="ups.html" class=on>账号</a><a href="series.html">系列</a><a href="themes.html">大主题</a><a href="community.html">圈子</a><a href="memes.html">梗</a><a href="report.html">调研报告</a></nav><div class=card><h2>抽象爱好者-牢大版</h2>
+<table>
+<tr><th>mid</th><td><code>648410551</code></td></tr>
+<tr><th>粉丝</th><td>5444</td></tr>
+<tr><th>投稿数</th><td>312</td></tr>
+<tr><th>签名</th><td>以全方面的地域黑，解构地域歧视，反对地域歧视，私信投稿</td></tr>
+<tr><th>状态</th><td>正常</td></tr>
+</table></div>
+<div class=card><h2>角色判定</h2>
+<table><tr><th>角色</th><th class=num>置信度</th><th>依据</th></tr><tr><td colspan=3 class=muted>未判定</td></tr></table></div>
+<div class=card><h2>粉丝轨迹</h2>
+<table><tr><th>时间</th><th class=num>粉丝</th><th class=num>投稿</th></tr><tr><td colspan=3 class=muted>只有一次快照</td></tr></table></div>
+<div class=card><h2>投稿（23）</h2>
+<table><tr><th>标题</th><th class=num>播放</th><th class=num>时长</th><th>发布</th><th></th></tr><tr><td><a href='/video/BV1VkyezmEfg'>【混的TV】这个混的入怎么男女老少？</a></td><td class=num>5820</td><td class=num>4:15s</td><td class=muted>2026-11-21 12:18</td><td></td></tr><tr><td><a href='/video/BV13hsC6MEn3'>【混的TV】老秦人混起来了</a></td><td class=num>9.2万</td><td class=num>2:11s</td><td class=muted>2026-11-18 00:28</td><td></td></tr><tr><td><a href='/video/BV1DoW66fEtv'>【东百TV】依旧东百dj，牛头马面聚会</a></td><td class=num>1946</td><td class=num>0:32s</td><td class=muted>2026-11-14 01:18</td><td></td></tr><tr><td><a href='/video/BV1px4e6qEiB'>【抽象TV】东百磕碜哥锐评南方大米不如东百大米，爱挑起小对立这一块</a></td><td class=num>3183</td><td class=num>1:45s</td><td class=muted>2026-11-06 01:32</td><td></td></tr><tr><td><a href='/video/BV1tW446dEbx'>【梁山TV】然后啊，彝族</a></td><td class=num>3840</td><td class=num>1:50s</td><td class=muted>2026-11-05 08:26</td><td></td></tr><tr><td><a href='/video/BV1nFxC6pET8'>【赌狗TV】拿父亲房本去银行抵押炒股</a></td><td class=num>7410</td><td class=num>2:2s</td><td class=muted>2026-10-31 09:43</td><td></td></tr><tr><td><a href='/video/BV1Ahxr6WE2w'>【类人TV】985文化生大战专科体育生谁更胜一筹</a></td><td class=num>87.2万</td><td class=num>1:2s</td><td class=muted>2026-10-31 03:52</td><td></td></tr><tr><td><a href='/video/BV18vHV6GE3A'>【北欧TV】大酱偷着加点小料也发现不了</a></td><td class=num>4.8万</td><td class=num>4:23s</td><td class=muted>2026-10-25 12:24</td><td></td></tr><tr><td><a href='/video/BV1tvRvBmEPG'>【抽象TV】最地域歧视的宿舍</a></td><td class=num>35.1万</td><td class=num>177s</td><td class=muted>2026-05-04 08:31</td><td></td></tr><tr><td><a href='/video/BV1fd96B1Eus'>【力工TV】依旧攒钱娶老婆</a></td><td class=num>8242</td><td class=num>64s</td><td class=muted>2026-04-28 06:33</td><td></td></tr><tr><td><a href='/video/BV12zoPBhEBF'>【混的TV】在你迷茫觉得自己没出息的时候，可以看看这个视频</a></td><td class=num>9.4万</td><td class=num>185s</td><td class=muted>2026-04-20 03:45</td><td></td></tr><tr><td><a href='/video/BV1sXDxB6En1'>【神人TV】逆天龟龟找个极端追星女，这辈子有了</a></td><td class=num>4.0万</td><td class=num>110s</td><td class=muted>2026-04-09 11:45</td><td></td></tr><tr><td><a href='/video/BV1WnZrBAEEh'>【东百TV】东百人是中国人的底气</a></td><td class=num>5059</td><td class=num>222s</td><td class=muted>2026-03-14 09:38</td><td></td></tr><tr><td><a href='/video/BV1ECPnzEE3T'>【两广TV】广西鸭生</a></td><td class=num>25.9万</td><td class=num>320s</td><td class=muted>2026-03-06 00:35</td><td></td></tr><tr><td><a href='/video/BV18uP5z7ExF'>【东百TV】徽人做大酱</a></td><td class=num>9.2万</td><td class=num>235s</td><td class=muted>2026-03-02 05:56</td><td></td></tr><tr><td><a href='/video/BV1utZhBmE21'>【东百TV】偷菜大娘冒充沙东人，让别人不要“小题大做”</a></td><td class=num>13.3万</td><td class=num>104s</td><td class=muted>2026-02-19 00:15</td><td></td></tr><tr><td><a href='/video/BV1T2ZUBbEqt'>【东百TV】正直老铁怒喷，个别东百人败坏整体东百人声誉</a></td><td class=num>23.7万</td><td class=num>1:28s</td><td class=muted>2026-02-18 04:18</td><td></td></tr><tr><td><a href='/video/BV1bdZ3BoEvt'>【东百TV】听老铁说，日本最惧怕东百人？</a></td><td class=num>10.4万</td><td class=num>75s</td><td class=muted>2026-02-17 00:52</td><td></td></tr><tr><td><a href='/video/BV1gRZ3BtENQ'>【东百TV】其实我们都是东百人</a></td><td class=num>32.8万</td><td class=num>12s</td><td class=muted>2026-02-17 00:40</td><td></td></tr><tr><td><a href='/video/BV15acWzkEhh'>【东百TV】弗雷尔卓德人其实也挺好的</a></td><td class=num>3.1万</td><td class=num>71s</td><td class=muted>2026-02-14 02:29</td><td></td></tr><tr><td><a href='/video/BV1LtcWzLEZj'>【东百TV】老广如何看待弗雷尔卓德人</a></td><td class=num>7.9万</td><td class=num>128s</td><td class=muted>2026-02-14 02:27</td><td></td></tr><tr><td><a href='/video/BV14fFGzhEyT'>【东百TV】弗雷尔卓德之全网群呼滚回弗雷尔卓德</a></td><td class=num>28.1万</td><td class=num>100s</td><td class=muted>2026-02-03 00:44</td><td></td></tr><tr><td><a href='/video/BV1DNFgzfEnz'>弗雷尔卓德TV之绿皮火车上吃吃喝喝</a></td><td class=num>45.1万</td><td class=num>134s</td><td class=muted>2026-02-02 23:40</td><td></td></tr></table></div>
+<div class=foot>本页数据全部来自 B站 公开可见的账号与视频信息，仅作网络亚文化研究用。
+封面与视频版权归原 UP 主所有。如对收录有异议，请通过页面所附账号联系删除。</div>
+</div></body></html>

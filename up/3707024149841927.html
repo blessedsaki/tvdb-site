@@ -1,0 +1,104 @@
+<!DOCTYPE html><html lang="zh-CN"><head><base href="/tvdb-site/"><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>账号 3707024149841927 · tvdb</title><style>
+:root{--bg:#0a0b0f;--card:#12141b;--card2:#171a23;--line:#242838;--fg:#e8ecf5;
+--dim:#8b95a7;--accent:#6aa6ff;--ok:#3ddc97;--warn:#ffb84d;--err:#ff6b6b}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);font:14px/1.55 -apple-system,
+"PingFang SC","Microsoft YaHei",sans-serif;
+background-image:radial-gradient(900px 460px at 12% -10%,rgba(46,88,165,.26) 0,transparent 60%);
+background-attachment:fixed}
+.wrap{max-width:1280px;margin:0 auto;padding:20px 18px 60px}
+a{color:var(--accent);text-decoration:none} a:hover{text-decoration:underline}
+h1{font-size:21px;margin:0 0 3px;letter-spacing:-.02em;
+background:linear-gradient(92deg,#f2f7ff,#9dc4ff 55%,#b39bff);
+-webkit-background-clip:text;background-clip:text;color:transparent}
+.sub{color:var(--dim);font-size:12.5px;margin-bottom:16px}
+nav{margin:0 0 16px;display:flex;gap:6px;flex-wrap:wrap}
+nav a{padding:7px 13px;border:1px solid var(--line);border-radius:9px;background:var(--card);
+font-size:13px;color:var(--fg)}
+nav a.on{border-color:var(--accent);color:#fff}
+.card{background:var(--card);border:1px solid var(--line);border-radius:13px;padding:15px;margin-bottom:13px}
+.card h2{font-size:12.5px;margin:0 0 11px;color:var(--dim);font-weight:600;
+letter-spacing:.06em;text-transform:uppercase}
+table{width:100%;border-collapse:collapse;font-size:12.5px}
+th,td{text-align:left;padding:7px 6px;border-bottom:1px solid var(--line);vertical-align:top}
+th{color:var(--dim);font-weight:500;font-size:11.5px}
+tr:hover td{background:rgba(106,166,255,.04)}
+.num{text-align:right;font-variant-numeric:tabular-nums}
+.muted{color:var(--dim);font-size:12px}
+.tag{font-size:11px;padding:1px 7px;border-radius:5px;background:var(--card2);
+color:var(--dim);display:inline-block;margin:1px 2px 1px 0}
+.tag.s{color:var(--accent)}
+.tag.g{color:var(--ok)} .tag.w{color:var(--warn)} .tag.e{color:var(--err)}
+.stats{display:flex;gap:22px;flex-wrap:wrap}
+.stats div{font-size:12px;color:var(--dim)}
+.stats b{display:block;font-size:19px;color:var(--fg);font-weight:600}
+input,select,button{background:var(--card2);border:1px solid var(--line);color:var(--fg);
+border-radius:8px;padding:7px 10px;font-size:13px;outline:none}
+input:focus,select:focus{border-color:var(--accent)}
+form.row{display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin-bottom:12px}
+input.grow{flex:1;min-width:180px}
+.cvrow{display:flex;gap:4px}
+a.cv{display:block;width:84px;height:48px;overflow:hidden;border-radius:4px;
+border:1px solid var(--line);background:var(--card2)}
+a.cv img{width:100%;height:100%;object-fit:cover;display:block}
+a.cv:hover{border-color:var(--accent)}
+td.covs{white-space:nowrap}
+.foot{margin:34px 0 10px;padding-top:14px;border-top:1px solid var(--line);
+color:var(--dim);font-size:12px;line-height:1.7}
+.tabrow{display:flex;gap:8px;flex-wrap:wrap;margin:4px 0 10px}
+a.tabk{padding:5px 12px;border:1px solid var(--line);border-radius:16px;
+font-size:12.5px;text-decoration:none;color:var(--dim)}
+a.tabk.sel{background:var(--accent);color:#0a0b0f;border-color:var(--accent);font-weight:600}
+a.tabk:hover{border-color:var(--accent);color:var(--accent)}
+a.tabk.sel:hover{color:#0a0b0f}
+td.act{white-space:nowrap}
+button.byes,button.bno{padding:4px 12px;border-radius:6px;border:1px solid var(--line);
+background:var(--card2);color:var(--fg);font-size:12px;cursor:pointer;margin-right:4px}
+button.byes:hover{background:#3ddc97;color:#0a0b0f;border-color:#3ddc97}
+button.bno:hover{background:#ff6b6b;color:#0a0b0f;border-color:#ff6b6b}
+.small{font-size:11px;color:var(--dim);max-width:200px}
+.avrow{display:flex;flex-wrap:wrap;gap:10px}
+.avline{display:flex;flex-direction:column;align-items:center;width:56px;gap:3px;
+text-decoration:none;color:var(--dim);font-size:10px;text-align:center}
+.avline img{width:40px;height:40px;border-radius:50%;object-fit:cover;
+background:var(--card2);border:1px solid var(--line)}
+.avline:hover{color:var(--accent)}
+.avline:hover img{border-color:var(--accent)}
+a.more{color:var(--accent);font-size:12.5px;text-decoration:none}
+a.more:hover{text-decoration:underline}
+td.av{width:44px;padding-right:0}
+td.av img{width:36px;height:36px;border-radius:50%;object-fit:cover;display:block;
+background:var(--card2);border:1px solid var(--line)}
+td.av a{display:block}
+a.upname{font-weight:600;text-decoration:none;color:var(--fg)}
+a.upname:hover{color:var(--accent);text-decoration:underline}
+a.detail{font-size:10.5px;color:var(--dim);text-decoration:none;border:1px solid var(--line);
+border-radius:4px;padding:1px 4px;margin-left:2px}
+a.detail:hover{color:var(--accent);border-color:var(--accent)}
+td.note{max-width:520px;font-size:11.5px;line-height:1.5;color:#b8c4d8}
+td.note b{color:var(--accent);font-weight:600}
+.sig{color:var(--dim);font-size:11.5px;max-width:340px;overflow:hidden;
+text-overflow:ellipsis;white-space:nowrap;display:inline-block;vertical-align:bottom}
+.warnbox{border-left:3px solid var(--warn);background:rgba(255,184,77,.07);
+padding:9px 12px;border-radius:0 8px 8px 0;font-size:12.5px;color:#e8d5b0;margin:10px 0}
+</style></head><body><div class="wrap">
+<h1>tvdb</h1><div class="sub">TV 系内容观测库 · 中国社会的一个窗口</div>
+<nav><a href="index.html">概览</a><a href="ups.html" class=on>账号</a><a href="series.html">系列</a><a href="themes.html">大主题</a><a href="community.html">圈子</a><a href="memes.html">梗</a><a href="report.html">调研报告</a></nav><div class=card><h2>抽象史必须狠狠吃</h2>
+<table>
+<tr><th>mid</th><td><code>3707024149841927</code></td></tr>
+<tr><th>粉丝</th><td>3656</td></tr>
+<tr><th>投稿数</th><td>312</td></tr>
+<tr><th>签名</th><td>互相尊重是人与人之间的基本原则，无论大家对视频看法怎么样，请不要攻击，友善团结才是我们的第一目的，搬运视频也是为了让原博主更有知名度合作共赢</td></tr>
+<tr><th>状态</th><td>正常</td></tr>
+</table></div>
+<div class=card><h2>角色判定</h2>
+<table><tr><th>角色</th><th class=num>置信度</th><th>依据</th></tr><tr><td>搬运号 <span class=muted>reposter</span></td><td class=num>0.95</td><td class=muted>3 条样本，TV 标题占比 100%，签名含 [&#x27;搬运&#x27;]</td></tr></table></div>
+<div class=card><h2>粉丝轨迹</h2>
+<table><tr><th>时间</th><th class=num>粉丝</th><th class=num>投稿</th></tr><tr><td class=muted>2026-11-21 09:15</td><td class=num>3656</td><td class=num>312</td></tr></table></div>
+<div class=card><h2>投稿（19）</h2>
+<table><tr><th>标题</th><th class=num>播放</th><th class=num>时长</th><th>发布</th><th></th></tr><tr><td><a href='/video/BV1uFJt61EZg'>依旧子弹时间，依旧逆天运镜，依旧何意味</a></td><td class=num>1.7万</td><td class=num>48s</td><td class=muted>2026-10-16 13:06</td><td></td></tr><tr><td><a href='/video/BV1gHa86pESG'>弗雷尔卓德TV之依旧小妈，依旧尬剧，依旧弗雷尔卓德特色，依旧神人有神片，依旧时停，依旧子弹时间</a></td><td class=num>3.9万</td><td class=num>2:4s</td><td class=muted>2026-09-27 11:07</td><td></td></tr><tr><td><a href='/video/BV1CeY16pEqF'>弗雷尔卓德TV之依旧精神小伙，依旧纹身，依旧黑神话，依旧吉林童话，依旧辽斋，依旧开屏者，依旧时间终结者，依旧子弹时间</a></td><td class=num>2.3万</td><td class=num>59s</td><td class=muted>2026-09-14 10:11</td><td></td></tr><tr><td><a href='/video/BV1q9bV6yEXU'>智人TV之依旧为哪吒冲票房，依旧自我感动，依旧神人有神思，依旧莫名自豪，依旧神人思维</a></td><td class=num>58.2万</td><td class=num>86s</td><td class=muted>2026-09-08 11:09</td><td><span class="tag g">已备份</span></td></tr><tr><td><a href='/video/BV1QVbT6mEwh'>弗雷尔卓德TV之依旧弗雷尔卓德特色，依旧尬剧，依旧纹身这一块，依旧神人出神剧，依旧神土出神人，依旧子弹时间</a></td><td class=num>14.3万</td><td class=num>96s</td><td class=muted>2026-09-07 16:09</td><td></td></tr><tr><td><a href='/video/BV1eFbW6aENn'>弗雷尔卓德TV之依旧吉林童话，依旧弗雷尔卓德故事，依旧子弹时间，依旧抽象挡酒，依旧狐朋狗友，依旧，依旧何意味</a></td><td class=num>3.4万</td><td class=num>137s</td><td class=muted>2026-09-06 06:30</td><td></td></tr><tr><td><a href='/video/BV1Mb876GE29'>弗雷尔卓德TV之依旧老偷家，依旧顺手牵羊，依旧QQ农场，依旧从南偷到北，依旧手痒难耐，渴望偷盗，依旧不问自取，依旧假仗义真心机，依旧</a></td><td class=num>1.4万</td><td class=num>145s</td><td class=muted>2026-08-19 09:29</td><td></td></tr><tr><td><a href='/video/BV1GVbr62Ehn'>智人TV之依旧塔罗，依旧骗子，依旧马扁子依旧张口就来，依旧不骗好人，不骗坏人，就骗傻人，依旧不如边牧，我说白了，我边牧哥来了直接给塔</a></td><td class=num>8.6万</td><td class=num>3:30s</td><td class=muted>2026-08-18 05:15</td><td></td></tr><tr><td><a href='/video/BV1RYgP6aE3s'>大头TV之大头大头叫叫叫，大头大头嚼嚼嚼，，依旧大头，依旧I love you so，依旧侵犯食物，依旧调情食物第一人喵ovo</a></td><td class=num>1.4万</td><td class=num>91s</td><td class=muted>2026-08-14 08:45</td><td></td></tr><tr><td><a href='/video/BV18tgE6AEzv'>弗雷尔卓德TV之依旧弗雷尔卓德特色小尬剧，依旧自夸自黑，依旧招笑，求求来点正常人吧，是不是老坟出问题了</a></td><td class=num>13.0万</td><td class=num>144s</td><td class=muted>2026-08-13 03:12</td><td></td></tr><tr><td><a href='/video/BV122gV6yEeK'>弗雷尔卓德TV之何意味</a></td><td class=num>22.9万</td><td class=num>183s</td><td class=muted>2026-08-12 14:02</td><td></td></tr><tr><td><a href='/video/BV1hTuo6TEh1'>弗雷尔卓德TV之依旧拘灵遣将，依旧弗雷尔卓德大调，依旧妈咪贝贝哄，依旧爱朴才会赢，依旧斗鸡眼，依旧给我请的高人看死了</a></td><td class=num>2.4万</td><td class=num>86s</td><td class=muted>2026-08-10 08:13</td><td></td></tr><tr><td><a href='/video/BV1VFu36LEEC'>弗雷尔卓德TV之依旧嘉豪，依旧慢动作，依旧痞颜，依旧慢镜头，依旧子弹时间，依旧小瘪三，依旧不明所以，依旧叫唤，BYD就会叼根烟开个酒</a></td><td class=num>19.5万</td><td class=num>77s</td><td class=muted>2026-08-08 06:22</td><td></td></tr><tr><td><a href='/video/BV1a4uA69E83'>弗雷尔卓德TV之依旧痞颜 ，依旧玩尬的，依旧慢镜头，依旧小瘪三</a></td><td class=num>27.5万</td><td class=num>63s</td><td class=muted>2026-08-04 13:48</td><td></td></tr><tr><td><a href='/video/BV1Z93f68Ekd'>智人TV之依旧精神小伙，依旧批量生产，依旧蘑菇头，豆豆鞋，是买不起别的鞋吗，依旧台球厅聚会，依旧20个人掏不出20块钱这一块，检测到</a></td><td class=num>2.3万</td><td class=num>72s</td><td class=muted>2026-08-02 23:25</td><td></td></tr><tr><td><a href='/video/BV1wU346yEH1'>道棍TV之狡辩这一块，没有逻辑这一块，张口就来</a></td><td class=num>18.3万</td><td class=num>267s</td><td class=muted>2026-07-30 08:56</td><td></td></tr><tr><td><a href='/video/BV1u6go6BEwZ'>赤石TV之地方特色美食，弗雷尔卓德臭鱼，炸飞蛾，大酱，味道挠挠的，味道各有所爱，大家请不要有刻板印象喵ovo</a></td><td class=num>4.3万</td><td class=num>137s</td><td class=muted>2026-07-26 22:09</td><td></td></tr><tr><td><a href='/video/BV13mKP6JEJR'>大头TV之大头大头嚼嚼嚼</a></td><td class=num>8.2万</td><td class=num>28s</td><td class=muted>2026-07-18 09:01</td><td></td></tr><tr><td><a href='/video/BV1xsYC6DEJH'>神人TV之依旧精神净化，依旧牢大，依旧曼巴，依旧魔丸，依旧飞升计划，依旧神人吃神史，不是抽象的我都不看</a></td><td class=num>5434</td><td class=num>75s</td><td class=muted>—</td><td></td></tr></table></div>
+<div class=foot>本页数据全部来自 B站 公开可见的账号与视频信息，仅作网络亚文化研究用。
+封面与视频版权归原 UP 主所有。如对收录有异议，请通过页面所附账号联系删除。</div>
+</div></body></html>

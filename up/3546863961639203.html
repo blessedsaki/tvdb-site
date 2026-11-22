@@ -1,0 +1,104 @@
+<!DOCTYPE html><html lang="zh-CN"><head><base href="/tvdb-site/"><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>账号 3546863961639203 · tvdb</title><style>
+:root{--bg:#0a0b0f;--card:#12141b;--card2:#171a23;--line:#242838;--fg:#e8ecf5;
+--dim:#8b95a7;--accent:#6aa6ff;--ok:#3ddc97;--warn:#ffb84d;--err:#ff6b6b}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);font:14px/1.55 -apple-system,
+"PingFang SC","Microsoft YaHei",sans-serif;
+background-image:radial-gradient(900px 460px at 12% -10%,rgba(46,88,165,.26) 0,transparent 60%);
+background-attachment:fixed}
+.wrap{max-width:1280px;margin:0 auto;padding:20px 18px 60px}
+a{color:var(--accent);text-decoration:none} a:hover{text-decoration:underline}
+h1{font-size:21px;margin:0 0 3px;letter-spacing:-.02em;
+background:linear-gradient(92deg,#f2f7ff,#9dc4ff 55%,#b39bff);
+-webkit-background-clip:text;background-clip:text;color:transparent}
+.sub{color:var(--dim);font-size:12.5px;margin-bottom:16px}
+nav{margin:0 0 16px;display:flex;gap:6px;flex-wrap:wrap}
+nav a{padding:7px 13px;border:1px solid var(--line);border-radius:9px;background:var(--card);
+font-size:13px;color:var(--fg)}
+nav a.on{border-color:var(--accent);color:#fff}
+.card{background:var(--card);border:1px solid var(--line);border-radius:13px;padding:15px;margin-bottom:13px}
+.card h2{font-size:12.5px;margin:0 0 11px;color:var(--dim);font-weight:600;
+letter-spacing:.06em;text-transform:uppercase}
+table{width:100%;border-collapse:collapse;font-size:12.5px}
+th,td{text-align:left;padding:7px 6px;border-bottom:1px solid var(--line);vertical-align:top}
+th{color:var(--dim);font-weight:500;font-size:11.5px}
+tr:hover td{background:rgba(106,166,255,.04)}
+.num{text-align:right;font-variant-numeric:tabular-nums}
+.muted{color:var(--dim);font-size:12px}
+.tag{font-size:11px;padding:1px 7px;border-radius:5px;background:var(--card2);
+color:var(--dim);display:inline-block;margin:1px 2px 1px 0}
+.tag.s{color:var(--accent)}
+.tag.g{color:var(--ok)} .tag.w{color:var(--warn)} .tag.e{color:var(--err)}
+.stats{display:flex;gap:22px;flex-wrap:wrap}
+.stats div{font-size:12px;color:var(--dim)}
+.stats b{display:block;font-size:19px;color:var(--fg);font-weight:600}
+input,select,button{background:var(--card2);border:1px solid var(--line);color:var(--fg);
+border-radius:8px;padding:7px 10px;font-size:13px;outline:none}
+input:focus,select:focus{border-color:var(--accent)}
+form.row{display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin-bottom:12px}
+input.grow{flex:1;min-width:180px}
+.cvrow{display:flex;gap:4px}
+a.cv{display:block;width:84px;height:48px;overflow:hidden;border-radius:4px;
+border:1px solid var(--line);background:var(--card2)}
+a.cv img{width:100%;height:100%;object-fit:cover;display:block}
+a.cv:hover{border-color:var(--accent)}
+td.covs{white-space:nowrap}
+.foot{margin:34px 0 10px;padding-top:14px;border-top:1px solid var(--line);
+color:var(--dim);font-size:12px;line-height:1.7}
+.tabrow{display:flex;gap:8px;flex-wrap:wrap;margin:4px 0 10px}
+a.tabk{padding:5px 12px;border:1px solid var(--line);border-radius:16px;
+font-size:12.5px;text-decoration:none;color:var(--dim)}
+a.tabk.sel{background:var(--accent);color:#0a0b0f;border-color:var(--accent);font-weight:600}
+a.tabk:hover{border-color:var(--accent);color:var(--accent)}
+a.tabk.sel:hover{color:#0a0b0f}
+td.act{white-space:nowrap}
+button.byes,button.bno{padding:4px 12px;border-radius:6px;border:1px solid var(--line);
+background:var(--card2);color:var(--fg);font-size:12px;cursor:pointer;margin-right:4px}
+button.byes:hover{background:#3ddc97;color:#0a0b0f;border-color:#3ddc97}
+button.bno:hover{background:#ff6b6b;color:#0a0b0f;border-color:#ff6b6b}
+.small{font-size:11px;color:var(--dim);max-width:200px}
+.avrow{display:flex;flex-wrap:wrap;gap:10px}
+.avline{display:flex;flex-direction:column;align-items:center;width:56px;gap:3px;
+text-decoration:none;color:var(--dim);font-size:10px;text-align:center}
+.avline img{width:40px;height:40px;border-radius:50%;object-fit:cover;
+background:var(--card2);border:1px solid var(--line)}
+.avline:hover{color:var(--accent)}
+.avline:hover img{border-color:var(--accent)}
+a.more{color:var(--accent);font-size:12.5px;text-decoration:none}
+a.more:hover{text-decoration:underline}
+td.av{width:44px;padding-right:0}
+td.av img{width:36px;height:36px;border-radius:50%;object-fit:cover;display:block;
+background:var(--card2);border:1px solid var(--line)}
+td.av a{display:block}
+a.upname{font-weight:600;text-decoration:none;color:var(--fg)}
+a.upname:hover{color:var(--accent);text-decoration:underline}
+a.detail{font-size:10.5px;color:var(--dim);text-decoration:none;border:1px solid var(--line);
+border-radius:4px;padding:1px 4px;margin-left:2px}
+a.detail:hover{color:var(--accent);border-color:var(--accent)}
+td.note{max-width:520px;font-size:11.5px;line-height:1.5;color:#b8c4d8}
+td.note b{color:var(--accent);font-weight:600}
+.sig{color:var(--dim);font-size:11.5px;max-width:340px;overflow:hidden;
+text-overflow:ellipsis;white-space:nowrap;display:inline-block;vertical-align:bottom}
+.warnbox{border-left:3px solid var(--warn);background:rgba(255,184,77,.07);
+padding:9px 12px;border-radius:0 8px 8px 0;font-size:12.5px;color:#e8d5b0;margin:10px 0}
+</style></head><body><div class="wrap">
+<h1>tvdb</h1><div class="sub">TV 系内容观测库 · 中国社会的一个窗口</div>
+<nav><a href="index.html">概览</a><a href="ups.html" class=on>账号</a><a href="series.html">系列</a><a href="themes.html">大主题</a><a href="community.html">圈子</a><a href="memes.html">梗</a><a href="report.html">调研报告</a></nav><div class=card><h2>网友暮雨</h2>
+<table>
+<tr><th>mid</th><td><code>3546863961639203</code></td></tr>
+<tr><th>粉丝</th><td>65.8万</td></tr>
+<tr><th>投稿数</th><td>112</td></tr>
+<tr><th>签名</th><td>我都想笑了  商务合作：Golden-sIumber 备注来意</td></tr>
+<tr><th>状态</th><td>正常</td></tr>
+</table></div>
+<div class=card><h2>角色判定</h2>
+<table><tr><th>角色</th><th class=num>置信度</th><th>依据</th></tr><tr><td colspan=3 class=muted>未判定</td></tr></table></div>
+<div class=card><h2>粉丝轨迹</h2>
+<table><tr><th>时间</th><th class=num>粉丝</th><th class=num>投稿</th></tr><tr><td class=muted>2026-11-22 05:30</td><td class=num>65.8万</td><td class=num>112</td></tr></table></div>
+<div class=card><h2>投稿（31）</h2>
+<table><tr><th>标题</th><th class=num>播放</th><th class=num>时长</th><th>发布</th><th></th></tr><tr><td><a href='/video/BV1FJs46rEeQ'>抽象“混的人”创业项目大赏！来“混D姨”买潮牌免费帮忙写作业！</a></td><td class=num>10.8万</td><td class=num>466s</td><td class=muted>2026-11-21 03:30</td><td></td></tr><tr><td><a href='/video/BV1JhWL66Ejq'>弗雷尔卓德“方文山”！互联网最有文化的歌词，开创全新咒语流歌曲领先时代！</a></td><td class=num>56.7万</td><td class=num>405s</td><td class=muted>2026-11-12 03:30</td><td></td></tr><tr><td><a href='/video/BV1A24W6VEcx'>路边摆摊买翡翠日入“一百万”！客单价十万顾客自动刷新，彻底疯狂一年狂赚3.6亿！</a></td><td class=num>55.7万</td><td class=num>8:24s</td><td class=muted>2026-11-08 03:30</td><td></td></tr><tr><td><a href='/video/BV11hxo6BE4m'>街头摆摊烤鱼教你一键换装！成本八毛钱一天挣两千，依旧计算机展示收入！</a></td><td class=num>61.9万</td><td class=num>8:24s</td><td class=muted>2026-11-05 03:30</td><td></td></tr><tr><td><a href='/video/BV1mdxN68Eju'>全网最抽象群体“混的人”鉴赏！改装五座商务鬼火，中国版超级战队！</a></td><td class=num>74.6万</td><td class=num>482s</td><td class=muted>2026-10-31 03:30</td><td></td></tr><tr><td><a href='/video/BV1r2nt6TEA1'>自然女“阿敲”进入全新3.0版本！每天在家啃一些老，严肃咀嚼一些食物，感悟一些道理，释放一些国潮！</a></td><td class=num>51.1万</td><td class=num>488s</td><td class=muted>2026-10-24 03:30</td><td></td></tr><tr><td><a href='/video/BV15jJk6cECB'>全网最抽象群体混的人逆天操作盘点！把课桌搬到厕所，本科不如技校，中专人转发起来！</a></td><td class=num>93.3万</td><td class=num>456s</td><td class=muted>2026-10-20 03:30</td><td></td></tr><tr><td><a href='/video/BV1NYJ66rEFN'>互联网营销号进入“大压抑”时代！猎奇文案层出不穷，少年感的狗，霸总白鲸，高冷男神百岁山矿泉水！</a></td><td class=num>61.1万</td><td class=num>433s</td><td class=muted>2026-10-18 03:30</td><td></td></tr><tr><td><a href='/video/BV1vmpw6tEom'>互联网梭哈进监狱第一人！周文强教你“你妈生了你，功劳只有1％”！</a></td><td class=num>65.1万</td><td class=num>530s</td><td class=muted>2026-10-07 03:30</td><td></td></tr><tr><td><a href='/video/BV1j8ti6iEA5'>猪圈咖啡来袭！用喂猪瓢装冰美式，老兵榔子“槟来了”！尽情的创业吧！</a></td><td class=num>301.8万</td><td class=num>448s</td><td class=muted>2026-09-05 03:30</td><td></td></tr><tr><td><a href='/video/BV1kY8s6QEjR'>街头鸭腿摆摊教你月入过亿！出摊自动刷新顾客，进货八毛鸭腿卖十块钱！一天狂赚五位数</a></td><td class=num>57.2万</td><td class=num>10:41s</td><td class=muted>2026-08-23 03:30</td><td></td></tr><tr><td><a href='/video/BV1T1uE6oEeC'>幽默“混的人”螺蛳粉边上摆摊卖潮牌！小吃风味衣服耍起，四天卖出一件绷不住了</a></td><td class=num>132.0万</td><td class=num>667s</td><td class=muted>2026-08-07 03:30</td><td></td></tr><tr><td><a href='/video/BV1LbKa6NEvs'>全网最逆天物种“混的人”！深夜骑电摩堵桥，以发生口角为荣！</a></td><td class=num>75.3万</td><td class=num>573s</td><td class=muted>2026-07-22 03:30</td><td></td></tr><tr><td><a href='/video/BV1o7Kz6RE7Y'>互联网爆火的“大果”赛道，嚼大果养大腮！配合大果饮料，早日飞升大果星球</a></td><td class=num>102.0万</td><td class=num>8:16s</td><td class=muted>2026-07-20 03:30</td><td></td></tr><tr><td><a href='/video/BV1dMKg6uEoy'>混的人给暮雨先生的祝福</a></td><td class=num>50.8万</td><td class=num>23s</td><td class=muted>2026-07-16 06:01</td><td></td></tr><tr><td><a href='/video/BV1VGMe6rEws'>中年退伍老兵离谱创业项目！“老兵日料”“老兵美甲”“老兵现卤”万物皆可老兵化！</a></td><td class=num>163.8万</td><td class=num>590s</td><td class=muted>2026-07-08 03:30</td><td></td></tr><tr><td><a href='/video/BV1uHj961Ebd'>盘点魔怔“混的入”逆天行为，晚会舞台表演打群架！自习室过生日尽显兄弟情深</a></td><td class=num>124.8万</td><td class=num>562s</td><td class=muted>2026-06-25 03:30</td><td></td></tr><tr><td><a href='/video/BV18njk62Emc'>逆天混的人“顶奢”雅迪婚车车队！厕所求婚尽显男儿本色！</a></td><td class=num>500.3万</td><td class=num>10:13s</td><td class=muted>2026-06-20 03:30</td><td></td></tr><tr><td><a href='/video/BV1E7Vu6fEic'>逆天创业项目“前女友”主题餐厅！满墙失恋语录，顾客进店边吃边哭！</a></td><td class=num>191.4万</td><td class=num>10:21s</td><td class=muted>2026-05-30 03:30</td><td></td></tr><tr><td><a href='/video/BV1BAGS6qEaw'>混的人最爱的创业项目“潮牌服装店”！店内疯狂抽烟每件衣服都腌入味，售卖烟熏风味服装！</a></td><td class=num>101.1万</td><td class=num>10:2s</td><td class=muted>2026-05-28 03:30</td><td></td></tr><tr><td><a href='/video/BV1H9GZ6vEMH'>幽默酒桌文化规则怪谈！鱼头一上桌喝108杯酒，触犯规则直接被斩杀！</a></td><td class=num>130.9万</td><td class=num>639s</td><td class=muted>2026-05-26 03:30</td><td></td></tr><tr><td><a href='/video/BV1eXGB6eEuH'>全网最怕套狗队的人群“混的人”视频赏析！个个都是学校水龙头，框框爆父母金币！</a></td><td class=num>416.4万</td><td class=num>610s</td><td class=muted>2026-05-23 10:59</td><td></td></tr><tr><td><a href='/video/BV1oTLs6BEqt'>全网最魔怔群体“混的人”赏析！电摩强制分享歌单，15岁历经沧桑这一块</a></td><td class=num>1209.5万</td><td class=num>659s</td><td class=muted>2026-05-21 03:30</td><td></td></tr><tr><td><a href='/video/BV1ZBXABBEWQ'>新年新负债！七仙女全女咖啡店，家徒四壁客厅拼豆店，创业绵密，负债经久不衰</a></td><td class=num>544.8万</td><td class=num>607s</td><td class=muted>2026-03-24 03:30</td><td></td></tr><tr><td><a href='/video/BV1d6ZpBiEHQ'>每年春节的中式恐怖节目《催婚》！少女的祈祷之结婚抱孙孙</a></td><td class=num>76.1万</td><td class=num>537s</td><td class=muted>2026-02-15 03:30</td><td></td></tr><tr><td><a href='/video/BV1TYrtBfEEn'>中药炸鸡，猪槽火锅！中年人餐饮创业离谱项目层出不穷！</a></td><td class=num>260.8万</td><td class=num>530s</td><td class=muted>2026-01-12 03:30</td><td></td></tr><tr><td><a href='/video/BV1S3s2zZEmC'>神人大师教你瞬间催眠术！群演都绷不住笑场了</a></td><td class=num>55.3万</td><td class=num>7:9s</td><td class=muted>2025-10-27 07:42</td><td></td></tr><tr><td><a href='/video/BV1h3JSzoEmF'>互联网大师教你吃素的福报！人造翠神这一块</a></td><td class=num>61.6万</td><td class=num>8:3s</td><td class=muted>2025-09-24 03:30</td><td></td></tr><tr><td><a href='/video/BV1JQHBzmEur'>卖课诈骗伪史论应有尽有，警惕互联网”升维智慧“主播！</a></td><td class=num>37.6万</td><td class=num>8:34s</td><td class=muted>2025-09-12 03:00</td><td></td></tr><tr><td><a href='/video/BV12VH2z1ENw'>全网最恨手机的卖课大师！玩手机会让大脑萎缩</a></td><td class=num>44.0万</td><td class=num>7:18s</td><td class=muted>2025-09-10 03:00</td><td></td></tr><tr><td><a href='/video/BV1UPepzmEEZ'>二次元文化毒害青少年！卖课大师教你看日本文化入侵</a></td><td class=num>57.8万</td><td class=num>512s</td><td class=muted>2025-08-25 03:00</td><td></td></tr></table></div>
+<div class=foot>本页数据全部来自 B站 公开可见的账号与视频信息，仅作网络亚文化研究用。
+封面与视频版权归原 UP 主所有。如对收录有异议，请通过页面所附账号联系删除。</div>
+</div></body></html>

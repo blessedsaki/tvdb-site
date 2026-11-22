@@ -1,0 +1,104 @@
+<!DOCTYPE html><html lang="zh-CN"><head><base href="/tvdb-site/"><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>账号 472760372 · tvdb</title><style>
+:root{--bg:#0a0b0f;--card:#12141b;--card2:#171a23;--line:#242838;--fg:#e8ecf5;
+--dim:#8b95a7;--accent:#6aa6ff;--ok:#3ddc97;--warn:#ffb84d;--err:#ff6b6b}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);font:14px/1.55 -apple-system,
+"PingFang SC","Microsoft YaHei",sans-serif;
+background-image:radial-gradient(900px 460px at 12% -10%,rgba(46,88,165,.26) 0,transparent 60%);
+background-attachment:fixed}
+.wrap{max-width:1280px;margin:0 auto;padding:20px 18px 60px}
+a{color:var(--accent);text-decoration:none} a:hover{text-decoration:underline}
+h1{font-size:21px;margin:0 0 3px;letter-spacing:-.02em;
+background:linear-gradient(92deg,#f2f7ff,#9dc4ff 55%,#b39bff);
+-webkit-background-clip:text;background-clip:text;color:transparent}
+.sub{color:var(--dim);font-size:12.5px;margin-bottom:16px}
+nav{margin:0 0 16px;display:flex;gap:6px;flex-wrap:wrap}
+nav a{padding:7px 13px;border:1px solid var(--line);border-radius:9px;background:var(--card);
+font-size:13px;color:var(--fg)}
+nav a.on{border-color:var(--accent);color:#fff}
+.card{background:var(--card);border:1px solid var(--line);border-radius:13px;padding:15px;margin-bottom:13px}
+.card h2{font-size:12.5px;margin:0 0 11px;color:var(--dim);font-weight:600;
+letter-spacing:.06em;text-transform:uppercase}
+table{width:100%;border-collapse:collapse;font-size:12.5px}
+th,td{text-align:left;padding:7px 6px;border-bottom:1px solid var(--line);vertical-align:top}
+th{color:var(--dim);font-weight:500;font-size:11.5px}
+tr:hover td{background:rgba(106,166,255,.04)}
+.num{text-align:right;font-variant-numeric:tabular-nums}
+.muted{color:var(--dim);font-size:12px}
+.tag{font-size:11px;padding:1px 7px;border-radius:5px;background:var(--card2);
+color:var(--dim);display:inline-block;margin:1px 2px 1px 0}
+.tag.s{color:var(--accent)}
+.tag.g{color:var(--ok)} .tag.w{color:var(--warn)} .tag.e{color:var(--err)}
+.stats{display:flex;gap:22px;flex-wrap:wrap}
+.stats div{font-size:12px;color:var(--dim)}
+.stats b{display:block;font-size:19px;color:var(--fg);font-weight:600}
+input,select,button{background:var(--card2);border:1px solid var(--line);color:var(--fg);
+border-radius:8px;padding:7px 10px;font-size:13px;outline:none}
+input:focus,select:focus{border-color:var(--accent)}
+form.row{display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin-bottom:12px}
+input.grow{flex:1;min-width:180px}
+.cvrow{display:flex;gap:4px}
+a.cv{display:block;width:84px;height:48px;overflow:hidden;border-radius:4px;
+border:1px solid var(--line);background:var(--card2)}
+a.cv img{width:100%;height:100%;object-fit:cover;display:block}
+a.cv:hover{border-color:var(--accent)}
+td.covs{white-space:nowrap}
+.foot{margin:34px 0 10px;padding-top:14px;border-top:1px solid var(--line);
+color:var(--dim);font-size:12px;line-height:1.7}
+.tabrow{display:flex;gap:8px;flex-wrap:wrap;margin:4px 0 10px}
+a.tabk{padding:5px 12px;border:1px solid var(--line);border-radius:16px;
+font-size:12.5px;text-decoration:none;color:var(--dim)}
+a.tabk.sel{background:var(--accent);color:#0a0b0f;border-color:var(--accent);font-weight:600}
+a.tabk:hover{border-color:var(--accent);color:var(--accent)}
+a.tabk.sel:hover{color:#0a0b0f}
+td.act{white-space:nowrap}
+button.byes,button.bno{padding:4px 12px;border-radius:6px;border:1px solid var(--line);
+background:var(--card2);color:var(--fg);font-size:12px;cursor:pointer;margin-right:4px}
+button.byes:hover{background:#3ddc97;color:#0a0b0f;border-color:#3ddc97}
+button.bno:hover{background:#ff6b6b;color:#0a0b0f;border-color:#ff6b6b}
+.small{font-size:11px;color:var(--dim);max-width:200px}
+.avrow{display:flex;flex-wrap:wrap;gap:10px}
+.avline{display:flex;flex-direction:column;align-items:center;width:56px;gap:3px;
+text-decoration:none;color:var(--dim);font-size:10px;text-align:center}
+.avline img{width:40px;height:40px;border-radius:50%;object-fit:cover;
+background:var(--card2);border:1px solid var(--line)}
+.avline:hover{color:var(--accent)}
+.avline:hover img{border-color:var(--accent)}
+a.more{color:var(--accent);font-size:12.5px;text-decoration:none}
+a.more:hover{text-decoration:underline}
+td.av{width:44px;padding-right:0}
+td.av img{width:36px;height:36px;border-radius:50%;object-fit:cover;display:block;
+background:var(--card2);border:1px solid var(--line)}
+td.av a{display:block}
+a.upname{font-weight:600;text-decoration:none;color:var(--fg)}
+a.upname:hover{color:var(--accent);text-decoration:underline}
+a.detail{font-size:10.5px;color:var(--dim);text-decoration:none;border:1px solid var(--line);
+border-radius:4px;padding:1px 4px;margin-left:2px}
+a.detail:hover{color:var(--accent);border-color:var(--accent)}
+td.note{max-width:520px;font-size:11.5px;line-height:1.5;color:#b8c4d8}
+td.note b{color:var(--accent);font-weight:600}
+.sig{color:var(--dim);font-size:11.5px;max-width:340px;overflow:hidden;
+text-overflow:ellipsis;white-space:nowrap;display:inline-block;vertical-align:bottom}
+.warnbox{border-left:3px solid var(--warn);background:rgba(255,184,77,.07);
+padding:9px 12px;border-radius:0 8px 8px 0;font-size:12.5px;color:#e8d5b0;margin:10px 0}
+</style></head><body><div class="wrap">
+<h1>tvdb</h1><div class="sub">TV 系内容观测库 · 中国社会的一个窗口</div>
+<nav><a href="index.html">概览</a><a href="ups.html" class=on>账号</a><a href="series.html">系列</a><a href="themes.html">大主题</a><a href="community.html">圈子</a><a href="memes.html">梗</a><a href="report.html">调研报告</a></nav><div class=card><h2>科比牢大-擒史皇</h2>
+<table>
+<tr><th>mid</th><td><code>472760372</code></td></tr>
+<tr><th>粉丝</th><td>89.4万</td></tr>
+<tr><th>投稿数</th><td>259</td></tr>
+<tr><th>签名</th><td>孩子们我复活了，重生之我是找史大王</td></tr>
+<tr><th>状态</th><td>正常</td></tr>
+</table></div>
+<div class=card><h2>角色判定</h2>
+<table><tr><th>角色</th><th class=num>置信度</th><th>依据</th></tr><tr><td colspan=3 class=muted>未判定</td></tr></table></div>
+<div class=card><h2>粉丝轨迹</h2>
+<table><tr><th>时间</th><th class=num>粉丝</th><th class=num>投稿</th></tr><tr><td class=muted>2026-11-22 05:30</td><td class=num>89.4万</td><td class=num>259</td></tr><tr><td class=muted>2026-11-21 09:08</td><td class=num>89.4万</td><td class=num>259</td></tr></table></div>
+<div class=card><h2>投稿（42）</h2>
+<table><tr><th>标题</th><th class=num>播放</th><th class=num>时长</th><th>发布</th><th></th></tr><tr><td><a href='/video/BV1iiW16UE8p'>【补档】感觉自己是废物的，可以进来看看这期视频（83）</a></td><td class=num>16.5万</td><td class=num>4:14s</td><td class=muted>2026-11-11 06:34</td><td></td></tr><tr><td><a href='/video/BV15GxC65EVS'>【补档】mj宇宙视频合集（20分钟），蚁人去哪了？</a></td><td class=num>99.5万</td><td class=num>1222s</td><td class=muted>2026-10-31 08:05</td><td></td></tr><tr><td><a href='/video/BV1dCxT6jE6a'>感觉自己是废物的，可以进来看看这期视频（82）</a></td><td class=num>51.5万</td><td class=num>289s</td><td class=muted>2026-10-27 09:30</td><td></td></tr><tr><td><a href='/video/BV1ujnJ6dEsT'>感觉自己是废物的，可以进来看看这期视频（81）</a></td><td class=num>76.4万</td><td class=num>4:18s</td><td class=muted>2026-10-19 10:57</td><td></td></tr><tr><td><a href='/video/BV1wEtm6CE14'>感觉自己压力大的，可以进来看看这期视频（74）</a></td><td class=num>25.7万</td><td class=num>306s</td><td class=muted>2026-09-05 07:52</td><td></td></tr><tr><td><a href='/video/BV17w816eEav'>【补档】抽象土味勾史视频合集（134），最猎奇的10分钟，看完感觉自己活到头了，我破绷了</a></td><td class=num>67.7万</td><td class=num>620s</td><td class=muted>2026-08-22 09:02</td><td><span class="tag g">已备份</span></td></tr><tr><td><a href='/video/BV1X6K16PExi'>感觉自己压力大的，可以进来看看这期视频（68）</a></td><td class=num>33.8万</td><td class=num>271s</td><td class=muted>2026-07-20 06:03</td><td></td></tr><tr><td><a href='/video/BV1fNTD64EkD'>抽象土味勾史视频合集（133），10分钟地狱难度，听说人死前能看到不干净的东西，我估计我也不早了</a></td><td class=num>23.6万</td><td class=num>623s</td><td class=muted>2026-07-06 03:38</td><td></td></tr><tr><td><a href='/video/BV14CTs6vEv6'>感觉自己压力大的，可以进来看看这期视频（66）</a></td><td class=num>48.0万</td><td class=num>277s</td><td class=muted>2026-07-03 08:05</td><td></td></tr><tr><td><a href='/video/BV1zXjv6rEpg'>感觉自己是废物的，可以进来看看这期视频（64）</a></td><td class=num>51.9万</td><td class=num>4:58s</td><td class=muted>2026-06-18 23:54</td><td></td></tr><tr><td><a href='/video/BV19CEx6CEmp'>感觉自己压力大的，可以进来看看这期视频（61）</a></td><td class=num>45.6万</td><td class=num>307s</td><td class=muted>2026-06-07 09:03</td><td></td></tr><tr><td><a href='/video/BV1QnVd6VEJA'>感觉自己是废物的，可以进来看看这期视频（59）</a></td><td class=num>60.8万</td><td class=num>5:22s</td><td class=muted>2026-06-01 06:35</td><td></td></tr><tr><td><a href='/video/BV1fo5V6rEoU'>感觉自己压力大的，可以进来看看这期视频（54）</a></td><td class=num>40.2万</td><td class=num>266s</td><td class=muted>2026-05-13 06:24</td><td></td></tr><tr><td><a href='/video/BV11kZGBsE9h'>抽象土味勾史视频合集（131），40分钟地狱难度，今年春晚就看这个了，这期神了</a></td><td class=num>94.1万</td><td class=num>2412s</td><td class=muted>2026-02-16 22:29</td><td></td></tr><tr><td><a href='/video/BV18WrZB7EbJ'>感觉自己是废物的，可以进来看一下这期视频（27）</a></td><td class=num>67.1万</td><td class=num>5:13s</td><td class=muted>2026-01-15 10:20</td><td></td></tr><tr><td><a href='/video/BV1E4dDYXEvG'>抽象土味勾史视频合集（100），20分钟发暗网被通缉了，管理员说再发给我鲨了</a></td><td class=num>21.6万</td><td class=num>1234s</td><td class=muted>2025-04-11 13:24</td><td></td></tr><tr><td><a href='/video/BV1kzFkejE9u'>抽象土味勾史视频合集（89），20分钟唐王之巅，牢大..你这家伙..这也太唐了！我要坚持不住了！！！</a></td><td class=num>31.5万</td><td class=num>1229s</td><td class=muted>2025-02-02 11:11</td><td></td></tr><tr><td><a href='/video/BV1PWFseeEkd'>抽象土味勾史视频合集（88），一小时春晚晚会，过年就看这个了</a></td><td class=num>30.1万</td><td class=num>4075s</td><td class=muted>2025-01-28 17:15</td><td></td></tr><tr><td><a href='/video/BV1kvc2ebEoq'>抽象土味勾史视频合集（84），最涨的19分钟，看完腰不要了</a></td><td class=num>31.0万</td><td class=num>1172s</td><td class=muted>2025-01-13 10:54</td><td></td></tr><tr><td><a href='/video/BV1Zy6zY2ETk'>抽象土味勾史视频合集（81），17分钟看完不炸瞠的不是废物，贝利亚：孩子们，我也来搞搞小啾啾了</a></td><td class=num>19.6万</td><td class=num>1053s</td><td class=muted>2025-01-02 16:37</td><td></td></tr><tr><td><a href='/video/BV1sdkRYGE6M'>抽象土味勾史视频（80），15分钟符离集合集，忍不住了，我先犯错了，牢玩家进来测试灵敏度</a></td><td class=num>30.4万</td><td class=num>908s</td><td class=muted>2024-12-24 13:19</td><td></td></tr><tr><td><a href='/video/BV1ESizYzEjs'>抽象土味狗屎视频合集（77），又唐又音当的17分钟，小时候就看这个打</a></td><td class=num>24.9万</td><td class=num>1022s</td><td class=muted>2024-12-06 17:00</td><td></td></tr><tr><td><a href='/video/BV1oFUeYDEBK'>抽象土味勾史视频合集（76），25分钟村职挑战，请输入文本请输入文本。灵敏度太高3秒就出来了</a></td><td class=num>19.6万</td><td class=num>1544s</td><td class=muted>2024-11-16 14:18</td><td></td></tr><tr><td><a href='/video/BV1UE14YyEiH'>抽象土味勾史视频（73），比片难找（20分钟），看立学生党</a></td><td class=num>20.2万</td><td class=num>1216s</td><td class=muted>2024-10-26 10:19</td><td></td></tr><tr><td><a href='/video/BV1bRyzYyEg1'>抽象土味勾史视频合集（72），16分钟地狱难度，看完不把老北京鸡肉卷搞出豆汁的都是神人了</a></td><td class=num>18.3万</td><td class=num>966s</td><td class=muted>2024-10-24 11:42</td><td></td></tr><tr><td><a href='/video/BV1UkmMYPEi3'>抽象土味勾史视频合集（70），17分钟狗屎大战，看完不搞小啾啾的都是神人了，真地道</a></td><td class=num>26.8万</td><td class=num>1028s</td><td class=muted>2024-10-16 14:29</td><td></td></tr><tr><td><a href='/video/BV1TD4GerEWy'>抽象土味勾史视频合集（69），吃屎挑战之吃饱饱（16分）老玩家全体起立。</a></td><td class=num>33.2万</td><td class=num>979s</td><td class=muted>2024-10-02 13:57</td><td></td></tr><tr><td><a href='/video/BV1YS421X7Ae'>抽像土味勾史视频合集（64），21分钟村职挑战。孩子们，我取得了三秒的好成绩。你也来试试吧</a></td><td class=num>38.7万</td><td class=num>1306s</td><td class=muted>2024-08-21 12:06</td><td></td></tr><tr><td><a href='/video/BV1Fm421372e'>抽象土味狗屎视频合集（63），15分钟炼狱难度。看完这集家里不用刷白墙了。补药村止</a></td><td class=num>18.6万</td><td class=num>931s</td><td class=muted>2024-08-18 04:17</td><td></td></tr><tr><td><a href='/video/BV1iS421X7he'>抽象土味狗屎视频合集（55），疑似水灵灵的20分钟唐+音当+低熟视频流出</a></td><td class=num>44.7万</td><td class=num>1235s</td><td class=muted>2024-07-29 13:25</td><td></td></tr><tr><td><a href='/video/BV1RS421R7GT'>抽象土味道勾史视频合集（50），15分钟地狱难度。灵敏度低的勿入，小心第二天发洪水</a></td><td class=num>27.3万</td><td class=num>949s</td><td class=muted>2024-07-15 07:53</td><td></td></tr><tr><td><a href='/video/BV1XS411A7sZ'>抽象土味勾史视频合集（48），16分钟无调料版本。还是无调料版本鹿的爽，当好音</a></td><td class=num>22.4万</td><td class=num>986s</td><td class=muted>2024-07-09 10:03</td><td></td></tr><tr><td><a href='/video/BV1yZ42147QH'>抽像土味勾史视频合集（38），17分钟音裆视频，小时候舍不得划走，长大舍的划不走</a></td><td class=num>18.8万</td><td class=num>1031s</td><td class=muted>2024-05-16 13:32</td><td></td></tr><tr><td><a href='/video/BV1ZD421J7mz'>抽像土味勾史视频合集（36），15分钟经典原汁原味。选用上好慢角，音符采集。独具匠心</a></td><td class=num>19.7万</td><td class=num>943s</td><td class=muted>2024-04-23 12:28</td><td></td></tr><tr><td><a href='/video/BV1Tq421F7na'>抽象土味勾史视频合集（35），十七分钟唐到家了。唐+秦武王好堪，坚持不到两分钟，可以冲开了。</a></td><td class=num>29.4万</td><td class=num>1041s</td><td class=muted>2024-04-20 12:21</td><td></td></tr><tr><td><a href='/video/BV1px421m725'>抽象土味勾史视频合集（32），最唐的16分钟，又秦武王达唐无敌了。达。躺剩，史</a></td><td class=num>117.6万</td><td class=num>1010s</td><td class=muted>2024-04-12 13:46</td><td></td></tr><tr><td><a href='/video/BV1H1421D7uR'>抽象土味勾史视频合集（28），20分钟炼狱难度。老玩家看完哭了。灵敏度全调零也阻挡不住被秒，只能开桂了</a></td><td class=num>23.1万</td><td class=num>1214s</td><td class=muted>2024-03-29 13:27</td><td></td></tr><tr><td><a href='/video/BV1kH4y157qV'>抽象土味勾史视频合集（24），十分钟原汁原味无尽难度。梦老师表示太难了，老八吃完美滋滋。</a></td><td class=num>17.4万</td><td class=num>625s</td><td class=muted>2024-03-12 15:59</td><td></td></tr><tr><td><a href='/video/BV1X2421K7ti'>抽象土味勾史视频合集（22），十分钟新玩家白强晋级赛，孟老师表示，还是新玩家有感觉。老玩家双击进入太刺激了</a></td><td class=num>24.3万</td><td class=num>650s</td><td class=muted>2024-03-10 02:23</td><td></td></tr><tr><td><a href='/video/BV12w4m1f7M5'>抽象土味勾史视频合集（18），30分钟梦魇难度，梦汨想不明白，为什么灵敏度调到最低，还是被秒了？，看哭全球14亿牢玩家</a></td><td class=num>47.8万</td><td class=num>1833s</td><td class=muted>2024-02-28 06:54</td><td></td></tr><tr><td><a href='/video/BV1dr421s7oB'>抽象土味勾史视频（16）十三分钟无调料合集，原汁原味，吃过的都说好，堪比五星大厨</a></td><td class=num>64.5万</td><td class=num>790s</td><td class=muted>2024-02-26 02:10</td><td><span class="tag g">已备份</span></td></tr><tr><td><a href='/video/BV1WC411W7mr'>抽象土味勾史视频合集（10），太过于秦武王了，豆瓣拒绝评分。听说牢玩家坚持不到两分钟</a></td><td class=num>35.4万</td><td class=num>571s</td><td class=muted>2024-02-19 23:58</td><td></td></tr></table></div>
+<div class=foot>本页数据全部来自 B站 公开可见的账号与视频信息，仅作网络亚文化研究用。
+封面与视频版权归原 UP 主所有。如对收录有异议，请通过页面所附账号联系删除。</div>
+</div></body></html>

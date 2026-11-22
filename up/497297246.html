@@ -1,0 +1,104 @@
+<!DOCTYPE html><html lang="zh-CN"><head><base href="/tvdb-site/"><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>账号 497297246 · tvdb</title><style>
+:root{--bg:#0a0b0f;--card:#12141b;--card2:#171a23;--line:#242838;--fg:#e8ecf5;
+--dim:#8b95a7;--accent:#6aa6ff;--ok:#3ddc97;--warn:#ffb84d;--err:#ff6b6b}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);font:14px/1.55 -apple-system,
+"PingFang SC","Microsoft YaHei",sans-serif;
+background-image:radial-gradient(900px 460px at 12% -10%,rgba(46,88,165,.26) 0,transparent 60%);
+background-attachment:fixed}
+.wrap{max-width:1280px;margin:0 auto;padding:20px 18px 60px}
+a{color:var(--accent);text-decoration:none} a:hover{text-decoration:underline}
+h1{font-size:21px;margin:0 0 3px;letter-spacing:-.02em;
+background:linear-gradient(92deg,#f2f7ff,#9dc4ff 55%,#b39bff);
+-webkit-background-clip:text;background-clip:text;color:transparent}
+.sub{color:var(--dim);font-size:12.5px;margin-bottom:16px}
+nav{margin:0 0 16px;display:flex;gap:6px;flex-wrap:wrap}
+nav a{padding:7px 13px;border:1px solid var(--line);border-radius:9px;background:var(--card);
+font-size:13px;color:var(--fg)}
+nav a.on{border-color:var(--accent);color:#fff}
+.card{background:var(--card);border:1px solid var(--line);border-radius:13px;padding:15px;margin-bottom:13px}
+.card h2{font-size:12.5px;margin:0 0 11px;color:var(--dim);font-weight:600;
+letter-spacing:.06em;text-transform:uppercase}
+table{width:100%;border-collapse:collapse;font-size:12.5px}
+th,td{text-align:left;padding:7px 6px;border-bottom:1px solid var(--line);vertical-align:top}
+th{color:var(--dim);font-weight:500;font-size:11.5px}
+tr:hover td{background:rgba(106,166,255,.04)}
+.num{text-align:right;font-variant-numeric:tabular-nums}
+.muted{color:var(--dim);font-size:12px}
+.tag{font-size:11px;padding:1px 7px;border-radius:5px;background:var(--card2);
+color:var(--dim);display:inline-block;margin:1px 2px 1px 0}
+.tag.s{color:var(--accent)}
+.tag.g{color:var(--ok)} .tag.w{color:var(--warn)} .tag.e{color:var(--err)}
+.stats{display:flex;gap:22px;flex-wrap:wrap}
+.stats div{font-size:12px;color:var(--dim)}
+.stats b{display:block;font-size:19px;color:var(--fg);font-weight:600}
+input,select,button{background:var(--card2);border:1px solid var(--line);color:var(--fg);
+border-radius:8px;padding:7px 10px;font-size:13px;outline:none}
+input:focus,select:focus{border-color:var(--accent)}
+form.row{display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin-bottom:12px}
+input.grow{flex:1;min-width:180px}
+.cvrow{display:flex;gap:4px}
+a.cv{display:block;width:84px;height:48px;overflow:hidden;border-radius:4px;
+border:1px solid var(--line);background:var(--card2)}
+a.cv img{width:100%;height:100%;object-fit:cover;display:block}
+a.cv:hover{border-color:var(--accent)}
+td.covs{white-space:nowrap}
+.foot{margin:34px 0 10px;padding-top:14px;border-top:1px solid var(--line);
+color:var(--dim);font-size:12px;line-height:1.7}
+.tabrow{display:flex;gap:8px;flex-wrap:wrap;margin:4px 0 10px}
+a.tabk{padding:5px 12px;border:1px solid var(--line);border-radius:16px;
+font-size:12.5px;text-decoration:none;color:var(--dim)}
+a.tabk.sel{background:var(--accent);color:#0a0b0f;border-color:var(--accent);font-weight:600}
+a.tabk:hover{border-color:var(--accent);color:var(--accent)}
+a.tabk.sel:hover{color:#0a0b0f}
+td.act{white-space:nowrap}
+button.byes,button.bno{padding:4px 12px;border-radius:6px;border:1px solid var(--line);
+background:var(--card2);color:var(--fg);font-size:12px;cursor:pointer;margin-right:4px}
+button.byes:hover{background:#3ddc97;color:#0a0b0f;border-color:#3ddc97}
+button.bno:hover{background:#ff6b6b;color:#0a0b0f;border-color:#ff6b6b}
+.small{font-size:11px;color:var(--dim);max-width:200px}
+.avrow{display:flex;flex-wrap:wrap;gap:10px}
+.avline{display:flex;flex-direction:column;align-items:center;width:56px;gap:3px;
+text-decoration:none;color:var(--dim);font-size:10px;text-align:center}
+.avline img{width:40px;height:40px;border-radius:50%;object-fit:cover;
+background:var(--card2);border:1px solid var(--line)}
+.avline:hover{color:var(--accent)}
+.avline:hover img{border-color:var(--accent)}
+a.more{color:var(--accent);font-size:12.5px;text-decoration:none}
+a.more:hover{text-decoration:underline}
+td.av{width:44px;padding-right:0}
+td.av img{width:36px;height:36px;border-radius:50%;object-fit:cover;display:block;
+background:var(--card2);border:1px solid var(--line)}
+td.av a{display:block}
+a.upname{font-weight:600;text-decoration:none;color:var(--fg)}
+a.upname:hover{color:var(--accent);text-decoration:underline}
+a.detail{font-size:10.5px;color:var(--dim);text-decoration:none;border:1px solid var(--line);
+border-radius:4px;padding:1px 4px;margin-left:2px}
+a.detail:hover{color:var(--accent);border-color:var(--accent)}
+td.note{max-width:520px;font-size:11.5px;line-height:1.5;color:#b8c4d8}
+td.note b{color:var(--accent);font-weight:600}
+.sig{color:var(--dim);font-size:11.5px;max-width:340px;overflow:hidden;
+text-overflow:ellipsis;white-space:nowrap;display:inline-block;vertical-align:bottom}
+.warnbox{border-left:3px solid var(--warn);background:rgba(255,184,77,.07);
+padding:9px 12px;border-radius:0 8px 8px 0;font-size:12.5px;color:#e8d5b0;margin:10px 0}
+</style></head><body><div class="wrap">
+<h1>tvdb</h1><div class="sub">TV 系内容观测库 · 中国社会的一个窗口</div>
+<nav><a href="index.html">概览</a><a href="ups.html" class=on>账号</a><a href="series.html">系列</a><a href="themes.html">大主题</a><a href="community.html">圈子</a><a href="memes.html">梗</a><a href="report.html">调研报告</a></nav><div class=card><h2>寻史真人</h2>
+<table>
+<tr><th>mid</th><td><code>497297246</code></td></tr>
+<tr><th>粉丝</th><td>3598</td></tr>
+<tr><th>投稿数</th><td>160</td></tr>
+<tr><th>签名</th><td>私信主播扩列喵</td></tr>
+<tr><th>状态</th><td>正常</td></tr>
+</table></div>
+<div class=card><h2>角色判定</h2>
+<table><tr><th>角色</th><th class=num>置信度</th><th>依据</th></tr><tr><td colspan=3 class=muted>未判定</td></tr></table></div>
+<div class=card><h2>粉丝轨迹</h2>
+<table><tr><th>时间</th><th class=num>粉丝</th><th class=num>投稿</th></tr><tr><td colspan=3 class=muted>只有一次快照</td></tr></table></div>
+<div class=card><h2>投稿（12）</h2>
+<table><tr><th>标题</th><th class=num>播放</th><th class=num>时长</th><th>发布</th><th></th></tr><tr><td><a href='/video/BV1tnHj6JE5B'>东百TV小剧场 依旧孩子王依旧霸气侧漏依旧经历过大风大浪保持童心依旧豪气洒脱</a></td><td class=num>3.9万</td><td class=num>4:28s</td><td class=muted>2026-10-04 09:16</td><td></td></tr><tr><td><a href='/video/BV1LuN46SER2'>弗雷尔卓德TV之豪爽东北汉子 依旧孩子王依旧不经意间霸气侧漏依旧经历过大风大浪看开一切依旧随性</a></td><td class=num>10.1万</td><td class=num>187s</td><td class=muted>2026-07-11 06:58</td><td></td></tr><tr><td><a href='/video/BV1bTRpBEEht'>养生TV之小登说的大道理 我们不吃蛋白质 我们就要吃大馒头夹猪油 让营养物质反过来流</a></td><td class=num>9253</td><td class=num>17s</td><td class=muted>2026-05-06 03:20</td><td></td></tr><tr><td><a href='/video/BV1SKAMzwE9g'>依旧弗雷尔卓德大调 依旧馄饨酒馆 依旧孩子王 依旧霸气侧漏的同时又不失风趣</a></td><td class=num>3.0万</td><td class=num>18s</td><td class=muted>2026-03-22 05:23</td><td></td></tr><tr><td><a href='/video/BV1eoZMBbEfa'>久等了！！自然女TV1.0加长版试水之作推出！ 仅供b友跨年食用 祝大家新年快乐！！！！</a></td><td class=num>24.6万</td><td class=num>717s</td><td class=muted>2026-02-16 14:39</td><td></td></tr><tr><td><a href='/video/BV17tiqBxEMt'>创业TV第三弹 用djb（大橘包）交换药理奶茶 网上说说得了 现实谁不想左一个djb右一杯中药茶</a></td><td class=num>9.4万</td><td class=num>35s</td><td class=muted>2026-01-03 13:50</td><td></td></tr><tr><td><a href='/video/BV1AxvZBsEh7'>创业TV第二弹 我们不吃塔斯汀麦当劳 我们就要吃djb（大橘包）</a></td><td class=num>39.2万</td><td class=num>35s</td><td class=muted>2026-01-02 07:06</td><td></td></tr><tr><td><a href='/video/BV1BgBrB3Etv'>创业TV之中年宝妈自创中药奶茶 我们不喝蜜雪古茗瑞幸 我们就爱喝中药奶茶</a></td><td class=num>36.1万</td><td class=num>95s</td><td class=muted>2025-12-27 02:24</td><td></td></tr><tr><td><a href='/video/BV1W2BeBYEan'>已经想不出来标题了 东北老铁这赛季太超标 已有大帝之姿</a></td><td class=num>7.3万</td><td class=num>19s</td><td class=muted>2025-12-26 08:38</td><td></td></tr><tr><td><a href='/video/BV1KgBKBsEEL'>急急如律令加长纯享版 少量个例不能代表东北人 注：视频中短发的都是女生</a></td><td class=num>36.2万</td><td class=num>115s</td><td class=muted>2025-12-23 10:38</td><td></td></tr><tr><td><a href='/video/BV1myBPBpEKp'>馄饨tv之东北混沌小酒馆  每个人都很自由很洒脱，给人一种快意江湖的感觉 这就是咱东北老铁</a></td><td class=num>5.7万</td><td class=num>15s</td><td class=muted>2025-12-23 06:41</td><td></td></tr><tr><td><a href='/video/BV11jqmBqEf4'>智人tv之遥控人 戒掉蛋白质和盐 今日方知我是我</a></td><td class=num>12.0万</td><td class=num>23s</td><td class=muted>2025-12-21 09:29</td><td></td></tr></table></div>
+<div class=foot>本页数据全部来自 B站 公开可见的账号与视频信息，仅作网络亚文化研究用。
+封面与视频版权归原 UP 主所有。如对收录有异议，请通过页面所附账号联系删除。</div>
+</div></body></html>

@@ -1,0 +1,104 @@
+<!DOCTYPE html><html lang="zh-CN"><head><base href="/tvdb-site/"><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>账号 40875484 · tvdb</title><style>
+:root{--bg:#0a0b0f;--card:#12141b;--card2:#171a23;--line:#242838;--fg:#e8ecf5;
+--dim:#8b95a7;--accent:#6aa6ff;--ok:#3ddc97;--warn:#ffb84d;--err:#ff6b6b}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);font:14px/1.55 -apple-system,
+"PingFang SC","Microsoft YaHei",sans-serif;
+background-image:radial-gradient(900px 460px at 12% -10%,rgba(46,88,165,.26) 0,transparent 60%);
+background-attachment:fixed}
+.wrap{max-width:1280px;margin:0 auto;padding:20px 18px 60px}
+a{color:var(--accent);text-decoration:none} a:hover{text-decoration:underline}
+h1{font-size:21px;margin:0 0 3px;letter-spacing:-.02em;
+background:linear-gradient(92deg,#f2f7ff,#9dc4ff 55%,#b39bff);
+-webkit-background-clip:text;background-clip:text;color:transparent}
+.sub{color:var(--dim);font-size:12.5px;margin-bottom:16px}
+nav{margin:0 0 16px;display:flex;gap:6px;flex-wrap:wrap}
+nav a{padding:7px 13px;border:1px solid var(--line);border-radius:9px;background:var(--card);
+font-size:13px;color:var(--fg)}
+nav a.on{border-color:var(--accent);color:#fff}
+.card{background:var(--card);border:1px solid var(--line);border-radius:13px;padding:15px;margin-bottom:13px}
+.card h2{font-size:12.5px;margin:0 0 11px;color:var(--dim);font-weight:600;
+letter-spacing:.06em;text-transform:uppercase}
+table{width:100%;border-collapse:collapse;font-size:12.5px}
+th,td{text-align:left;padding:7px 6px;border-bottom:1px solid var(--line);vertical-align:top}
+th{color:var(--dim);font-weight:500;font-size:11.5px}
+tr:hover td{background:rgba(106,166,255,.04)}
+.num{text-align:right;font-variant-numeric:tabular-nums}
+.muted{color:var(--dim);font-size:12px}
+.tag{font-size:11px;padding:1px 7px;border-radius:5px;background:var(--card2);
+color:var(--dim);display:inline-block;margin:1px 2px 1px 0}
+.tag.s{color:var(--accent)}
+.tag.g{color:var(--ok)} .tag.w{color:var(--warn)} .tag.e{color:var(--err)}
+.stats{display:flex;gap:22px;flex-wrap:wrap}
+.stats div{font-size:12px;color:var(--dim)}
+.stats b{display:block;font-size:19px;color:var(--fg);font-weight:600}
+input,select,button{background:var(--card2);border:1px solid var(--line);color:var(--fg);
+border-radius:8px;padding:7px 10px;font-size:13px;outline:none}
+input:focus,select:focus{border-color:var(--accent)}
+form.row{display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin-bottom:12px}
+input.grow{flex:1;min-width:180px}
+.cvrow{display:flex;gap:4px}
+a.cv{display:block;width:84px;height:48px;overflow:hidden;border-radius:4px;
+border:1px solid var(--line);background:var(--card2)}
+a.cv img{width:100%;height:100%;object-fit:cover;display:block}
+a.cv:hover{border-color:var(--accent)}
+td.covs{white-space:nowrap}
+.foot{margin:34px 0 10px;padding-top:14px;border-top:1px solid var(--line);
+color:var(--dim);font-size:12px;line-height:1.7}
+.tabrow{display:flex;gap:8px;flex-wrap:wrap;margin:4px 0 10px}
+a.tabk{padding:5px 12px;border:1px solid var(--line);border-radius:16px;
+font-size:12.5px;text-decoration:none;color:var(--dim)}
+a.tabk.sel{background:var(--accent);color:#0a0b0f;border-color:var(--accent);font-weight:600}
+a.tabk:hover{border-color:var(--accent);color:var(--accent)}
+a.tabk.sel:hover{color:#0a0b0f}
+td.act{white-space:nowrap}
+button.byes,button.bno{padding:4px 12px;border-radius:6px;border:1px solid var(--line);
+background:var(--card2);color:var(--fg);font-size:12px;cursor:pointer;margin-right:4px}
+button.byes:hover{background:#3ddc97;color:#0a0b0f;border-color:#3ddc97}
+button.bno:hover{background:#ff6b6b;color:#0a0b0f;border-color:#ff6b6b}
+.small{font-size:11px;color:var(--dim);max-width:200px}
+.avrow{display:flex;flex-wrap:wrap;gap:10px}
+.avline{display:flex;flex-direction:column;align-items:center;width:56px;gap:3px;
+text-decoration:none;color:var(--dim);font-size:10px;text-align:center}
+.avline img{width:40px;height:40px;border-radius:50%;object-fit:cover;
+background:var(--card2);border:1px solid var(--line)}
+.avline:hover{color:var(--accent)}
+.avline:hover img{border-color:var(--accent)}
+a.more{color:var(--accent);font-size:12.5px;text-decoration:none}
+a.more:hover{text-decoration:underline}
+td.av{width:44px;padding-right:0}
+td.av img{width:36px;height:36px;border-radius:50%;object-fit:cover;display:block;
+background:var(--card2);border:1px solid var(--line)}
+td.av a{display:block}
+a.upname{font-weight:600;text-decoration:none;color:var(--fg)}
+a.upname:hover{color:var(--accent);text-decoration:underline}
+a.detail{font-size:10.5px;color:var(--dim);text-decoration:none;border:1px solid var(--line);
+border-radius:4px;padding:1px 4px;margin-left:2px}
+a.detail:hover{color:var(--accent);border-color:var(--accent)}
+td.note{max-width:520px;font-size:11.5px;line-height:1.5;color:#b8c4d8}
+td.note b{color:var(--accent);font-weight:600}
+.sig{color:var(--dim);font-size:11.5px;max-width:340px;overflow:hidden;
+text-overflow:ellipsis;white-space:nowrap;display:inline-block;vertical-align:bottom}
+.warnbox{border-left:3px solid var(--warn);background:rgba(255,184,77,.07);
+padding:9px 12px;border-radius:0 8px 8px 0;font-size:12.5px;color:#e8d5b0;margin:10px 0}
+</style></head><body><div class="wrap">
+<h1>tvdb</h1><div class="sub">TV 系内容观测库 · 中国社会的一个窗口</div>
+<nav><a href="index.html">概览</a><a href="ups.html" class=on>账号</a><a href="series.html">系列</a><a href="themes.html">大主题</a><a href="community.html">圈子</a><a href="memes.html">梗</a><a href="report.html">调研报告</a></nav><div class=card><h2>智人行为研究院院长</h2>
+<table>
+<tr><th>mid</th><td><code>40875484</code></td></tr>
+<tr><th>粉丝</th><td>2.5万</td></tr>
+<tr><th>投稿数</th><td>284</td></tr>
+<tr><th>签名</th><td>关注我带你看互联网智人</td></tr>
+<tr><th>状态</th><td>正常</td></tr>
+</table></div>
+<div class=card><h2>角色判定</h2>
+<table><tr><th>角色</th><th class=num>置信度</th><th>依据</th></tr><tr><td>搬运号 <span class=muted>reposter</span></td><td class=num>1.0</td><td class=muted>2.5 万粉，自称院长。「研究院」是这套命名里最常见的头衔戏仿。</td></tr><tr><td>研究型 <span class=muted>researcher</span></td><td class=num>1.0</td><td class=muted>2.5 万粉，自称院长。「研究院」是这套命名里最常见的头衔戏仿。</td></tr></table></div>
+<div class=card><h2>粉丝轨迹</h2>
+<table><tr><th>时间</th><th class=num>粉丝</th><th class=num>投稿</th></tr><tr><td class=muted>2026-11-21 09:07</td><td class=num>2.5万</td><td class=num>284</td></tr></table></div>
+<div class=card><h2>投稿（54）</h2>
+<table><tr><th>标题</th><th class=num>播放</th><th class=num>时长</th><th>发布</th><th></th></tr><tr><td><a href='/video/BV1Nesz6SEuV'>【赌狗TV】103期 兄弟别赌了，100块钱能买这么多东西的</a></td><td class=num>6707</td><td class=num>341s</td><td class=muted>2026-11-17 09:33</td><td></td></tr><tr><td><a href='/video/BV1yTWz65EVp'>【赌狗TV】102期 兄弟们快过年了，戒掉六合彩，挣钱回家过热闹年</a></td><td class=num>3.4万</td><td class=num>3:32s</td><td class=muted>2026-11-13 13:20</td><td></td></tr><tr><td><a href='/video/BV1uaW263EiN'>【赌狗TV】疯狂的PG小子</a></td><td class=num>4.2万</td><td class=num>4:31s</td><td class=muted>2026-11-11 13:09</td><td></td></tr><tr><td><a href='/video/BV1B8W36RELw'>【赌狗TV】一定不要沾染赌博，被这个小伙子气到了！</a></td><td class=num>3.0万</td><td class=num>384s</td><td class=muted>2026-11-10 13:42</td><td></td></tr><tr><td><a href='/video/BV1gMxq6XEqg'>【智人TV】仇人绞尽脑汁不如家人灵机一动</a></td><td class=num>3.1万</td><td class=num>137s</td><td class=muted>2026-10-30 13:41</td><td></td></tr><tr><td><a href='/video/BV1Aexu6wEpY'>【赌狗TV】我教你一招戒掉赌博</a></td><td class=num>3.4万</td><td class=num>3:50s</td><td class=muted>2026-10-28 03:00</td><td></td></tr><tr><td><a href='/video/BV1pexu6wEeU'>【赌狗TV】PG小子现时返场！疑似复读再次挂壁</a></td><td class=num>1.8万</td><td class=num>233s</td><td class=muted>2026-10-27 14:03</td><td></td></tr><tr><td><a href='/video/BV1XJnZ6TEbo'>【赌狗TV】败光母亲养老钱500块扎碎了我的心_远离网络赌博</a></td><td class=num>9.8万</td><td class=num>593s</td><td class=muted>2026-10-26 13:46</td><td></td></tr><tr><td><a href='/video/BV1ZrnJ6BEaz'>【赌狗TV】赌狗洗白2600W告诫所有人</a></td><td class=num>43.1万</td><td class=num>499s</td><td class=muted>2026-10-19 09:47</td><td></td></tr><tr><td><a href='/video/BV1hinu6wEjq'>【赌狗TV】00后小姐姐又给澳门贡献了十万块</a></td><td class=num>40.9万</td><td class=num>314s</td><td class=muted>2026-10-18 08:04</td><td><span class="tag g">已备份</span></td></tr><tr><td><a href='/video/BV1CUpg6fEhh'>【赌狗TV】孩子爸的赌博生涯还在继续，我可怜的孩子没奶粉吃</a></td><td class=num>2.9万</td><td class=num>381s</td><td class=muted>2026-10-10 09:37</td><td></td></tr><tr><td><a href='/video/BV1x9px6rExJ'>【赌狗TV】为什么说赌狗一辈子戒不了赌</a></td><td class=num>37.3万</td><td class=num>385s</td><td class=muted>2026-10-09 11:00</td><td></td></tr><tr><td><a href='/video/BV1KTHS6MEs9'>【智人TV】大格局妈妈给人家大夫气晕了</a></td><td class=num>6.8万</td><td class=num>452s</td><td class=muted>2026-10-08 07:10</td><td></td></tr><tr><td><a href='/video/BV1eLaz67ENQ'>【智人TV】大格局妈妈 中国有嘻哈</a></td><td class=num>9.6万</td><td class=num>477s</td><td class=muted>2026-10-01 08:40</td><td></td></tr><tr><td><a href='/video/BV1M7es6qEiP'>【炒股TV】嘻嘻，我600抄底了宇树科技这下赚大了</a></td><td class=num>4.0万</td><td class=num>199s</td><td class=muted>2026-09-16 09:30</td><td></td></tr><tr><td><a href='/video/BV1NTYk65EnS'>【炒股TV】嘻嘻，我750抄底了宇树科技这下赚大了</a></td><td class=num>24.7万</td><td class=num>4:40s</td><td class=muted>2026-09-14 10:30</td><td></td></tr><tr><td><a href='/video/BV1zMYL6ZEe5'>【赌狗TV】戒赌打卡第一天，15个小时跑车550元</a></td><td class=num>2.5万</td><td class=num>548s</td><td class=muted>2026-09-11 10:00</td><td></td></tr><tr><td><a href='/video/BV1wubs6LETZ'>【赌狗TV】听我的别买六合彩了</a></td><td class=num>1.1万</td><td class=num>304s</td><td class=muted>2026-09-06 12:43</td><td></td></tr><tr><td><a href='/video/BV1X2tb6rEw5'>【炒股TV】你问他赚了亏了，他说悟了</a></td><td class=num>1.9万</td><td class=num>7:30s</td><td class=muted>2026-08-31 12:47</td><td></td></tr><tr><td><a href='/video/BV1MR8X63EJH'>【炒股TV】不炒股了，还是去相亲吧</a></td><td class=num>2.4万</td><td class=num>138s</td><td class=muted>2026-08-26 11:34</td><td></td></tr><tr><td><a href='/video/BV1zM8b6sE19'>【赌狗TV】儿子你先别喝奶粉了，先给我梭哈一把</a></td><td class=num>15.2万</td><td class=num>865s</td><td class=muted>2026-08-23 11:22</td><td></td></tr><tr><td><a href='/video/BV1b8gN6WE5G'>最高点梭哈白银，这是她的心路历程</a></td><td class=num>1.8万</td><td class=num>198s</td><td class=muted>2026-08-14 15:16</td><td></td></tr><tr><td><a href='/video/BV1rmgE6JEUt'>【智人TV】怀孕了就不能来相亲吗？</a></td><td class=num>5.2万</td><td class=num>357s</td><td class=muted>2026-08-13 05:00</td><td></td></tr><tr><td><a href='/video/BV1Lvun6GE5n'>【赌狗TV】韩国人不怕，韩国人会飞✈</a></td><td class=num>3.9万</td><td class=num>165s</td><td class=muted>2026-08-06 08:19</td><td></td></tr><tr><td><a href='/video/BV1nN3o6xEzQ'>【伪史TV】全程能绷住的可以确诊抑郁症了</a></td><td class=num>4.0万</td><td class=num>360s</td><td class=muted>2026-08-02 14:30</td><td></td></tr><tr><td><a href='/video/BV1yAgX67Ec1'>【智人TV】成哥今天吃什么</a></td><td class=num>6553</td><td class=num>426s</td><td class=muted>2026-07-23 09:30</td><td></td></tr><tr><td><a href='/video/BV1SBgC6aEAv'>【抽象TV】依旧民办阿根廷人这块</a></td><td class=num>14.4万</td><td class=num>344s</td><td class=muted>2026-07-22 13:00</td><td></td></tr><tr><td><a href='/video/BV1s1gC6oE9L'>【赌狗TV】在稳健和梭哈之间他选择了上杠杆</a></td><td class=num>3.4万</td><td class=num>325s</td><td class=muted>2026-07-22 12:00</td><td></td></tr><tr><td><a href='/video/BV1qkKb6ZEcm'>【赌狗TV】澳门风云系列</a></td><td class=num>11.8万</td><td class=num>336s</td><td class=muted>2026-07-22 09:10</td><td></td></tr><tr><td><a href='/video/BV1AbKb6BEea'>【赌狗TV】世界杯最后一舞！梭哈阿根廷冠军！</a></td><td class=num>1.8万</td><td class=num>177s</td><td class=muted>2026-07-21 10:30</td><td></td></tr><tr><td><a href='/video/BV1oiKm61ELS'>【赌狗TV】坏了真给他中了</a></td><td class=num>16.4万</td><td class=num>341s</td><td class=muted>2026-07-20 11:00</td><td></td></tr><tr><td><a href='/video/BV11pNR6CE3i'>【赌狗TV】贷款三万一周输光，戒赌！</a></td><td class=num>10.4万</td><td class=num>764s</td><td class=muted>2026-07-17 14:00</td><td></td></tr><tr><td><a href='/video/BV1kNK56oELC'>【赌狗TV】对喽就这么赌，孩子的奶粉钱房子的抵押款都是很好的翻身本</a></td><td class=num>33.7万</td><td class=num>469s</td><td class=muted>2026-07-16 13:00</td><td></td></tr><tr><td><a href='/video/BV1wHNz6FEee'>【创业TV】宝妈挑战花光老公70W开瑜伽馆 &amp;amp; deepseek帮全职宝妈找月入过万的工作</a></td><td class=num>2.6万</td><td class=num>368s</td><td class=muted>2026-07-16 08:00</td><td></td></tr><tr><td><a href='/video/BV1LgNm6zEgP'>【赌狗TV】彩票滞销帮帮我们😭😭</a></td><td class=num>7.8万</td><td class=num>370s</td><td class=muted>2026-07-13 13:00</td><td></td></tr><tr><td><a href='/video/BV1RLN769EUh'>【赌狗TV】7天输掉100万不跳等啥呢</a></td><td class=num>63.5万</td><td class=num>303s</td><td class=muted>2026-07-10 13:00</td><td><span class="tag g">已备份</span></td></tr><tr><td><a href='/video/BV1MmTQ6mE94'>仇人看到都释怀了</a></td><td class=num>26.8万</td><td class=num>397s</td><td class=muted>2026-07-07 12:00</td><td></td></tr><tr><td><a href='/video/BV1MST76EE5R'>【赌狗TV】天才交易员的陨落</a></td><td class=num>3.9万</td><td class=num>3:49s</td><td class=muted>2026-07-03 03:30</td><td></td></tr><tr><td><a href='/video/BV1AU7a6rE49'>【智人TV】神人家长高考完送逆天三件套总价值不超过200元，开机不爆炸就算成功</a></td><td class=num>30.9万</td><td class=num>129s</td><td class=muted>2026-06-26 02:00</td><td></td></tr><tr><td><a href='/video/BV1V9jb6mEK3'>【智人TV】打压教育这一块 允许逃离原生家庭</a></td><td class=num>1.7万</td><td class=num>157s</td><td class=muted>2026-06-22 10:00</td><td></td></tr><tr><td><a href='/video/BV13Bj862E7z'>【大果TV】”来湖南什么没学会就学会了吃槟榔“ 没吃的赶紧吃</a></td><td class=num>7.9万</td><td class=num>345s</td><td class=muted>2026-06-21 11:56</td><td></td></tr><tr><td><a href='/video/BV14ojp6nE5e'>【赌狗TV】梭哈葡萄牙把车都卖了，这次你一定要赢！</a></td><td class=num>2.8万</td><td class=num>190s</td><td class=muted>2026-06-21 00:00</td><td></td></tr><tr><td><a href='/video/BV1SoJw66E6x'>【赌狗TV】一场世界杯顶我打工三年</a></td><td class=num>1.9万</td><td class=num>198s</td><td class=muted>2026-06-14 07:04</td><td></td></tr><tr><td><a href='/video/BV1QMEq6TEPV'>【智人TV】什么叫打三角洲没考上高考英语</a></td><td class=num>67.6万</td><td class=num>2:58s</td><td class=muted>2026-06-11 12:37</td><td></td></tr><tr><td><a href='/video/BV1yaEn62EQx'>【赌狗TV】“妈妈再帮我还一次吧”</a></td><td class=num>5.0万</td><td class=num>1085s</td><td class=muted>2026-06-06 12:14</td><td></td></tr><tr><td><a href='/video/BV1EyGL6rEo2'>【混的TV】依旧十个人吃不起一碗饭</a></td><td class=num>3.0万</td><td class=num>8:24s</td><td class=muted>2026-05-24 02:41</td><td></td></tr><tr><td><a href='/video/BV1UKGz6REzf'>【炒股TV】什么叫B计划</a></td><td class=num>1.5万</td><td class=num>45s</td><td class=muted>2026-05-23 11:25</td><td></td></tr><tr><td><a href='/video/BV1Kn5v62EgU'>【赌狗TV】男子打游戏花费近百万，母亲哭泣跪地，男子：都怪你们说我不好</a></td><td class=num>2.3万</td><td class=num>504s</td><td class=muted>2026-05-17 12:20</td><td></td></tr><tr><td><a href='/video/BV1mf5v6SE9j'>【赌狗TV】你们可能不认识我 但一定听过我的故事</a></td><td class=num>1.3万</td><td class=num>186s</td><td class=muted>2026-05-15 07:58</td><td></td></tr><tr><td><a href='/video/BV1u35d65Em9'>【赌狗TV】经典之孩子的奶粉钱 爸爸的卖命钱</a></td><td class=num>4.3万</td><td class=num>290s</td><td class=muted>2026-05-14 14:43</td><td></td></tr><tr><td><a href='/video/BV1ogR9B2ExY'>【智人TV】花光退伍费贷款买特斯拉 老母亲还住在砖头房</a></td><td class=num>39.0万</td><td class=num>66s</td><td class=muted>2026-05-09 12:29</td><td></td></tr><tr><td><a href='/video/BV1S7RKBqEdr'>压抑TV：压抑TV之当个事办</a></td><td class=num>4.2万</td><td class=num>89s</td><td class=muted>2026-05-01 04:45</td><td></td></tr><tr><td><a href='/video/BV1eyjs6TEoq'>【赌狗TV】世界杯空中飞人合集</a></td><td class=num>2.6万</td><td class=num>152s</td><td class=muted>—</td><td></td></tr><tr><td><a href='/video/BV1atGH62EU9'>【赌狗TV】不要跳，下次买准了就好了</a></td><td class=num>17.6万</td><td class=num>231s</td><td class=muted>—</td><td></td></tr></table></div>
+<div class=foot>本页数据全部来自 B站 公开可见的账号与视频信息，仅作网络亚文化研究用。
+封面与视频版权归原 UP 主所有。如对收录有异议，请通过页面所附账号联系删除。</div>
+</div></body></html>

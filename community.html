@@ -1,0 +1,458 @@
+<!DOCTYPE html><html lang="zh-CN"><head><base href="/tvdb-site/"><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>圈子 · tvdb</title><style>
+:root{--bg:#0a0b0f;--card:#12141b;--card2:#171a23;--line:#242838;--fg:#e8ecf5;
+--dim:#8b95a7;--accent:#6aa6ff;--ok:#3ddc97;--warn:#ffb84d;--err:#ff6b6b}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);font:14px/1.55 -apple-system,
+"PingFang SC","Microsoft YaHei",sans-serif;
+background-image:radial-gradient(900px 460px at 12% -10%,rgba(46,88,165,.26) 0,transparent 60%);
+background-attachment:fixed}
+.wrap{max-width:1280px;margin:0 auto;padding:20px 18px 60px}
+a{color:var(--accent);text-decoration:none} a:hover{text-decoration:underline}
+h1{font-size:21px;margin:0 0 3px;letter-spacing:-.02em;
+background:linear-gradient(92deg,#f2f7ff,#9dc4ff 55%,#b39bff);
+-webkit-background-clip:text;background-clip:text;color:transparent}
+.sub{color:var(--dim);font-size:12.5px;margin-bottom:16px}
+nav{margin:0 0 16px;display:flex;gap:6px;flex-wrap:wrap}
+nav a{padding:7px 13px;border:1px solid var(--line);border-radius:9px;background:var(--card);
+font-size:13px;color:var(--fg)}
+nav a.on{border-color:var(--accent);color:#fff}
+.card{background:var(--card);border:1px solid var(--line);border-radius:13px;padding:15px;margin-bottom:13px}
+.card h2{font-size:12.5px;margin:0 0 11px;color:var(--dim);font-weight:600;
+letter-spacing:.06em;text-transform:uppercase}
+table{width:100%;border-collapse:collapse;font-size:12.5px}
+th,td{text-align:left;padding:7px 6px;border-bottom:1px solid var(--line);vertical-align:top}
+th{color:var(--dim);font-weight:500;font-size:11.5px}
+tr:hover td{background:rgba(106,166,255,.04)}
+.num{text-align:right;font-variant-numeric:tabular-nums}
+.muted{color:var(--dim);font-size:12px}
+.tag{font-size:11px;padding:1px 7px;border-radius:5px;background:var(--card2);
+color:var(--dim);display:inline-block;margin:1px 2px 1px 0}
+.tag.s{color:var(--accent)}
+.tag.g{color:var(--ok)} .tag.w{color:var(--warn)} .tag.e{color:var(--err)}
+.stats{display:flex;gap:22px;flex-wrap:wrap}
+.stats div{font-size:12px;color:var(--dim)}
+.stats b{display:block;font-size:19px;color:var(--fg);font-weight:600}
+input,select,button{background:var(--card2);border:1px solid var(--line);color:var(--fg);
+border-radius:8px;padding:7px 10px;font-size:13px;outline:none}
+input:focus,select:focus{border-color:var(--accent)}
+form.row{display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin-bottom:12px}
+input.grow{flex:1;min-width:180px}
+.cvrow{display:flex;gap:4px}
+a.cv{display:block;width:84px;height:48px;overflow:hidden;border-radius:4px;
+border:1px solid var(--line);background:var(--card2)}
+a.cv img{width:100%;height:100%;object-fit:cover;display:block}
+a.cv:hover{border-color:var(--accent)}
+td.covs{white-space:nowrap}
+.foot{margin:34px 0 10px;padding-top:14px;border-top:1px solid var(--line);
+color:var(--dim);font-size:12px;line-height:1.7}
+.tabrow{display:flex;gap:8px;flex-wrap:wrap;margin:4px 0 10px}
+a.tabk{padding:5px 12px;border:1px solid var(--line);border-radius:16px;
+font-size:12.5px;text-decoration:none;color:var(--dim)}
+a.tabk.sel{background:var(--accent);color:#0a0b0f;border-color:var(--accent);font-weight:600}
+a.tabk:hover{border-color:var(--accent);color:var(--accent)}
+a.tabk.sel:hover{color:#0a0b0f}
+td.act{white-space:nowrap}
+button.byes,button.bno{padding:4px 12px;border-radius:6px;border:1px solid var(--line);
+background:var(--card2);color:var(--fg);font-size:12px;cursor:pointer;margin-right:4px}
+button.byes:hover{background:#3ddc97;color:#0a0b0f;border-color:#3ddc97}
+button.bno:hover{background:#ff6b6b;color:#0a0b0f;border-color:#ff6b6b}
+.small{font-size:11px;color:var(--dim);max-width:200px}
+.avrow{display:flex;flex-wrap:wrap;gap:10px}
+.avline{display:flex;flex-direction:column;align-items:center;width:56px;gap:3px;
+text-decoration:none;color:var(--dim);font-size:10px;text-align:center}
+.avline img{width:40px;height:40px;border-radius:50%;object-fit:cover;
+background:var(--card2);border:1px solid var(--line)}
+.avline:hover{color:var(--accent)}
+.avline:hover img{border-color:var(--accent)}
+a.more{color:var(--accent);font-size:12.5px;text-decoration:none}
+a.more:hover{text-decoration:underline}
+td.av{width:44px;padding-right:0}
+td.av img{width:36px;height:36px;border-radius:50%;object-fit:cover;display:block;
+background:var(--card2);border:1px solid var(--line)}
+td.av a{display:block}
+a.upname{font-weight:600;text-decoration:none;color:var(--fg)}
+a.upname:hover{color:var(--accent);text-decoration:underline}
+a.detail{font-size:10.5px;color:var(--dim);text-decoration:none;border:1px solid var(--line);
+border-radius:4px;padding:1px 4px;margin-left:2px}
+a.detail:hover{color:var(--accent);border-color:var(--accent)}
+td.note{max-width:520px;font-size:11.5px;line-height:1.5;color:#b8c4d8}
+td.note b{color:var(--accent);font-weight:600}
+.sig{color:var(--dim);font-size:11.5px;max-width:340px;overflow:hidden;
+text-overflow:ellipsis;white-space:nowrap;display:inline-block;vertical-align:bottom}
+.warnbox{border-left:3px solid var(--warn);background:rgba(255,184,77,.07);
+padding:9px 12px;border-radius:0 8px 8px 0;font-size:12.5px;color:#e8d5b0;margin:10px 0}
+</style></head><body><div class="wrap">
+<h1>tvdb</h1><div class="sub">TV 系内容观测库 · 中国社会的一个窗口</div>
+<nav><a href="index.html">概览</a><a href="ups.html">账号</a><a href="series.html">系列</a><a href="themes.html">大主题</a><a href="community.html" class=on>圈子</a><a href="memes.html">梗</a><a href="report.html">调研报告</a></nav><div class=card><h2>自动聚出来的 60 个圈子</h2>
+<div style="font-size:13.5px;line-height:1.7">
+Louvain 从推荐位共现图里自动聚出来的。<b>社区是语义连贯的</b>——我看过实际成员：
+有的是动漫圈、有的是影视解说、<b>有一个正好是 TV 系</b>（蓝白灬绯 / 色霸天 / 两仪未那我宣你）。<br>
+<b>但纯度最高只有 21%</b>：TV 系在整个 B站 里是少数，所以它总跟「泛抽象娱乐」缠在一起。
+<b>结论：圈子用来「认人」，不用来当判定。</b>真正的判定靠共现度阈值（≥20 收 176 个，72-97% 准）。<br>
+<span class=muted>左边绿条 = 已知核心占比高，橙条 = 中等，灰条 = 低。</span></div></div>
+<div class=card style="border-left:3px solid #3ddc97">
+<h2 style="font-size:15px">社区19·以槟榔、抽象整活、底层处境围观和地域
+<span class=muted style="font-weight:400;font-size:12px">　207 个号 · 
+已确认核心 43（21%）</span></h2>
+<div style="font-size:13px;line-height:1.6;margin:6px 0 10px">以槟榔、抽象整活、底层处境围观和地域猎奇为共同素材的泛抽象/处境系内容集群｜成员含槟榔哥、冰狼侠侣、抽象冰工厂、火鸡神人社等处境系/抽象系号，但也混入侦探许烦烦、电影毒蛇啊、品史大师等非TV系内容号，需按主业细分保留。</div>
+<div style="margin-bottom:8px"><span class=tag title='赛博十克郎'>赛博十克郎</span><span class=tag title='侦探许烦烦'>侦探许烦烦</span><span class=tag title='抽象冰工厂'>抽象冰工厂</span><span class=tag title='靖裴亦叹雪'>靖裴亦叹雪</span><span class=tag title='冰狼侠侣'>冰狼侠侣</span><span class=tag title='氧气健身渣渣辉'>氧气健身渣渣辉</span><span class=tag title='品史大师'>品史大师</span><span class=tag title='槟榔哥正能量'>槟榔哥正能量</span><span class=tag title='谷子还是谷工'>谷子还是谷工</span><span class=tag title='老张在上班啊'>老张在上班啊</span><span class=tag title='电影毒蛇啊'>电影毒蛇啊</span><span class=tag title='亚里土缺德'>亚里土缺德</span><span class=tag title='道外大熊猫'>道外大熊猫</span><span class=tag title='昊bosss'>昊bosss</span></div>
+<div><a class=more href="review?scope=accepted&sort=fans">查看这些人 →</a></div></div><div class=card style="border-left:3px solid #3ddc97">
+<h2 style="font-size:15px">社区24·以抽象整活、怪谈猎奇和亚文化玩梗为主
+<span class=muted style="font-weight:400;font-size:12px">　147 个号 · 
+已确认核心 30（20%）</span></h2>
+<div style="font-size:13px;line-height:1.6;margin:6px 0 10px">以抽象整活、怪谈猎奇和亚文化玩梗为主的B站UP主社区｜虽含TV系抽象整活成员，但混入怪谈、科普、切片等多类UP主，需按内容细分而非整块处理</div>
+<div style="margin-bottom:8px"><span class=tag title='秦王-扫六合'>秦王-扫六合</span><span class=tag title='Theogenes'>Theogenes</span><span class=tag title='午夜怪谈_'>午夜怪谈_</span><span class=tag title='我看得见摸得着'>我看得见摸得着</span><span class=tag title='碧桑驾dell'>碧桑驾dell</span><span class=tag title='告訴你我好孤單'>告訴你我好孤單</span><span class=tag title='鲁_大_师'>鲁_大_师</span><span class=tag title='绿化锂'>绿化锂</span><span class=tag title='早川崎斯文'>早川崎斯文</span><span class=tag title='Lawrence-Arabia'>Lawrence-A</span><span class=tag title='神马的忧伤'>神马的忧伤</span><span class=tag title='铃屋丨什造'>铃屋丨什造</span><span class=tag title='抽象生物TV'>抽象生物TV</span><span class=tag title='沛雨の不胜传说'>沛雨の不胜传说</span></div>
+<div><a class=more href="review?scope=accepted&sort=fans">查看这些人 →</a></div></div><div class=card style="border-left:3px solid #3ddc97">
+<h2 style="font-size:15px">社区17·围绕土味、抽象、整活与底层生活观察的
+<span class=muted style="font-weight:400;font-size:12px">　238 个号 · 
+已确认核心 39（16%）</span></h2>
+<div style="font-size:13px;line-height:1.6;margin:6px 0 10px">围绕土味、抽象、整活与底层生活观察的泛娱乐整活社区，兼有纪录片式跟拍和吃喝日常内容｜虽含39个已确认TV系成员且抽象整活气质一致，但混入寻味在人间、达子吃喝日常、闹钟纪录片等非TV向生活/纪实UP，需细分保留TV系整活核心、剔除无关生活纪实类</div>
+<div style="margin-bottom:8px"><span class=tag title='地球online神人集合'>地球online神人</span><span class=tag title='集贸哥二台'>集贸哥二台</span><span class=tag title='集贸_刀工教父'>集贸_刀工教父</span><span class=tag title='土味垚垚'>土味垚垚</span><span class=tag title='抽象研究专员'>抽象研究专员</span><span class=tag title='抽象TVB'>抽象TVB</span><span class=tag title='好师兄戴梦'>好师兄戴梦</span><span class=tag title='力工定律'>力工定律</span><span class=tag title='抽是象'>抽是象</span><span class=tag title='天边的老白'>天边的老白</span><span class=tag title='无敌の坚果'>无敌の坚果</span><span class=tag title='布鲁辩论社'>布鲁辩论社</span><span class=tag title='寻味在人间'>寻味在人间</span><span class=tag title='芒果小朴'>芒果小朴</span></div>
+<div><a class=more href="review?scope=accepted&sort=fans">查看这些人 →</a></div></div><div class=card style="border-left:3px solid #ffb84d">
+<h2 style="font-size:15px">社区3·以抽象迷因、整活段子和反讽命名的亚文
+<span class=muted style="font-weight:400;font-size:12px">　543 个号 · 
+已确认核心 71（13%）</span></h2>
+<div style="font-size:13px;line-height:1.6;margin:6px 0 10px">以抽象迷因、整活段子和反讽命名的亚文化内容社区，围绕TV系命名位（剑人/贱人TV等）与迷因剪辑展开｜样本含剑人TV、剑人研究所等TV系命名位成员，但混入大量迷因/整活/动漫游戏向账号（如迷因牢大、新世纪迷因战士、MEGA皮卡抽），需按账号主业细分而非整块保留</div>
+<div style="margin-bottom:8px"><span class=tag title='贱人TV'>贱人TV</span><span class=tag title='重庆高级军统'>重庆高级军统</span><span class=tag title='Mr_Bastard'>Mr_Bastard</span><span class=tag title='难绷憨豆'>难绷憨豆</span><span class=tag title='剑人研究所'>剑人研究所</span><span class=tag title='goodfnd'>goodfnd</span><span class=tag title='初生先生_b站版'>初生先生_b站版</span><span class=tag title='MEGA皮卡抽'>MEGA皮卡抽</span><span class=tag title='猫史真好吃'>猫史真好吃</span><span class=tag title='JR_精选'>JR_精选</span><span class=tag title='迷因牢大'>迷因牢大</span><span class=tag title='_月亮与六硬币_'>_月亮与六硬币_</span><span class=tag title='DReel'>DReel</span><span class=tag title='-Latte冰拿铁'>-Latte冰拿铁</span></div>
+<div><a class=more href="review?scope=accepted&sort=fans">查看这些人 →</a></div></div><div class=card style="border-left:3px solid #ffb84d">
+<h2 style="font-size:15px">社区28·以抽象/搬屎/围观猎奇为核心的泛抽象
+<span class=muted style="font-weight:400;font-size:12px">　107 个号 · 
+已确认核心 13（12%）</span></h2>
+<div style="font-size:13px;line-height:1.6;margin:6px 0 10px">以抽象/搬屎/围观猎奇为核心的泛抽象内容聚合，混杂餐饮创业、生活记录与官媒等噪声账号｜样本含中医tv、搬史王、抽象研究菌等TV系命名与搬屎/抽象母题，但同簇混入中国新闻网、餐饮创业、母婴生活等无关账号，需按主业细分剔除噪声</div>
+<div style="margin-bottom:8px"><span class=tag title='中医tv'>中医tv</span><span class=tag title='小雪吃吃冰'>小雪吃吃冰</span><span class=tag title='虎王酱-搬史王'>虎王酱-搬史王</span><span class=tag title='六月雨上街書'>六月雨上街書</span><span class=tag title='抽象Institute'>抽象Institut</span><span class=tag title='抽象传播大使'>抽象传播大使</span><span class=tag title='抽象研究菌'>抽象研究菌</span><span class=tag title='勇哥餐饮说创業'>勇哥餐饮说创業</span><span class=tag title='勾栏子Golands'>勾栏子Golands</span><span class=tag title='倍多粪_淘金协会'>倍多粪_淘金协会</span><span class=tag title='搬屎王梦泪'>搬屎王梦泪</span><span class=tag title='勇次郎17小时绝唱'>勇次郎17小时绝唱</span><span class=tag title='餐饮小白创业说'>餐饮小白创业说</span><span class=tag title='软萌白团子'>软萌白团子</span></div>
+<div><a class=more href="review?scope=accepted&sort=fans">查看这些人 →</a></div></div><div class=card style="border-left:3px solid #ffb84d">
+<h2 style="font-size:15px">社区11·以抽象幽默、整活吐槽和日常观察为主的
+<span class=muted style="font-weight:400;font-size:12px">　347 个号 · 
+已确认核心 41（12%）</span></h2>
+<div style="font-size:13px;line-height:1.6;margin:6px 0 10px">以抽象幽默、整活吐槽和日常观察为主的泛娱乐整活社区｜虽含TV系整活基因，但混杂美食、科普、萌宠等多元内容，需细分保留TV系整活核心、排除无关品类</div>
+<div style="margin-bottom:8px"><span class=tag title='赌狗研究所'>赌狗研究所</span><span class=tag title='美食鉴赏频道'>美食鉴赏频道</span><span class=tag title='智人行为研究院院长'>智人行为研究院院长</span><span class=tag title='智人洞洞主'>智人洞洞主</span><span class=tag title='理工定律'>理工定律</span><span class=tag title='收割欢笑频道'>收割欢笑频道</span><span class=tag title='苹果洗衣粉'>苹果洗衣粉</span><span class=tag title='沃看怎么个事'>沃看怎么个事</span><span class=tag title='悟空是一只猫'>悟空是一只猫</span><span class=tag title='烧烤面包子'>烧烤面包子</span><span class=tag title='抽象函数求导'>抽象函数求导</span><span class=tag title='请输入语言文字'>请输入语言文字</span><span class=tag title='激娃TV'>激娃TV</span><span class=tag title='出道的啊龙'>出道的啊龙</span></div>
+<div><a class=more href="review?scope=accepted&sort=fans">查看这些人 →</a></div></div><div class=card style="border-left:3px solid #ffb84d">
+<h2 style="font-size:15px">社区27·以日语学习、日本文化及日系娱乐内容为
+<span class=muted style="font-weight:400;font-size:12px">　114 个号 · 
+已确认核心 13（11%）</span></h2>
+<div style="font-size:13px;line-height:1.6;margin:6px 0 10px">以日语学习、日本文化及日系娱乐内容为主的UP主社区｜成员混杂日语教学、日本生活、动漫游戏与TV系内容，需按日语学习/日系文化/动漫游戏细分，不宜整块保留或排除</div>
+<div style="margin-bottom:8px"><span class=tag title='幽默老日'>幽默老日</span><span class=tag title='矢量玉米'>矢量玉米</span><span class=tag title='我是摆子王QVQ'>我是摆子王QVQ</span><span class=tag title='liliyoumao'>liliyoumao</span><span class=tag title='许小蛋哇哦'>许小蛋哇哦</span><span class=tag title='秩序丶安'>秩序丶安</span><span class=tag title='蜘蛛侠_Official'>蜘蛛侠_Offici</span><span class=tag title='妻末_official'>妻末_officia</span><span class=tag title='需消耗666枚硬币'>需消耗666枚硬币</span><span class=tag title='Sailorpaaan'>Sailorpaaa</span><span class=tag title='笑声罐头_Y'>笑声罐头_Y</span><span class=tag title='不饱和脂肪烃'>不饱和脂肪烃</span><span class=tag title='我的世界浩辰-分身'>我的世界浩辰-分身</span><span class=tag title='冈部伦太郎·'>冈部伦太郎·</span></div>
+<div><a class=more href="review?scope=accepted&sort=fans">查看这些人 →</a></div></div><div class=card style="border-left:3px solid #ffb84d">
+<h2 style="font-size:15px">社区9·以抽象史、TV系梗和二次元整活为主的
+<span class=muted style="font-weight:400;font-size:12px">　378 个号 · 
+已确认核心 42（11%）</span></h2>
+<div style="font-size:13px;line-height:1.6;margin:6px 0 10px">以抽象史、TV系梗和二次元整活为主的B站抽象娱乐社区｜成员样本中大量出现TV系命名（高智商TV、抽象爱好者-牢大版、虎王酱等），且42个已确认TV系UP主，整体属于TV系抽象圈子。</div>
+<div style="margin-bottom:8px"><span class=tag title='虎王酱'>虎王酱</span><span class=tag title='抽象史必须狠狠吃'>抽象史必须狠狠吃</span><span class=tag title='鲱鱼小小卫'>鲱鱼小小卫</span><span class=tag title='高智商TV'>高智商TV</span><span class=tag title='抽象爱好者-牢大版'>抽象爱好者-牢大版</span><span class=tag title='欧阳丰川祥子'>欧阳丰川祥子</span><span class=tag title='寻史真人'>寻史真人</span><span class=tag title='虎王酱258'>虎王酱258</span><span class=tag title='楓萧-'>楓萧-</span><span class=tag title='二次元象君'>二次元象君</span><span class=tag title='马嘉月爱旗袍'>马嘉月爱旗袍</span><span class=tag title='S4uryQ'>S4uryQ</span><span class=tag title='网友月半猫'>网友月半猫</span><span class=tag title='赛博十颗狼'>赛博十颗狼</span></div>
+<div><a class=more href="review?scope=accepted&sort=fans">查看这些人 →</a></div></div><div class=card style="border-left:3px solid #ffb84d">
+<h2 style="font-size:15px">社区15·以抽象、整活、历史梗和网络亚文化为主
+<span class=muted style="font-weight:400;font-size:12px">　264 个号 · 
+已确认核心 27（10%）</span></h2>
+<div style="font-size:13px;line-height:1.6;margin:6px 0 10px">以抽象、整活、历史梗和网络亚文化为主的娱乐整活社区，围绕孙笑川、电棍等抽象主播及历史人物恶搞内容进行二次创作与传播。｜虽含孙笑川TV等TV系成员，但整体是抽象/整活/历史恶搞亚文化圈，并非纯TV系，需细分保留TV系子集。</div>
+<div style="margin-bottom:8px"><span class=tag title='太史公-司马迁'>太史公-司马迁</span><span class=tag title='类人研究社'>类人研究社</span><span class=tag title='牢大鉴史TV'>牢大鉴史TV</span><span class=tag title='似格马男人'>似格马男人</span><span class=tag title='无上限卷心菜之王'>无上限卷心菜之王</span><span class=tag title='键盘鲨_kards教主'>键盘鲨_kards教</span><span class=tag title='土味果泥频道Rusticch'>土味果泥频道Rust</span><span class=tag title='三久i'>三久i</span><span class=tag title='xiiaz'>xiiaz</span><span class=tag title='ny乳酸菌'>ny乳酸菌</span><span class=tag title='低脂小鸡'>低脂小鸡</span><span class=tag title='抽象收藏家塔拉辛'>抽象收藏家塔拉辛</span><span class=tag title='91教教皇'>91教教皇</span><span class=tag title='豌豆周虞萱公主'>豌豆周虞萱公主</span></div>
+<div><a class=more href="review?scope=accepted&sort=fans">查看这些人 →</a></div></div><div class=card style="border-left:3px solid #ffb84d">
+<h2 style="font-size:15px">社区43·城市探索与街头纪实类内容社区，围绕城
+<span class=muted style="font-weight:400;font-size:12px">　69 个号 · 
+已确认核心 6（9%）</span></h2>
+<div style="font-size:13px;line-height:1.6;margin:6px 0 10px">城市探索与街头纪实类内容社区，围绕城市漫步、街头摄影、市井生活记录展开｜成员以城市探索、街头摄影、生活记录类UP主为主（老卢城市探索、小豹城市探索、七七遛gai日记、街头摄影师666等），与TV系的反讽围观底层受苦现场母题无关，仅个别成员可能沾边</div>
+<div style="margin-bottom:8px"><span class=tag title='娱乐影视说'>娱乐影视说</span><span class=tag title='赵哥吃饭啦'>赵哥吃饭啦</span><span class=tag title='漫谈DEEP'>漫谈DEEP</span><span class=tag title='高光瞬间记录者'>高光瞬间记录者</span><span class=tag title='街头摄影师666'>街头摄影师666</span><span class=tag title='老卢城市探索'>老卢城市探索</span><span class=tag title='江传纯_恩师陶喆'>江传纯_恩师陶喆</span><span class=tag title='皇茶滴猫'>皇茶滴猫</span><span class=tag title='人间正能量q'>人间正能量q</span><span class=tag title='水豚噜噜睡不醒'>水豚噜噜睡不醒</span><span class=tag title='野兽约会a'>野兽约会a</span><span class=tag title='精神哇塞男女'>精神哇塞男女</span><span class=tag title='马哥巨离谱'>马哥巨离谱</span><span class=tag title='噜噜去哪啦'>噜噜去哪啦</span></div>
+<div><a class=more href="review?scope=accepted&sort=fans">查看这些人 →</a></div></div><div class=card style="border-left:3px solid #ffb84d">
+<h2 style="font-size:15px">社区8·以「享福TV」等反讽命名账号为核心，
+<span class=muted style="font-weight:400;font-size:12px">　386 个号 · 
+已确认核心 33（9%）</span></h2>
+<div style="font-size:13px;line-height:1.6;margin:6px 0 10px">以「享福TV」等反讽命名账号为核心，围观底层男性受苦、婚恋梭哈、猎奇风俗与抽象行为的 TV 系内容集群。｜核心成员（享福TV、老钟TV、猫社长TV）确属 TV 系，但混入大量动漫、搞笑、科技科普类账号，需按主业细分保留。</div>
+<div style="margin-bottom:8px"><span class=tag title='享福TV'>享福TV</span><span class=tag title='二甩哥爱老婆'>二甩哥爱老婆</span><span class=tag title='sodom2dimasa'>sodom2dima</span><span class=tag title='打不死的夹心酱'>打不死的夹心酱</span><span class=tag title='反思社'>反思社</span><span class=tag title='雷电将军与大黄狗'>雷电将军与大黄狗</span><span class=tag title='幸运的暴富吖'>幸运的暴富吖</span><span class=tag title='帧间拾月'>帧间拾月</span><span class=tag title='张知晨'>张知晨</span><span class=tag title='江边见猫猫猫'>江边见猫猫猫</span><span class=tag title='当代女生行为大赏'>当代女生行为大赏</span><span class=tag title='国外山海精'>国外山海精</span><span class=tag title='lao氿'>lao氿</span><span class=tag title='搞笑毛哥哥'>搞笑毛哥哥</span></div>
+<div><a class=more href="review?scope=accepted&sort=fans">查看这些人 →</a></div></div><div class=card style="border-left:3px solid #ffb84d">
+<h2 style="font-size:15px">社区53·以心理学/情感咨询、综艺娱乐和泛生活
+<span class=muted style="font-weight:400;font-size:12px">　51 个号 · 
+已确认核心 4（8%）</span></h2>
+<div style="font-size:13px;line-height:1.6;margin:6px 0 10px">以心理学/情感咨询、综艺娱乐和泛生活内容为主的混合社区，TV系只是零星混入｜成员以壹心理、人类心理研究所等心理科普号和综艺搞笑、生活类账号为主，仅4个确认TV系，需按账号细分剔除TV系成员后保留其余</div>
+<div style="margin-bottom:8px"><span class=tag title='类人研究员'>类人研究员</span><span class=tag title='网友普顺奇'>网友普顺奇</span><span class=tag title='-抽象社-'>-抽象社-</span><span class=tag title='拳斗部诗人牢曼'>拳斗部诗人牢曼</span><span class=tag title='壹心理'>壹心理</span><span class=tag title='小兔320'>小兔320</span><span class=tag title='综艺搞笑妹'>综艺搞笑妹</span><span class=tag title='人类心理研究所'>人类心理研究所</span><span class=tag title='大冰夜话ing'>大冰夜话ing</span><span class=tag title='刘锅锅A'>刘锅锅A</span><span class=tag title='尝试偷猪'>尝试偷猪</span><span class=tag title='香香公主hoi'>香香公主hoi</span><span class=tag title='李博士和他的朋友们'>李博士和他的朋友们</span><span class=tag title='小鑫xiaoxin520'>小鑫xiaoxin5</span></div>
+<div><a class=more href="review?scope=accepted&sort=fans">查看这些人 →</a></div></div><div class=card style="border-left:3px solid #ffb84d">
+<h2 style="font-size:15px">社区47·以美食探店、生活整活和二次元杂谈为主
+<span class=muted style="font-weight:400;font-size:12px">　65 个号 · 
+已确认核心 5（8%）</span></h2>
+<div style="font-size:13px;line-height:1.6;margin:6px 0 10px">以美食探店、生活整活和二次元杂谈为主的泛娱乐UP主社区｜成员横跨美食、生活、动漫杂谈与游戏，仅5个TV系UP主，整体不是TV系圈子，需细分剔除TV系成员后保留其余</div>
+<div style="margin-bottom:8px"><span class=tag title='铃乃Chan'>铃乃Chan</span><span class=tag title='陈泽工作室幻梦'>陈泽工作室幻梦</span><span class=tag title='沐小卡车'>沐小卡车</span><span class=tag title='坐等勇次郎再次入狱'>坐等勇次郎再次入狱</span><span class=tag title='外卖只是兼职'>外卖只是兼职</span><span class=tag title='秃草是真的'>秃草是真的</span><span class=tag title='人物志Lin'>人物志Lin</span><span class=tag title='东方日出哇'>东方日出哇</span><span class=tag title='小鲨克_'>小鲨克_</span><span class=tag title='我是不白吃'>我是不白吃</span><span class=tag title='悲伤的蜡笔小白'>悲伤的蜡笔小白</span><span class=tag title='嘉豪god'>嘉豪god</span><span class=tag title='柠檬派奇幻漂流'>柠檬派奇幻漂流</span><span class=tag title='鸽卜凌'>鸽卜凌</span></div>
+<div><a class=more href="review?scope=accepted&sort=fans">查看这些人 →</a></div></div><div class=card style="border-left:3px solid #ffb84d">
+<h2 style="font-size:15px">社区1·以抽象整活、梗文化二创和猎奇围观为主
+<span class=muted style="font-weight:400;font-size:12px">　843 个号 · 
+已确认核心 64（8%）</span></h2>
+<div style="font-size:13px;line-height:1.6;margin:6px 0 10px">以抽象整活、梗文化二创和猎奇围观为主的泛娱乐社区，成员多为做鬼畜、抽象段子和网络热梗的UP主｜64/843确认属TV系但样本多为抽象整活/梗二创号，TV系只是其中一支，需按各号主业细分保留</div>
+<div style="margin-bottom:8px"><span class=tag title='色霸天Se8st1an'>色霸天Se8st1a</span><span class=tag title='进击的迪克'>进击的迪克</span><span class=tag title='Glitch-Boi'>Glitch-Boi</span><span class=tag title='我是药帝_TAO'>我是药帝_TAO</span><span class=tag title='进阶的逍遥'>进阶的逍遥</span><span class=tag title='Mayfly_Bubble'>Mayfly_Bub</span><span class=tag title='byd帕克memes'>byd帕克memes</span><span class=tag title='票选办主任'>票选办主任</span><span class=tag title='番茄青蛙-'>番茄青蛙-</span><span class=tag title='蓝白灬绯'>蓝白灬绯</span><span class=tag title='开心MeMe狗'>开心MeMe狗</span><span class=tag title='小村花生'>小村花生</span><span class=tag title='鸭崽芙芙'>鸭崽芙芙</span><span class=tag title='消逝的迪克'>消逝的迪克</span></div>
+<div><a class=more href="review?scope=accepted&sort=fans">查看这些人 →</a></div></div><div class=card style="border-left:3px solid #ffb84d">
+<h2 style="font-size:15px">社区52·以搬运/解说国外猎奇、社会奇闻与娱乐
+<span class=muted style="font-weight:400;font-size:12px">　53 个号 · 
+已确认核心 4（8%）</span></h2>
+<div style="font-size:13px;line-height:1.6;margin:6px 0 10px">以搬运/解说国外猎奇、社会奇闻与娱乐八卦为主的泛资讯娱乐号集群｜成员多为娱乐解说、动画、游戏与奇闻搬运号，仅少数TV系号混入，整体不是TV系圈子</div>
+<div style="margin-bottom:8px"><span class=tag title='国外友人'>国外友人</span><span class=tag title='wenerdre'>wenerdre</span><span class=tag title='人类文明已经没救了'>人类文明已经没救了</span><span class=tag title='一个牢秦飞飞飞人'>一个牢秦飞飞飞人</span><span class=tag title='我捞捞捞'>我捞捞捞</span><span class=tag title='咖喱粽'>咖喱粽</span><span class=tag title='刷到点东西'>刷到点东西</span><span class=tag title='vividly娱乐'>vividly娱乐</span><span class=tag title='金金金金金王莽'>金金金金金王莽</span><span class=tag title='笑亿天'>笑亿天</span><span class=tag title='我的偶像巨顽皮ou'>我的偶像巨顽皮ou</span><span class=tag title='Xuenjy'>Xuenjy</span><span class=tag title='肖恩看世界'>肖恩看世界</span><span class=tag title='游戏研究所GAME'>游戏研究所GAME</span></div>
+<div><a class=more href="review?scope=accepted&sort=fans">查看这些人 →</a></div></div><div class=card style="border-left:3px solid #ffb84d">
+<h2 style="font-size:15px">社区2·围观智人/神人/直立人等抽象人类行为
+<span class=muted style="font-weight:400;font-size:12px">　546 个号 · 
+已确认核心 40（7%）</span></h2>
+<div style="font-size:13px;line-height:1.6;margin:6px 0 10px">围观智人/神人/直立人等抽象人类行为与逆天言论的整活剪辑社区｜核心成员（智人研究社、神人TV频道、直立人TV总台、牢大TV、抽象搬shit等）均属TV系公共命名空间，主业是抽象人类行为围观，与TV系生态一致</div>
+<div style="margin-bottom:8px"><span class=tag title='飞行社社长'>飞行社社长</span><span class=tag title='智人研究社'>智人研究社</span><span class=tag title='伊路穆比'>伊路穆比</span><span class=tag title='神人TV频道'>神人TV频道</span><span class=tag title='朔夜时雨雨雨雨'>朔夜时雨雨雨雨</span><span class=tag title='白鸽の乱剪'>白鸽の乱剪</span><span class=tag title='智人观察员zip'>智人观察员zip</span><span class=tag title='苹果削大象'>苹果削大象</span><span class=tag title='唐人街亭长'>唐人街亭长</span><span class=tag title='麻肋'>麻肋</span><span class=tag title='漂亮的肥鱼'>漂亮的肥鱼</span><span class=tag title='飞行社社长2号机'>飞行社社长2号机</span><span class=tag title='抽象搬shit奶龙'>抽象搬shit奶龙</span><span class=tag title='GrogorG抽象观察'>GrogorG抽象观</span></div>
+<div><a class=more href="review?scope=accepted&sort=fans">查看这些人 →</a></div></div><div class=card style="border-left:3px solid #ffb84d">
+<h2 style="font-size:15px">社区5·围观三和大神、日结工、流浪者等底层生
+<span class=muted style="font-weight:400;font-size:12px">　463 个号 · 
+已确认核心 33（7%）</span></h2>
+<div style="font-size:13px;line-height:1.6;margin:6px 0 10px">围观三和大神、日结工、流浪者等底层生存状态的纪实/旅行vlog社区，是「性压抑论」「力工」等理论的素材源头｜核心成员峰哥亡命天涯是该生态理论源头，其余多为三和/挂壁/流浪题材的纪实vlog号，与TV系同源同题材，整块保留</div>
+<div style="margin-bottom:8px"><span class=tag title='峰哥亡命天涯'>峰哥亡命天涯</span><span class=tag title='摩的司机徐师傅'>摩的司机徐师傅</span><span class=tag title='浪子阿锋vlog'>浪子阿锋vlog</span><span class=tag title='旺卡_Wonka'>旺卡_Wonka</span><span class=tag title='娱乐咻叽'>娱乐咻叽</span><span class=tag title='严肃的虾米'>严肃的虾米</span><span class=tag title='就一个人的旅行'>就一个人的旅行</span><span class=tag title='中眼看世界'>中眼看世界</span><span class=tag title='业余摄手小罗-Xluo'>业余摄手小罗-Xlu</span><span class=tag title='上海王秋裤裤裤'>上海王秋裤裤裤</span><span class=tag title='建哥看世界'>建哥看世界</span><span class=tag title='浅忆のDream'>浅忆のDream</span><span class=tag title='梦_缘丶'>梦_缘丶</span><span class=tag title='游标卡尺-瑞'>游标卡尺-瑞</span></div>
+<div><a class=more href="review?scope=accepted&sort=fans">查看这些人 →</a></div></div><div class=card style="border-left:3px solid #ffb84d">
+<h2 style="font-size:15px">社区36·以搬运网络烂梗、抽象meme和猎奇整
+<span class=muted style="font-weight:400;font-size:12px">　86 个号 · 
+已确认核心 6（7%）</span></h2>
+<div style="font-size:13px;line-height:1.6;margin:6px 0 10px">以搬运网络烂梗、抽象meme和猎奇整活内容为主的泛搞笑分享社区，夹杂少量TV系账号。｜样本中仅6/86为TV系，主体是搬史/meme/整活类泛娱乐号（如互联网粪王、难绷meme收容所、烂活好活分享），TV系只是共现边缘，需按账号细分保留TV系、排除纯meme搬运号。</div>
+<div style="margin-bottom:8px"><span class=tag title='互联网粪王'>互联网粪王</span><span class=tag title='网友几几年'>网友几几年</span><span class=tag title='搬史达人亲屎黄'>搬史达人亲屎黄</span><span class=tag title='Vandoorking'>Vandoorkin</span><span class=tag title='智人笑传'>智人笑传</span><span class=tag title='难绷meme收容所'>难绷meme收容所</span><span class=tag title='4A广告提案网'>4A广告提案网</span><span class=tag title='别惹我冬子'>别惹我冬子</span><span class=tag title='polived'>polived</span><span class=tag title='邓阳阳'>邓阳阳</span><span class=tag title='大冰直播精选'>大冰直播精选</span><span class=tag title='疯狂手搓'>疯狂手搓</span><span class=tag title='周式寓言'>周式寓言</span><span class=tag title='癫狂的皓子'>癫狂的皓子</span></div>
+<div><a class=more href="review?scope=accepted&sort=fans">查看这些人 →</a></div></div><div class=card style="border-left:3px solid #ffb84d">
+<h2 style="font-size:15px">社区25·以梗百科、meme 合集、搞笑片段和
+<span class=muted style="font-weight:400;font-size:12px">　136 个号 · 
+已确认核心 9（7%）</span></h2>
+<div style="font-size:13px;line-height:1.6;margin:6px 0 10px">以梗百科、meme 合集、搞笑片段和网络迷因二创为主的泛娱乐搬运/整活社区｜成员多为梗百科、meme 合集、搞笑娱乐号（如梗百科、Cliffkk的meme、谜因的哦呀神、杰瑞今天笑了吗），TV 系仅占少数，整体是泛迷因娱乐圈而非 TV 系</div>
+<div style="margin-bottom:8px"><span class=tag title='暹罗猫癔术鉴赏'>暹罗猫癔术鉴赏</span><span class=tag title='小气球娱乐'>小气球娱乐</span><span class=tag title='小豌豌8'>小豌豌8</span><span class=tag title='搬石娘'>搬石娘</span><span class=tag title='杰瑞今天笑了吗'>杰瑞今天笑了吗</span><span class=tag title='秋辞闲月'>秋辞闲月</span><span class=tag title='烤洋芋粑'>烤洋芋粑</span><span class=tag title='豹王酱'>豹王酱</span><span class=tag title='GuiltylilGhost'>GuiltylilG</span><span class=tag title='kaduoliya'>kaduoliya</span><span class=tag title='待到春来冬夏去'>待到春来冬夏去</span><span class=tag title='小鸟游呆毛'>小鸟游呆毛</span><span class=tag title='iamnabins官方频道'>iamnabins官</span><span class=tag title='宫口老师'>宫口老师</span></div>
+<div><a class=more href="review?scope=accepted&sort=fans">查看这些人 →</a></div></div><div class=card style="border-left:3px solid #ffb84d">
+<h2 style="font-size:15px">社区21·以「搬石/抽象/行为观察」为名的猎奇
+<span class=muted style="font-weight:400;font-size:12px">　184 个号 · 
+已确认核心 12（7%）</span></h2>
+<div style="font-size:13px;line-height:1.6;margin:6px 0 10px">以「搬石/抽象/行为观察」为名的猎奇围观社区，搬运并围观底层、抽象、离谱的人和事，含 TV 系成员但主体是泛抽象猎奇号。｜样本里有赛博屎壳郎-搬石、真假智人说、抽象社社长等 TV 系命名与题材，但混入大量非 TV 系的猎奇/生活/搬运号，需按主页内容细分。</div>
+<div style="margin-bottom:8px"><span class=tag title='赛博屎壳郎-搬石'>赛博屎壳郎-搬石</span><span class=tag title='M1takeR4n'>M1takeR4n</span><span class=tag title='行为观察社'>行为观察社</span><span class=tag title='波特兰岛npc'>波特兰岛npc</span><span class=tag title='真假智人说'>真假智人说</span><span class=tag title='抽象社社长'>抽象社社长</span><span class=tag title='南天门81192'>南天门81192</span><span class=tag title='小强卜强'>小强卜强</span><span class=tag title='Mr-lobster阿虾'>Mr-lobster</span><span class=tag title='91传媒社'>91传媒社</span><span class=tag title='河北省大王'>河北省大王</span><span class=tag title='bili_2022721'>bili_20227</span><span class=tag title='萌物生活印迹'>萌物生活印迹</span><span class=tag title='黑豆Hedo'>黑豆Hedo</span></div>
+<div><a class=more href="review?scope=accepted&sort=fans">查看这些人 →</a></div></div><div class=card style="border-left:3px solid #ffb84d">
+<h2 style="font-size:15px">社区7·围绕峰哥亡命天涯及其「性压抑论」衍生
+<span class=muted style="font-weight:400;font-size:12px">　396 个号 · 
+已确认核心 25（6%）</span></h2>
+<div style="font-size:13px;line-height:1.6;margin:6px 0 10px">围绕峰哥亡命天涯及其「性压抑论」衍生内容的观众/二创/切片社区，兼有理财梭哈、韭菜自嘲等泛底层叙事｜核心成员（峰哥小迷弟儿、小饭亡命天涯、天涯亡命峰哥、大峰的小屋a等）明显是峰哥系切片/二创，属TV系源头支线，但混入财经梭哈、韭菜、体育（徐静雨）等非TV账号，需按是否峰哥/力工/压抑主题细分</div>
+<div style="margin-bottom:8px"><span class=tag title='卡秃噜皮君'>卡秃噜皮君</span><span class=tag title='峰哥小迷弟儿'>峰哥小迷弟儿</span><span class=tag title='小小噪音'>小小噪音</span><span class=tag title='小阿峰世间万物'>小阿峰世间万物</span><span class=tag title='20岁了还没有长摄像头'>20岁了还没有长摄像</span><span class=tag title='小饭亡命天涯'>小饭亡命天涯</span><span class=tag title='二次元-超哥'>二次元-超哥</span><span class=tag title='不吃驴的火烧'>不吃驴的火烧</span><span class=tag title='愉作'>愉作</span><span class=tag title='梦想早日退休的韭菜'>梦想早日退休的韭菜</span><span class=tag title='太性情太通透'>太性情太通透</span><span class=tag title='大峰的小屋a'>大峰的小屋a</span><span class=tag title='立棍天才徐静雨'>立棍天才徐静雨</span><span class=tag title='财经观点荟萃'>财经观点荟萃</span></div>
+<div><a class=more href="review?scope=accepted&sort=fans">查看这些人 →</a></div></div><div class=card style="border-left:3px solid #ffb84d">
+<h2 style="font-size:15px">社区32·以AI生成短剧、AI绘画/视频和抽象
+<span class=muted style="font-weight:400;font-size:12px">　98 个号 · 
+已确认核心 6（6%）</span></h2>
+<div style="font-size:13px;line-height:1.6;margin:6px 0 10px">以AI生成短剧、AI绘画/视频和抽象整活内容为主的创作社区，夹杂少量TV系账号｜样本中多数是AIGC短剧、AI绘画和抽象整活号（云漫AI短剧、发财漫剧场、AIGC阿飞、抽象橘子dy等），只有类人生物研究所、网络抽象人物志等少数属于TV系命名，主体不是TV系，需按账号细分剔除。</div>
+<div style="margin-bottom:8px"><span class=tag title='荷兰方菌菇'>荷兰方菌菇</span><span class=tag title='网友顺雨'>网友顺雨</span><span class=tag title='闲夜空茫'>闲夜空茫</span><span class=tag title='臆想症在治疗躁郁症'>臆想症在治疗躁郁症</span><span class=tag title='类人生物研究所'>类人生物研究所</span><span class=tag title='摸鱼小天才x'>摸鱼小天才x</span><span class=tag title='黄肥肥天素罗'>黄肥肥天素罗</span><span class=tag title='神经震荡'>神经震荡</span><span class=tag title='Ounnioo'>Ounnioo</span><span class=tag title='胖miao'>胖miao</span><span class=tag title='七海悠仁'>七海悠仁</span><span class=tag title='-胡莱克修斯-'>-胡莱克修斯-</span><span class=tag title='AIGC阿飞'>AIGC阿飞</span><span class=tag title='当欢则欢'>当欢则欢</span></div>
+<div><a class=more href="review?scope=accepted&sort=fans">查看这些人 →</a></div></div><div class=card style="border-left:3px solid #ffb84d">
+<h2 style="font-size:15px">社区31·以抽象乐子人、搞笑整活和日常碎片为主
+<span class=muted style="font-weight:400;font-size:12px">　99 个号 · 
+已确认核心 6（6%）</span></h2>
+<div style="font-size:13px;line-height:1.6;margin:6px 0 10px">以抽象乐子人、搞笑整活和日常碎片为主的泛娱乐互关社区，靠抽象梗和情绪化内容互相引流。｜成员多为抽象搞笑、个人日常、二次元头像类 UP 主，没有 TV 系命名或底层围观内容，与 TV 系生态无实质关联。</div>
+<div style="margin-bottom:8px"><span class=tag title='抽象收藏家墙酱'>抽象收藏家墙酱</span><span class=tag title='愉悦自救'>愉悦自救</span><span class=tag title='抽象界传奇乐子人'>抽象界传奇乐子人</span><span class=tag title='请支持火花_official'>请支持火花_offi</span><span class=tag title='抽象搞笑'>抽象搞笑</span><span class=tag title='jcklenhd'>jcklenhd</span><span class=tag title='-しろひつじ-'>-しろひつじ-</span><span class=tag title='美Man汉森堡'>美Man汉森堡</span><span class=tag title='jhfd86655'>jhfd86655</span><span class=tag title='冻了个梨呀'>冻了个梨呀</span><span class=tag title='幺玖伍195'>幺玖伍195</span><span class=tag title='Aurora-遇儿'>Aurora-遇儿</span><span class=tag title='一只大蓝莓'>一只大蓝莓</span><span class=tag title='什么都说-防重名'>什么都说-防重名</span></div>
+<div><a class=more href="review?scope=accepted&sort=fans">查看这些人 →</a></div></div><div class=card style="border-left:3px solid #8b95a7">
+<h2 style="font-size:15px">社区20·以影视解说、纪录片式故事和社会生活观
+<span class=muted style="font-weight:400;font-size:12px">　185 个号 · 
+已确认核心 11（6%）</span></h2>
+<div style="font-size:13px;line-height:1.6;margin:6px 0 10px">以影视解说、纪录片式故事和社会生活观察为主的泛人文叙事内容社区｜成员以影视解说和生活纪实类UP主为主，仅少量TV系账号，整体更接近泛影视解说与生活故事圈，需按具体账号细分处理</div>
+<div style="margin-bottom:8px"><span class=tag title='人间放映厅'>人间放映厅</span><span class=tag title='不上班的一轩'>不上班的一轩</span><span class=tag title='外卖小哥王较瘦'>外卖小哥王较瘦</span><span class=tag title='这是个令人疑惑的星球'>这是个令人疑惑的星球</span><span class=tag title='三联生活实验室'>三联生活实验室</span><span class=tag title='既见工作室'>既见工作室</span><span class=tag title='霂黎葶子'>霂黎葶子</span><span class=tag title='扎姆'>扎姆</span><span class=tag title='周浩的纪录林'>周浩的纪录林</span><span class=tag title='卜谷w'>卜谷w</span><span class=tag title='叫我未央就好了'>叫我未央就好了</span><span class=tag title='浮生说剧'>浮生说剧</span><span class=tag title='评事说史'>评事说史</span><span class=tag title='万物有光故事会'>万物有光故事会</span></div>
+<div><a class=more href="review?scope=accepted&sort=fans">查看这些人 →</a></div></div><div class=card style="border-left:3px solid #8b95a7">
+<h2 style="font-size:15px">社区42·搬运/混剪 TikTok 与网络热门
+<span class=muted style="font-weight:400;font-size:12px">　70 个号 · 
+已确认核心 4（6%）</span></h2>
+<div style="font-size:13px;line-height:1.6;margin:6px 0 10px">搬运/混剪 TikTok 与网络热门视频的泛娱乐搬运号集群，夹杂少量 TV 系账号｜样本以 TikTok 热门爆火视频、Bart混剪、无敌少剪等搬运混剪号为主，仅 4/70 属 TV 系，主体不是 TV 圈，需按账号细分剔除搬运号后保留 TV 系成员</div>
+<div style="margin-bottom:8px"><span class=tag title='MoreSaturdayy'>MoreSaturd</span><span class=tag title='TikTok热门爆火视频'>TikTok热门爆火</span><span class=tag title='史刻郎大王'>史刻郎大王</span><span class=tag title='真左真顺纪'>真左真顺纪</span><span class=tag title='双面龟努力完善版'>双面龟努力完善版</span><span class=tag title='王雷的铁粉'>王雷的铁粉</span><span class=tag title='是陆老湿呀'>是陆老湿呀</span><span class=tag title='李肆言哟'>李肆言哟</span><span class=tag title='保守诺曼'>保守诺曼</span><span class=tag title='妙龄少男郭蓓蓓'>妙龄少男郭蓓蓓</span><span class=tag title='年轻牧师'>年轻牧师</span><span class=tag title='优优不会有'>优优不会有</span><span class=tag title='AdrienSivan'>AdrienSiva</span><span class=tag title='无敌少剪'>无敌少剪</span></div>
+<div><a class=more href="review?scope=accepted&sort=fans">查看这些人 →</a></div></div><div class=card style="border-left:3px solid #8b95a7">
+<h2 style="font-size:15px">社区16·以二次元/动漫内容为主、夹杂少量TV
+<span class=muted style="font-weight:400;font-size:12px">　241 个号 · 
+已确认核心 13（5%）</span></h2>
+<div style="font-size:13px;line-height:1.6;margin:6px 0 10px">以二次元/动漫内容为主、夹杂少量TV系账号的泛娱乐关注社区｜样本中范马宇宙、翔哥动漫、萌哒哒冷等偏动漫/二次元，仅王富贵TV等少数属TV系，主体不是TV圈，需按账号细分</div>
+<div style="margin-bottom:8px"><span class=tag title='你u喝奶茶Mr嘛'>你u喝奶茶Mr嘛</span><span class=tag title='范马宇宙'>范马宇宙</span><span class=tag title='若是有来生'>若是有来生</span><span class=tag title='Yoselotiya'>Yoselotiya</span><span class=tag title='辣个学姐'>辣个学姐</span><span class=tag title='君子坦荡欣赏艺术'>君子坦荡欣赏艺术</span><span class=tag title='发的话个人工具'>发的话个人工具</span><span class=tag title='长岛冰茶ゝ'>长岛冰茶ゝ</span><span class=tag title='红耳朵乌龟'>红耳朵乌龟</span><span class=tag title='萌哒哒冷'>萌哒哒冷</span><span class=tag title='翡翠瑰夏'>翡翠瑰夏</span><span class=tag title='王富贵TV'>王富贵TV</span><span class=tag title='涩点狐'>涩点狐</span><span class=tag title='锐评区一哥'>锐评区一哥</span></div>
+<div><a class=more href="review?scope=accepted&sort=fans">查看这些人 →</a></div></div><div class=card style="border-left:3px solid #8b95a7">
+<h2 style="font-size:15px">社区50·以颜值打分、择偶评估和日常生活分享为
+<span class=muted style="font-weight:400;font-size:12px">　57 个号 · 
+已确认核心 3（5%）</span></h2>
+<div style="font-size:13px;line-height:1.6;margin:6px 0 10px">以颜值打分、择偶评估和日常生活分享为主的年轻女性向互动社区｜成员多为生活分享和颜值打分类UP主，仅3个确认属于TV系，整体不是TV圈，但需细分剔除个别TV系成员</div>
+<div style="margin-bottom:8px"><span class=tag title='一条小何Pro'>一条小何Pro</span><span class=tag title='桶装水开怀畅饮'>桶装水开怀畅饮</span><span class=tag title='与君疏'>与君疏</span><span class=tag title='xiaowang小王啊'>xiaowang小王</span><span class=tag title='小小小思源哎'>小小小思源哎</span><span class=tag title='小蓝存活记录'>小蓝存活记录</span><span class=tag title='四块腹肌爱学习'>四块腹肌爱学习</span><span class=tag title='芝士小格'>芝士小格</span><span class=tag title='马路芽子子'>马路芽子子</span><span class=tag title='涵妹尊嘟可爱'>涵妹尊嘟可爱</span><span class=tag title='挣钱就买电动车'>挣钱就买电动车</span><span class=tag title='是小冰心啊'>是小冰心啊</span><span class=tag title='是拍黄瓜啊'>是拍黄瓜啊</span><span class=tag title='月老择偶评估'>月老择偶评估</span></div>
+<div><a class=more href="review?scope=accepted&sort=fans">查看这些人 →</a></div></div><div class=card style="border-left:3px solid #8b95a7">
+<h2 style="font-size:15px">社区41·以农村相亲、生活搞笑短剧和萌宠日常为
+<span class=muted style="font-weight:400;font-size:12px">　79 个号 · 
+已确认核心 4（5%）</span></h2>
+<div style="font-size:13px;line-height:1.6;margin:6px 0 10px">以农村相亲、生活搞笑短剧和萌宠日常为主的泛生活娱乐内容社区｜核心是相亲短剧与生活搞笑，仅少量成员疑似TV系，需按内容细分而非整块归类</div>
+<div style="margin-bottom:8px"><span class=tag title='AdelinaOfficiaI'>AdelinaOff</span><span class=tag title='大头吐司基zz'>大头吐司基zz</span><span class=tag title='淘淘爆笑'>淘淘爆笑</span><span class=tag title='逍遥菌呀'>逍遥菌呀</span><span class=tag title='开门哥相亲'>开门哥相亲</span><span class=tag title='拟人生物研究所'>拟人生物研究所</span><span class=tag title='就想娶个媳妇I'>就想娶个媳妇I</span><span class=tag title='甜筒三三'>甜筒三三</span><span class=tag title='锦涵纪实'>锦涵纪实</span><span class=tag title='一帆要努力ya'>一帆要努力ya</span><span class=tag title='农村相亲记录'>农村相亲记录</span><span class=tag title='铸神剑'>铸神剑</span><span class=tag title='一只hu小猪'>一只hu小猪</span><span class=tag title='依栏杆'>依栏杆</span></div>
+<div><a class=more href="review?scope=accepted&sort=fans">查看这些人 →</a></div></div><div class=card style="border-left:3px solid #8b95a7">
+<h2 style="font-size:15px">社区56·以《暗区突围》等游戏实况、攻略与整活
+<span class=muted style="font-weight:400;font-size:12px">　41 个号 · 
+已确认核心 2（5%）</span></h2>
+<div style="font-size:13px;line-height:1.6;margin:6px 0 10px">以《暗区突围》等游戏实况、攻略与整活为主的游戏内容社区｜成员多为游戏UP主（暗区突围、游戏解说），与TV系反讽围观底层生态的命名和内容逻辑无关，仅个别账号可能蹭词</div>
+<div style="margin-bottom:8px"><span class=tag title='bili_56082924769'>bili_56082</span><span class=tag title='王7K666'>王7K666</span><span class=tag title='主持人阿喆'>主持人阿喆</span><span class=tag title='bili_65443757988'>bili_65443</span><span class=tag title='后苍蓝'>后苍蓝</span><span class=tag title='得吃100万暗区突围3Qc'>得吃100万暗区突围</span><span class=tag title='kew2867'>kew2867</span><span class=tag title='晓逸说游戏'>晓逸说游戏</span><span class=tag title='祝余姚艺'>祝余姚艺</span><span class=tag title='夏陌_XiaMo'>夏陌_XiaMo</span><span class=tag title='497499'>497499</span><span class=tag title='无知的那个少年'>无知的那个少年</span><span class=tag title='bili_32994911040'>bili_32994</span><span class=tag title='乱崎凶华FURS'>乱崎凶华FURS</span></div>
+<div><a class=more href="review?scope=accepted&sort=fans">查看这些人 →</a></div></div><div class=card style="border-left:3px solid #8b95a7">
+<h2 style="font-size:15px">社区22·以相亲说媒、婚恋纠纷、地方民俗猎奇和
+<span class=muted style="font-weight:400;font-size:12px">　176 个号 · 
+已确认核心 8（5%）</span></h2>
+<div style="font-size:13px;line-height:1.6;margin:6px 0 10px">以相亲说媒、婚恋纠纷、地方民俗猎奇和底层生活围观为主的内容集群，混杂相亲节目、律师普法、动漫解说与整活博主。｜样本里只有少数（如杰哥相亲、开封王婆、金大王说媒这类相亲说媒号）与 TV 系的婚恋/力工母题沾边，主体是相亲节目、情感纠纷、律师普法、动漫解说等大众内容，不是 TV 系命名与反讽语法构成的圈子，需按账号细分。</div>
+<div style="margin-bottom:8px"><span class=tag title='网友暮雨'>网友暮雨</span><span class=tag title='艺术家栋栋'>艺术家栋栋</span><span class=tag title='李雷娱乐'>李雷娱乐</span><span class=tag title='饺子猴儿'>饺子猴儿</span><span class=tag title='王皮蛋Peter'>王皮蛋Peter</span><span class=tag title='凸嘴美美小号'>凸嘴美美小号</span><span class=tag title='蚀尾_kelili'>蚀尾_kelili</span><span class=tag title='加医升'>加医升</span><span class=tag title='铁柱大导演'>铁柱大导演</span><span class=tag title='玉玉__'>玉玉__</span><span class=tag title='川烈'>川烈</span><span class=tag title='开封王婆'>开封王婆</span><span class=tag title='谷谷观影'>谷谷观影</span><span class=tag title='杰哥相亲'>杰哥相亲</span></div>
+<div><a class=more href="review?scope=accepted&sort=fans">查看这些人 →</a></div></div><div class=card style="border-left:3px solid #8b95a7">
+<h2 style="font-size:15px">社区55·以生活日常、搞笑整活与个人叙事为主的
+<span class=muted style="font-weight:400;font-size:12px">　45 个号 · 
+已确认核心 2（4%）</span></h2>
+<div style="font-size:13px;line-height:1.6;margin:6px 0 10px">以生活日常、搞笑整活与个人叙事为主的泛生活区UP主社区｜成员多为生活/搞笑/个人vlog类UP主，仅2个确认属TV系，整体不是TV圈但混杂少量TV系账号，需细分剔除。</div>
+<div style="margin-bottom:8px"><span class=tag title='失眠的白羊呀'>失眠的白羊呀</span><span class=tag title='张天翊yi'>张天翊yi</span><span class=tag title='波罗经囡囡'>波罗经囡囡</span><span class=tag title='曼他特'>曼他特</span><span class=tag title='朴男krisun'>朴男krisun</span><span class=tag title='恶的Y不二'>恶的Y不二</span><span class=tag title='binbin灰'>binbin灰</span><span class=tag title='没事多读书呀'>没事多读书呀</span><span class=tag title='我不是王子龙'>我不是王子龙</span><span class=tag title='红星视频'>红星视频</span><span class=tag title='侯绿萝'>侯绿萝</span><span class=tag title='写手一条城'>写手一条城</span><span class=tag title='阿水想得金马奖_'>阿水想得金马奖_</span><span class=tag title='静静香__'>静静香__</span></div>
+<div><a class=more href="review?scope=accepted&sort=fans">查看这些人 →</a></div></div><div class=card style="border-left:3px solid #8b95a7">
+<h2 style="font-size:15px">社区44·以游戏、AI、生活整活类UP主为主的
+<span class=muted style="font-weight:400;font-size:12px">　69 个号 · 
+已确认核心 3（4%）</span></h2>
+<div style="font-size:13px;line-height:1.6;margin:6px 0 10px">以游戏、AI、生活整活类UP主为主的泛娱乐内容社区，夹杂少量地方官媒账号｜成员以游戏区、AIGC、生活整活类UP主为主，仅3个确认属TV系，且混入大象新闻、贵州2频道等官媒，需细分剔除官媒与无关账号后保留游戏/整活核心</div>
+<div style="margin-bottom:8px"><span class=tag title='外卷牛大海'>外卷牛大海</span><span class=tag title='游戏区瑞哥'>游戏区瑞哥</span><span class=tag title='爱玩互联网的桐人'>爱玩互联网的桐人</span><span class=tag title='鱼六十四丶'>鱼六十四丶</span><span class=tag title='一朵AIGC'>一朵AIGC</span><span class=tag title='打工人摸鱼啊'>打工人摸鱼啊</span><span class=tag title='少荒-'>少荒-</span><span class=tag title='大象新闻'>大象新闻</span><span class=tag title='特辣的老痞'>特辣的老痞</span><span class=tag title='人性管理局'>人性管理局</span><span class=tag title='猫娘洗面奶'>猫娘洗面奶</span><span class=tag title='莓小莓A'>莓小莓A</span><span class=tag title='-辰小七-'>-辰小七-</span><span class=tag title='乔的帧选'>乔的帧选</span></div>
+<div><a class=more href="review?scope=accepted&sort=fans">查看这些人 →</a></div></div><div class=card style="border-left:3px solid #8b95a7">
+<h2 style="font-size:15px">社区33·以投资理财、股市交易和日常生活记录为
+<span class=muted style="font-weight:400;font-size:12px">　98 个号 · 
+已确认核心 4（4%）</span></h2>
+<div style="font-size:13px;line-height:1.6;margin:6px 0 10px">以投资理财、股市交易和日常生活记录为主的UP主社区｜成员多为财经投资、个人生活vlog类UP主，仅4个TV系成员占比极低，需细分剔除TV系后保留其余财经生活类内容</div>
+<div style="margin-bottom:8px"><span class=tag title='混乱粉笔'>混乱粉笔</span><span class=tag title='做题家的拧巴日常'>做题家的拧巴日常</span><span class=tag title='樋谷零时'>樋谷零时</span><span class=tag title='nanan1016'>nanan1016</span><span class=tag title='安德鲁斯-阿徕'>安德鲁斯-阿徕</span><span class=tag title='-温哥华-'>-温哥华-</span><span class=tag title='红歌王好弟'>红歌王好弟</span><span class=tag title='限流之子'>限流之子</span><span class=tag title='かんづき'>かんづき</span><span class=tag title='纸包狗w'>纸包狗w</span><span class=tag title='RYAN-哲学'>RYAN-哲学</span><span class=tag title='京城操盘手'>京城操盘手</span><span class=tag title='爱吃达芬祺'>爱吃达芬祺</span><span class=tag title='努力生活的小明'>努力生活的小明</span></div>
+<div><a class=more href="review?scope=accepted&sort=fans">查看这些人 →</a></div></div><div class=card style="border-left:3px solid #8b95a7">
+<h2 style="font-size:15px">社区54·以二次元头像、萌系昵称和日常碎碎念为
+<span class=muted style="font-weight:400;font-size:12px">　49 个号 · 
+已确认核心 2（4%）</span></h2>
+<div style="font-size:13px;line-height:1.6;margin:6px 0 10px">以二次元头像、萌系昵称和日常碎碎念为主的个人向动态/生活分享社区，与TV系无关｜成员昵称与内容均为萌系二次元/日常分享风格，无任何TV系命名或底层围观题材特征，仅2个已确认TV系号属噪声共现</div>
+<div style="margin-bottom:8px"><span class=tag title='甜甜奶乐酱'>甜甜奶乐酱</span><span class=tag title='bili_96525321695'>bili_96525</span><span class=tag title='周小闹是周小闹'>周小闹是周小闹</span><span class=tag title='椒兔'>椒兔</span><span class=tag title='ks海盐奶糖呀'>ks海盐奶糖呀</span><span class=tag title='林诗允_'>林诗允_</span><span class=tag title='nataipei'>nataipei</span><span class=tag title='须臾观止'>须臾观止</span><span class=tag title='深夜好梦呀'>深夜好梦呀</span><span class=tag title='foretype'>foretype</span><span class=tag title='封号斗罗大王'>封号斗罗大王</span><span class=tag title='被骗了董律'>被骗了董律</span><span class=tag title='瓣花啦'>瓣花啦</span><span class=tag title='芙芙_Nymph'>芙芙_Nymph</span></div>
+<div><a class=more href="review?scope=accepted&sort=fans">查看这些人 →</a></div></div><div class=card style="border-left:3px solid #8b95a7">
+<h2 style="font-size:15px">社区30·围绕《BanG Dream! It&#x27;
+<span class=muted style="font-weight:400;font-size:12px">　100 个号 · 
+已确认核心 4（4%）</span></h2>
+<div style="font-size:13px;line-height:1.6;margin:6px 0 10px">围绕《BanG Dream! It&#x27;s MyGO!!!!!》及其衍生二次元内容（MyGO/Ave Mujica 相关角色、梗与切片）的动漫讨论与二创社区｜成员昵称大量指向 MyGO/Ave Mujica 角色与相关梗，属于动漫（邦邦/MyGO）圈子而非 TV 系，整块应排除</div>
+<div style="margin-bottom:8px"><span class=tag title='盛夏度春风'>盛夏度春风</span><span class=tag title='Mahouuuu'>Mahouuuu</span><span class=tag title='睦春鸢大王'>睦春鸢大王</span><span class=tag title='思维鬼才睿老板'>思维鬼才睿老板</span><span class=tag title='川崎仁仁菜'>川崎仁仁菜</span><span class=tag title='红薯丝儿'>红薯丝儿</span><span class=tag title='wknows'>wknows</span><span class=tag title='阿幕古斯-'>阿幕古斯-</span><span class=tag title='龙息烯丙甲基醚'>龙息烯丙甲基醚</span><span class=tag title='TLB天狐'>TLB天狐</span><span class=tag title='LoLi-琉璃'>LoLi-琉璃</span><span class=tag title='原神高玩专家-向晚'>原神高玩专家-向晚</span><span class=tag title='两块钱丫'>两块钱丫</span><span class=tag title='一根华仔'>一根华仔</span></div>
+<div><a class=more href="review?scope=accepted&sort=fans">查看这些人 →</a></div></div><div class=card style="border-left:3px solid #8b95a7">
+<h2 style="font-size:15px">社区29·以AI生成或虚拟形象演绎人生副本、摆
+<span class=muted style="font-weight:400;font-size:12px">　105 个号 · 
+已确认核心 4（4%）</span></h2>
+<div style="font-size:13px;line-height:1.6;margin:6px 0 10px">以AI生成或虚拟形象演绎人生副本、摆烂日常与整活短剧的泛娱乐创作社区｜成员多为AI剧场、人生模拟、整活短剧类UP主，仅少数TV系，主题混杂需细分</div>
+<div style="margin-bottom:8px"><span class=tag title='俺是帮帮龙'>俺是帮帮龙</span><span class=tag title='赛博夫子_'>赛博夫子_</span><span class=tag title='G00SEeE'>G00SEeE</span><span class=tag title='咔哇叽叽'>咔哇叽叽</span><span class=tag title='夕颜AI剧场'>夕颜AI剧场</span><span class=tag title='奈亚拉托提普desu~☆'>奈亚拉托提普desu</span><span class=tag title='硬梁'>硬梁</span><span class=tag title='bili_3546687878465541'>bili_35466</span><span class=tag title='毒角SHOW'>毒角SHOW</span><span class=tag title='神兽喵桑'>神兽喵桑</span><span class=tag title='百变人生副本'>百变人生副本</span><span class=tag title='摆烂党茶籽'>摆烂党茶籽</span><span class=tag title='一铭mingming'>一铭mingming</span><span class=tag title='人间烟火Vlog灿烂人生'>人间烟火Vlog灿烂</span></div>
+<div><a class=more href="review?scope=accepted&sort=fans">查看这些人 →</a></div></div><div class=card style="border-left:3px solid #8b95a7">
+<h2 style="font-size:15px">社区39·以配音、整活、字幕译制、梗与娱乐解说
+<span class=muted style="font-weight:400;font-size:12px">　80 个号 · 
+已确认核心 3（4%）</span></h2>
+<div style="font-size:13px;line-height:1.6;margin:6px 0 10px">以配音、整活、字幕译制、梗与娱乐解说为主的泛娱乐二创社区，夹杂少量社会观察内容｜成员多为配音/字幕组/整活/游戏娱乐类UP主，仅3个TV系样本，整体不是TV系圈子，TV系内容只是零星共现</div>
+<div style="margin-bottom:8px"><span class=tag title='糖雏里姬喵'>糖雏里姬喵</span><span class=tag title='丁真社会观察员'>丁真社会观察员</span><span class=tag title='夜猫子成精擒史版'>夜猫子成精擒史版</span><span class=tag title='减少烦脑'>减少烦脑</span><span class=tag title='什么烂梗'>什么烂梗</span><span class=tag title='涛哥玩配音'>涛哥玩配音</span><span class=tag title='柚子木字幕组'>柚子木字幕组</span><span class=tag title='整活大魔王'>整活大魔王</span><span class=tag title='卷の火星'>卷の火星</span><span class=tag title='伟龙零食俱乐部'>伟龙零食俱乐部</span><span class=tag title='奶通熊仔'>奶通熊仔</span><span class=tag title='最速小曲线'>最速小曲线</span><span class=tag title='梦中の白猫'>梦中の白猫</span><span class=tag title='弹评数据'>弹评数据</span></div>
+<div><a class=more href="review?scope=accepted&sort=fans">查看这些人 →</a></div></div><div class=card style="border-left:3px solid #8b95a7">
+<h2 style="font-size:15px">社区51·以《第五人格》等游戏角色同人创作、二
+<span class=muted style="font-weight:400;font-size:12px">　54 个号 · 
+已确认核心 2（4%）</span></h2>
+<div style="font-size:13px;line-height:1.6;margin:6px 0 10px">以《第五人格》等游戏角色同人创作、二次元头像/昵称社交为主的游戏同人圈｜成员昵称与内容指向游戏同人/二次元创作（如「第五人格纷纷」「24号肘卫」），无 TV 系反讽命名与底层处境素材特征，与 TV 系生态无关。</div>
+<div style="margin-bottom:8px"><span class=tag title='小小神乐丶'>小小神乐丶</span><span class=tag title='24号肘卫'>24号肘卫</span><span class=tag title='赤川江野'>赤川江野</span><span class=tag title='反向红'>反向红</span><span class=tag title='请叫我喵喵卷大人'>请叫我喵喵卷大人</span><span class=tag title='杭糕人'>杭糕人</span><span class=tag title='抖-我的妈呀'>抖-我的妈呀</span><span class=tag title='米饼milk'>米饼milk</span><span class=tag title='守王赢_万粉女仆装'>守王赢_万粉女仆装</span><span class=tag title='一天等于一天'>一天等于一天</span><span class=tag title='方块小钱'>方块小钱</span><span class=tag title='小猴要爆炸了'>小猴要爆炸了</span><span class=tag title='第五人格纷纷'>第五人格纷纷</span><span class=tag title='兮兮渐渐'>兮兮渐渐</span></div>
+<div><a class=more href="review?scope=accepted&sort=fans">查看这些人 →</a></div></div><div class=card style="border-left:3px solid #8b95a7">
+<h2 style="font-size:15px">社区13·以抽象玩梗、搬运猎奇/搞笑内容为主的
+<span class=muted style="font-weight:400;font-size:12px">　271 个号 · 
+已确认核心 10（4%）</span></h2>
+<div style="font-size:13px;line-height:1.6;margin:6px 0 10px">以抽象玩梗、搬运猎奇/搞笑内容为主的B站整活社区｜成员多为搬运、抽象、整活类UP主，仅10/271确认属TV系，主体并非TV系圈子，应整块排除</div>
+<div style="margin-bottom:8px"><span class=tag title='搬石高手北极熊'>搬石高手北极熊</span><span class=tag title='今日香明日绫波'>今日香明日绫波</span><span class=tag title='蓝勾official'>蓝勾official</span><span class=tag title='枸史搬运工'>枸史搬运工</span><span class=tag title='冰洛云'>冰洛云</span><span class=tag title='采蘑菇的二十九叔'>采蘑菇的二十九叔</span><span class=tag title='弗雷尔卓德搬史小子'>弗雷尔卓德搬史小子</span><span class=tag title='冰晶透哟'>冰晶透哟</span><span class=tag title='网友希价罗'>网友希价罗</span><span class=tag title='MoyanOfficial'>MoyanOffic</span><span class=tag title='快乐牢鱼'>快乐牢鱼</span><span class=tag title='來福萨克斯'>來福萨克斯</span><span class=tag title='抽象皇帝小政'>抽象皇帝小政</span><span class=tag title='叫我老内_'>叫我老内_</span></div>
+<div><a class=more href="review?scope=accepted&sort=fans">查看这些人 →</a></div></div><div class=card style="border-left:3px solid #8b95a7">
+<h2 style="font-size:15px">社区38·以哲学、历史、科普类知识内容为主的泛
+<span class=muted style="font-weight:400;font-size:12px">　82 个号 · 
+已确认核心 3（4%）</span></h2>
+<div style="font-size:13px;line-height:1.6;margin:6px 0 10px">以哲学、历史、科普类知识内容为主的泛人文知识分享社区，夹杂少量抽象整活账号｜成员多为罗翔哲学、科普公元、历史铲屎官等知识科普/人文解说号，与TV系围观底层处境的取材逻辑无关，仅个别账号名带抽象色彩</div>
+<div style="margin-bottom:8px"><span class=tag title='史圣_哲一蒯'>史圣_哲一蒯</span><span class=tag title='亚历山大抽象'>亚历山大抽象</span><span class=tag title='月之暗面与你相见'>月之暗面与你相见</span><span class=tag title='罗翔老师的哲学人生'>罗翔老师的哲学人生</span><span class=tag title='优质老叔'>优质老叔</span><span class=tag title='岳母阿蹲'>岳母阿蹲</span><span class=tag title='旺旺旺仔俱乐部'>旺旺旺仔俱乐部</span><span class=tag title='超级闪亮芥末小猫'>超级闪亮芥末小猫</span><span class=tag title='科普公元本人'>科普公元本人</span><span class=tag title='親爱的21'>親爱的21</span><span class=tag title='丁路居'>丁路居</span><span class=tag title='丹姐说车car'>丹姐说车car</span><span class=tag title='散帅集合处'>散帅集合处</span><span class=tag title='巫医严父'>巫医严父</span></div>
+<div><a class=more href="review?scope=accepted&sort=fans">查看这些人 →</a></div></div><div class=card style="border-left:3px solid #8b95a7">
+<h2 style="font-size:15px">社区37·以整活、土味、娱乐解说和玄学/情感类
+<span class=muted style="font-weight:400;font-size:12px">　86 个号 · 
+已确认核心 3（3%）</span></h2>
+<div style="font-size:13px;line-height:1.6;margin:6px 0 10px">以整活、土味、娱乐解说和玄学/情感类短视频为主的泛娱乐内容社区｜成员多为整活、土味、娱乐解说和玄学情感类UP主，仅3个确认属于TV系，整体不是TV系圈子，需细分剔除TV系成员</div>
+<div style="margin-bottom:8px"><span class=tag title='邪恶鹦鹉5号机'>邪恶鹦鹉5号机</span><span class=tag title='S穗穗念'>S穗穗念</span><span class=tag title='蜻蜓队长official_'>蜻蜓队长offici</span><span class=tag title='一只小鲤娱'>一只小鲤娱</span><span class=tag title='孟sir土味频道'>孟sir土味频道</span><span class=tag title='栗子007A'>栗子007A</span><span class=tag title='解除烦恼的小鱼儿'>解除烦恼的小鱼儿</span><span class=tag title='天书定位'>天书定位</span><span class=tag title='六六五三画生'>六六五三画生</span><span class=tag title='上岸先Z意中人'>上岸先Z意中人</span><span class=tag title='花好月圆的6'>花好月圆的6</span><span class=tag title='和甘露寺'>和甘露寺</span><span class=tag title='凯尔斯的艾诗玲'>凯尔斯的艾诗玲</span><span class=tag title='非非今年想出本书'>非非今年想出本书</span></div>
+<div><a class=more href="review?scope=accepted&sort=fans">查看这些人 →</a></div></div><div class=card style="border-left:3px solid #8b95a7">
+<h2 style="font-size:15px">社区4·围绕「赤石/吃史」谐音梗搬运、围观烂
+<span class=muted style="font-weight:400;font-size:12px">　469 个号 · 
+已确认核心 16（3%）</span></h2>
+<div style="font-size:13px;line-height:1.6;margin:6px 0 10px">围绕「赤石/吃史」谐音梗搬运、围观烂内容与抽象整活的泛抽象/屎尿屁内容社区，兼有科比牢大等地狱笑话梗。｜成员多为「赤石/吃史/史」命名的抽象搬运号，与TV系共享反讽命名和围观烂内容的语法，但「赤石」被影视解说等区借走、且样本含动漫与梗号，需按主业细分而非整块收编。</div>
+<div style="margin-bottom:8px"><span class=tag title='全网找shit砖家'>全网找shit砖家</span><span class=tag title='黑牢大87'>黑牢大87</span><span class=tag title='科比牢大-擒史皇'>科比牢大-擒史皇</span><span class=tag title='抽象の仙人'>抽象の仙人</span><span class=tag title='冰墩墩本墩'>冰墩墩本墩</span><span class=tag title='赤史研究员'>赤史研究员</span><span class=tag title='---緒山まひろ---'>---緒山まひろ--</span><span class=tag title='归去来潮'>归去来潮</span><span class=tag title='本当梦'>本当梦</span><span class=tag title='meme仙人'>meme仙人</span><span class=tag title='责染_Channel'>责染_Channel</span><span class=tag title='奇闻档案录'>奇闻档案录</span><span class=tag title='随意起个名太难'>随意起个名太难</span><span class=tag title='吃史史蒂夫'>吃史史蒂夫</span></div>
+<div><a class=more href="review?scope=accepted&sort=fans">查看这些人 →</a></div></div><div class=card style="border-left:3px solid #8b95a7">
+<h2 style="font-size:15px">社区49·围绕DC/漫威超英、特摄（假面骑士空
+<span class=muted style="font-weight:400;font-size:12px">　59 个号 · 
+已确认核心 2（3%）</span></h2>
+<div style="font-size:13px;line-height:1.6;margin:6px 0 10px">围绕DC/漫威超英、特摄（假面骑士空我）与动漫游戏内容进行吐槽、解说和二次创作的泛二次元影视娱乐社区｜成员以DC超英、特摄、动漫杂谈为主，仅2个确认属TV系，整体是泛二次元影视娱乐圈而非TV系，需按超英/特摄/动漫细分后分别处理</div>
+<div style="margin-bottom:8px"><span class=tag title='盘丝大仙在此'>盘丝大仙在此</span><span class=tag title='个回复对方'>个回复对方</span><span class=tag title='钢铁含粉'>钢铁含粉</span><span class=tag title='米奈拉铁'>米奈拉铁</span><span class=tag title='KQCUT'>KQCUT</span><span class=tag title='donald_doge'>donald_dog</span><span class=tag title='恐虐神选芹菜虾仁'>恐虐神选芹菜虾仁</span><span class=tag title='两毛钱的臭豆腐-'>两毛钱的臭豆腐-</span><span class=tag title='裕太弥彦'>裕太弥彦</span><span class=tag title='DC超英宇宙'>DC超英宇宙</span><span class=tag title='整棟一四'>整棟一四</span><span class=tag title='艺-众'>艺-众</span><span class=tag title='老子苏莫婷'>老子苏莫婷</span><span class=tag title='JoJoLoveMoney'>JoJoLoveMo</span></div>
+<div><a class=more href="review?scope=accepted&sort=fans">查看这些人 →</a></div></div><div class=card style="border-left:3px solid #8b95a7">
+<h2 style="font-size:15px">社区26·以新闻资讯、社会民生、影视解说和助老
+<span class=muted style="font-weight:400;font-size:12px">　119 个号 · 
+已确认核心 4（3%）</span></h2>
+<div style="font-size:13px;line-height:1.6;margin:6px 0 10px">以新闻资讯、社会民生、影视解说和助老公益等泛资讯内容为主的混合社区｜成员包含央视新闻、四川观察等官媒，乡村晓燕等助老公益，泽夕影视等影视解说及二次元账号，主题分散且仅4个TV系，需细分剔除无关内容</div>
+<div style="margin-bottom:8px"><span class=tag title='亚里士飞德ArisFatal'>亚里士飞德ArisF</span><span class=tag title='乡村晓燕-暖心助老'>乡村晓燕-暖心助老</span><span class=tag title='新浪潮-Studios'>新浪潮-Studio</span><span class=tag title='茶斗寺匹亭'>茶斗寺匹亭</span><span class=tag title='泽夕影视'>泽夕影视</span><span class=tag title='老实人英杰'>老实人英杰</span><span class=tag title='韩国-朴卡卡'>韩国-朴卡卡</span><span class=tag title='腾讯新闻'>腾讯新闻</span><span class=tag title='Abouch'>Abouch</span><span class=tag title='搜狐新闻'>搜狐新闻</span><span class=tag title='月の奇迹'>月の奇迹</span><span class=tag title='二次元风花酱'>二次元风花酱</span><span class=tag title='liyuan3210'>liyuan3210</span><span class=tag title='骑手部落'>骑手部落</span></div>
+<div><a class=more href="review?scope=accepted&sort=fans">查看这些人 →</a></div></div><div class=card style="border-left:3px solid #8b95a7">
+<h2 style="font-size:15px">社区60·以生活日常、美食探店、网约车/电梯等
+<span class=muted style="font-weight:400;font-size:12px">　30 个号 · 
+已确认核心 1（3%）</span></h2>
+<div style="font-size:13px;line-height:1.6;margin:6px 0 10px">以生活日常、美食探店、网约车/电梯等职业见闻和轻度娱乐为主的泛生活区UP主集群｜成员多为生活记录、美食、职业日常和娱乐内容，无TV系反讽命名与底层围观母题，仅1个已确认TV系不足以带动整块</div>
+<div style="margin-bottom:8px"><span class=tag title='乐LL糊口日记'>乐LL糊口日记</span><span class=tag title='皇工绛Z'>皇工绛Z</span><span class=tag title='修电梯的干饭人'>修电梯的干饭人</span><span class=tag title='蝌蚪说故事'>蝌蚪说故事</span><span class=tag title='奶茶没我甜3'>奶茶没我甜3</span><span class=tag title='卡卫门'>卡卫门</span><span class=tag title='艾姆露雷'>艾姆露雷</span><span class=tag title='FM-SHA'>FM-SHA</span><span class=tag title='多菲莉娅世界第一可爱'>多菲莉娅世界第一可爱</span><span class=tag title='大大大的呲花'>大大大的呲花</span><span class=tag title='老虎说网约车'>老虎说网约车</span><span class=tag title='心爱-堂子的神'>心爱-堂子的神</span><span class=tag title='王泽悬'>王泽悬</span><span class=tag title='黄帽不耐烦'>黄帽不耐烦</span></div>
+<div><a class=more href="review?scope=accepted&sort=fans">查看这些人 →</a></div></div><div class=card style="border-left:3px solid #8b95a7">
+<h2 style="font-size:15px">社区34·以租房、外卖、沪漂/深漂打工生存实录
+<span class=muted style="font-weight:400;font-size:12px">　96 个号 · 
+已确认核心 3（3%）</span></h2>
+<div style="font-size:13px;line-height:1.6;margin:6px 0 10px">以租房、外卖、沪漂/深漂打工生存实录为主的底层生活记录社区｜样本多为租房中介、外卖员、打工日常记录号，属真实生活记录而非反讽命名的TV系，仅个别成员可能沾TV系，需按号细分</div>
+<div style="margin-bottom:8px"><span class=tag title='阿海加油吧'>阿海加油吧</span><span class=tag title='bili_张大胆'>bili_张大胆</span><span class=tag title='Mamipy'>Mamipy</span><span class=tag title='阿Q外传Power'>阿Q外传Power</span><span class=tag title='无双菜单'>无双菜单</span><span class=tag title='小熊猫租房'>小熊猫租房</span><span class=tag title='杨小强捞世界'>杨小强捞世界</span><span class=tag title='又又跑路了'>又又跑路了</span><span class=tag title='老驴说外卖'>老驴说外卖</span><span class=tag title='老吕看房-收学员'>老吕看房-收学员</span><span class=tag title='6802可'>6802可</span><span class=tag title='我爱吃牛肉努力版'>我爱吃牛肉努力版</span><span class=tag title='盟克电竞酒店老板日常'>盟克电竞酒店老板日常</span><span class=tag title='趣房首席体验官'>趣房首席体验官</span></div>
+<div><a class=more href="review?scope=accepted&sort=fans">查看这些人 →</a></div></div><div class=card style="border-left:3px solid #8b95a7">
+<h2 style="font-size:15px">社区48·以搞笑配音、娱乐吐槽和影视片段二创为
+<span class=muted style="font-weight:400;font-size:12px">　64 个号 · 
+已确认核心 2（3%）</span></h2>
+<div style="font-size:13px;line-height:1.6;margin:6px 0 10px">以搞笑配音、娱乐吐槽和影视片段二创为主的泛娱乐内容社区｜成员多为搞笑配音、娱乐吐槽和影视二创UP主，仅2个确认属TV系，整体是泛娱乐而非TV系圈子，需细分剔除个别TV系账号</div>
+<div style="margin-bottom:8px"><span class=tag title='baiyoubaiovo'>baiyoubaio</span><span class=tag title='账号已注销'>账号已注销</span><span class=tag title='盛世中华赋'>盛世中华赋</span><span class=tag title='娱酱小甜甜'>娱酱小甜甜</span><span class=tag title='青风搞笑配音'>青风搞笑配音</span><span class=tag title='-大大大大古'>-大大大大古</span><span class=tag title='不爱科普爱什么'>不爱科普爱什么</span><span class=tag title='黑大帅No1'>黑大帅No1</span><span class=tag title='犯贰de汪星人'>犯贰de汪星人</span><span class=tag title='欢乐黄黄仔'>欢乐黄黄仔</span><span class=tag title='陈语臣-仅此一个账号'>陈语臣-仅此一个账号</span><span class=tag title='屈大将'>屈大将</span><span class=tag title='不靠谱的阿宅'>不靠谱的阿宅</span><span class=tag title='北京小嘉姐'>北京小嘉姐</span></div>
+<div><a class=more href="review?scope=accepted&sort=fans">查看这些人 →</a></div></div><div class=card style="border-left:3px solid #8b95a7">
+<h2 style="font-size:15px">社区46·宠物与动物萌宠内容社区，围绕猫狗等动
+<span class=muted style="font-weight:400;font-size:12px">　66 个号 · 
+已确认核心 2（3%）</span></h2>
+<div style="font-size:13px;line-height:1.6;margin:6px 0 10px">宠物与动物萌宠内容社区，围绕猫狗等动物的日常、救助与趣味视频聚合｜成员多为萌宠/动物博主（猫狗投递员、邢老师爱萌宠、疯狂的动物们等），与TV系底层受苦/猎奇围观母题无关，仅2个TV系号属噪声</div>
+<div style="margin-bottom:8px"><span class=tag title='素思思'>素思思</span><span class=tag title='铁板蓝精灵铁铁铁'>铁板蓝精灵铁铁铁</span><span class=tag title='梵葵葵'>梵葵葵</span><span class=tag title='马统君-'>马统君-</span><span class=tag title='丁真_-'>丁真_-</span><span class=tag title='areswonderland'>areswonder</span><span class=tag title='就是小艺呀'>就是小艺呀</span><span class=tag title='伸林AEX'>伸林AEX</span><span class=tag title='哼里个亨'>哼里个亨</span><span class=tag title='全球不知道'>全球不知道</span><span class=tag title='佩奇野菜听我说'>佩奇野菜听我说</span><span class=tag title='JonAlback'>JonAlback</span><span class=tag title='genkinosimmons'>genkinosim</span><span class=tag title='怪咖科技宅'>怪咖科技宅</span></div>
+<div><a class=more href="review?scope=accepted&sort=fans">查看这些人 →</a></div></div><div class=card style="border-left:3px solid #8b95a7">
+<h2 style="font-size:15px">社区59·以meme动画、吐槽和二次元整活为主
+<span class=muted style="font-weight:400;font-size:12px">　33 个号 · 
+已确认核心 1（3%）</span></h2>
+<div style="font-size:13px;line-height:1.6;margin:6px 0 10px">以meme动画、吐槽和二次元整活为主的泛娱乐创作社区，成员多为画meme小剧场、吐槽视频的UP主。｜成员以meme动画、吐槽、原神/动漫整活为主，无TV系命名与底层围观素材特征，仅个别号可能沾边，整体属动漫游戏整活圈而非TV系。</div>
+<div style="margin-bottom:8px"><span class=tag title='火花花不是花火哟'>火花花不是花火哟</span><span class=tag title='737E号'>737E号</span><span class=tag title='烟花君嘎'>烟花君嘎</span><span class=tag title='谈谈吐槽'>谈谈吐槽</span><span class=tag title='o土豆酱o'>o土豆酱o</span><span class=tag title='逆天教教主'>逆天教教主</span><span class=tag title='满级野生人类'>满级野生人类</span><span class=tag title='爱吐槽的考拉'>爱吐槽的考拉</span><span class=tag title='-玩了五年原神-'>-玩了五年原神-</span><span class=tag title='金牌史壳郎'>金牌史壳郎</span><span class=tag title='李梅1026'>李梅1026</span><span class=tag title='灰粉色小兔'>灰粉色小兔</span><span class=tag title='东北学者林川'>东北学者林川</span><span class=tag title='给韩某一个焦岱'>给韩某一个焦岱</span></div>
+<div><a class=more href="review?scope=accepted&sort=fans">查看这些人 →</a></div></div><div class=card style="border-left:3px solid #8b95a7">
+<h2 style="font-size:15px">社区18·以短视频/梗文化/生活吐槽为主的泛娱
+<span class=muted style="font-weight:400;font-size:12px">　235 个号 · 
+已确认核心 7（3%）</span></h2>
+<div style="font-size:13px;line-height:1.6;margin:6px 0 10px">以短视频/梗文化/生活吐槽为主的泛娱乐内容聚合，夹杂少量TV系成员｜235个UP主中仅7个确认属TV系，主体是泛娱乐短视频创作者，需细分剔除TV系成员后保留其余</div>
+<div style="margin-bottom:8px"><span class=tag title='我是M菌'>我是M菌</span><span class=tag title='10969Kaze'>10969Kaze</span><span class=tag title='绊岛同学'>绊岛同学</span><span class=tag title='蓝星特放员'>蓝星特放员</span><span class=tag title='魁乐猫'>魁乐猫</span><span class=tag title='人类观察菌'>人类观察菌</span><span class=tag title='豌豆快刷'>豌豆快刷</span><span class=tag title='没脸鉴车'>没脸鉴车</span><span class=tag title='小椰子专栏'>小椰子专栏</span><span class=tag title='粗犷毛线君'>粗犷毛线君</span><span class=tag title='Aurora-桃花劫丶'>Aurora-桃花劫</span><span class=tag title='科学大魔王'>科学大魔王</span><span class=tag title='王小七Fire'>王小七Fire</span><span class=tag title='梗的知识'>梗的知识</span></div>
+<div><a class=more href="review?scope=accepted&sort=fans">查看这些人 →</a></div></div><div class=card style="border-left:3px solid #8b95a7">
+<h2 style="font-size:15px">社区23·以抽象整活、社会观察和猎奇围观为主的
+<span class=muted style="font-weight:400;font-size:12px">　169 个号 · 
+已确认核心 5（3%）</span></h2>
+<div style="font-size:13px;line-height:1.6;margin:6px 0 10px">以抽象整活、社会观察和猎奇围观为主的泛娱乐社区，围绕孙笑川式抽象文化展开｜样本中仅少数（如赤史部部长、智ZUO动画）沾TV系命名，主体是抽象/整活/人物志类UP主，并非TV系圈子，需按具体账号细分</div>
+<div style="margin-bottom:8px"><span class=tag title='抽象高手孙笑川'>抽象高手孙笑川</span><span class=tag title='我爱我的绿色小恐龙'>我爱我的绿色小恐龙</span><span class=tag title='全天然香蕉-'>全天然香蕉-</span><span class=tag title='赤史部部长'>赤史部部长</span><span class=tag title='智ZUO动画'>智ZUO动画</span><span class=tag title='今日话题酱'>今日话题酱</span><span class=tag title='垂耳暴力兔'>垂耳暴力兔</span><span class=tag title='戏很多的金兑'>戏很多的金兑</span><span class=tag title='都是大棚的瓜o'>都是大棚的瓜o</span><span class=tag title='有夕大人'>有夕大人</span><span class=tag title='蟑螂恶霸vvv'>蟑螂恶霸vvv</span><span class=tag title='赵嫄嫄嫄嫄'>赵嫄嫄嫄嫄</span><span class=tag title='不离谱学姐'>不离谱学姐</span><span class=tag title='唐涛腿叔'>唐涛腿叔</span></div>
+<div><a class=more href="review?scope=accepted&sort=fans">查看这些人 →</a></div></div><div class=card style="border-left:3px solid #8b95a7">
+<h2 style="font-size:15px">社区58·以女性向情感/生活/小说素材分享为主
+<span class=muted style="font-weight:400;font-size:12px">　35 个号 · 
+已确认核心 1（3%）</span></h2>
+<div style="font-size:13px;line-height:1.6;margin:6px 0 10px">以女性向情感/生活/小说素材分享为主的泛娱乐生活区博主集群，与TV系无实质关联｜成员多为小说素材库、情感吐槽、生活日常类UP主，唯一TV系样本不足以代表整体，且无三和/力工/享福等TV系核心素材特征</div>
+<div style="margin-bottom:8px"><span class=tag title='加藤鹰的嘿嘿'>加藤鹰的嘿嘿</span><span class=tag title='甜妹领军人物'>甜妹领军人物</span><span class=tag title='啥也不是光知道吃'>啥也不是光知道吃</span><span class=tag title='憨小六'>憨小六</span><span class=tag title='蝶流萤'>蝶流萤</span><span class=tag title='风濯灵'>风濯灵</span><span class=tag title='逊无双'>逊无双</span><span class=tag title='码字到炸毛'>码字到炸毛</span><span class=tag title='lesley-莱斯利'>lesley-莱斯利</span><span class=tag title='盛一金-小鹿'>盛一金-小鹿</span><span class=tag title='扶摇酱酱'>扶摇酱酱</span><span class=tag title='码文中的团长'>码文中的团长</span><span class=tag title='雾珐步檀'>雾珐步檀</span><span class=tag title='演唱会有票'>演唱会有票</span></div>
+<div><a class=more href="review?scope=accepted&sort=fans">查看这些人 →</a></div></div><div class=card style="border-left:3px solid #8b95a7">
+<h2 style="font-size:15px">社区40·以海外/社会猎奇见闻、时事评点和生活
+<span class=muted style="font-weight:400;font-size:12px">　79 个号 · 
+已确认核心 2（3%）</span></h2>
+<div style="font-size:13px;line-height:1.6;margin:6px 0 10px">以海外/社会猎奇见闻、时事评点和生活杂谈为主的泛资讯娱乐号聚合，夹杂旅行、足球、影视解说等｜成员多为旅行见闻、时事评点、足球影视解说等泛内容号，仅个别号带TV系命名痕迹，整体不是TV系生态，需按号细分剔除蹭名者</div>
+<div style="margin-bottom:8px"><span class=tag title='喵喵即正义'>喵喵即正义</span><span class=tag title='bbb三狼'>bbb三狼</span><span class=tag title='挖沟连彭沟长'>挖沟连彭沟长</span><span class=tag title='万能编辑部'>万能编辑部</span><span class=tag title='小半夏汤1'>小半夏汤1</span><span class=tag title='黄老邪i'>黄老邪i</span><span class=tag title='螳螂捕财'>螳螂捕财</span><span class=tag title='销冠李老板'>销冠李老板</span><span class=tag title='hz-xu'>hz-xu</span><span class=tag title='发财少女呀'>发财少女呀</span><span class=tag title='蓝战非环球旅行'>蓝战非环球旅行</span><span class=tag title='剧透足球'>剧透足球</span><span class=tag title='xxxxch2'>xxxxch2</span><span class=tag title='玩子yuki'>玩子yuki</span></div>
+<div><a class=more href="review?scope=accepted&sort=fans">查看这些人 →</a></div></div><div class=card style="border-left:3px solid #8b95a7">
+<h2 style="font-size:15px">社区57·以动物/宠物短视频和搬运剪辑为主的泛
+<span class=muted style="font-weight:400;font-size:12px">　40 个号 · 
+已确认核心 1（2%）</span></h2>
+<div style="font-size:13px;line-height:1.6;margin:6px 0 10px">以动物/宠物短视频和搬运剪辑为主的泛生活娱乐社区｜成员多为动物百科、萌宠日常、影视解说与搬运号，缺少TV系的反讽命名与底层处境题材，仅个别号可能沾边</div>
+<div style="margin-bottom:8px"><span class=tag title='hkhbuu'>hkhbuu</span><span class=tag title='小萌Official'>小萌Official</span><span class=tag title='洁楹'>洁楹</span><span class=tag title='一只美短啊'>一只美短啊</span><span class=tag title='搬运编辑'>搬运编辑</span><span class=tag title='易碎嘎嘣脆'>易碎嘎嘣脆</span><span class=tag title='大自然是神奇的'>大自然是神奇的</span><span class=tag title='川猴影视'>川猴影视</span><span class=tag title='AAA谢尔曼批发龙卷师傅'>AAA谢尔曼批发龙卷</span><span class=tag title='bili_360948619'>bili_36094</span><span class=tag title='动物大百科'>动物大百科</span><span class=tag title='猴大嫂'>猴大嫂</span><span class=tag title='雾化器ww'>雾化器ww</span><span class=tag title='雨zals'>雨zals</span></div>
+<div><a class=more href="review?scope=accepted&sort=fans">查看这些人 →</a></div></div><div class=card style="border-left:3px solid #8b95a7">
+<h2 style="font-size:15px">社区35·以动漫剪辑、二次元推荐和游戏内容为主
+<span class=muted style="font-weight:400;font-size:12px">　96 个号 · 
+已确认核心 2（2%）</span></h2>
+<div style="font-size:13px;line-height:1.6;margin:6px 0 10px">以动漫剪辑、二次元推荐和游戏内容为主的泛二次元娱乐社区｜成员样本几乎全是动漫剪辑号、二次元推荐号和游戏号，没有 TV 系那种围观底层处境、反讽命名的特征，仅 2 个 TV 系成员不足以代表整块社区</div>
+<div style="margin-bottom:8px"><span class=tag title='我是萌新啊ovo'>我是萌新啊ovo</span><span class=tag title='櫻花动漫'>櫻花动漫</span><span class=tag title='白日梦神人'>白日梦神人</span><span class=tag title='茉莉绿茶少糖'>茉莉绿茶少糖</span><span class=tag title='凯莤爱玩游戏'>凯莤爱玩游戏</span><span class=tag title='四夕小田木_'>四夕小田木_</span><span class=tag title='KAYGEZ'>KAYGEZ</span><span class=tag title='怎可1623'>怎可1623</span><span class=tag title='见子天使'>见子天使</span><span class=tag title='不正经动漫'>不正经动漫</span><span class=tag title='高星卡手'>高星卡手</span><span class=tag title='辞九门Ya'>辞九门Ya</span><span class=tag title='千寻柳e'>千寻柳e</span><span class=tag title='JC漫剪'>JC漫剪</span></div>
+<div><a class=more href="review?scope=accepted&sort=fans">查看这些人 →</a></div></div><div class=card style="border-left:3px solid #8b95a7">
+<h2 style="font-size:15px">社区6·以猎奇、搞笑、社会奇闻类短视频剪辑与
+<span class=muted style="font-weight:400;font-size:12px">　461 个号 · 
+已确认核心 9（2%）</span></h2>
+<div style="font-size:13px;line-height:1.6;margin:6px 0 10px">以猎奇、搞笑、社会奇闻类短视频剪辑与搬运为主的泛娱乐内容社区｜成员多为搞笑/猎奇/社会新闻类剪辑号，与TV系仅少量重叠，整体偏泛娱乐搬运，需细分剔除TV系成员后保留其余。</div>
+<div style="margin-bottom:8px"><span class=tag title='暗黑制片人'>暗黑制片人</span><span class=tag title='逝故录'>逝故录</span><span class=tag title='桉慕然'>桉慕然</span><span class=tag title='抽象M酱'>抽象M酱</span><span class=tag title='小超说交通'>小超说交通</span><span class=tag title='人类骚操作大赏'>人类骚操作大赏</span><span class=tag title='开车记录姨'>开车记录姨</span><span class=tag title='程程Cccan'>程程Cccan</span><span class=tag title='一根脆黄瓜'>一根脆黄瓜</span><span class=tag title='想入绯菲'>想入绯菲</span><span class=tag title='阿尔法小分队字幕组'>阿尔法小分队字幕组</span><span class=tag title='star星视频'>star星视频</span><span class=tag title='方脸很框'>方脸很框</span><span class=tag title='猎奇相册'>猎奇相册</span></div>
+<div><a class=more href="review?scope=accepted&sort=fans">查看这些人 →</a></div></div><div class=card style="border-left:3px solid #8b95a7">
+<h2 style="font-size:15px">社区45·王者荣耀等手游的娱乐向内容创作与互动
+<span class=muted style="font-weight:400;font-size:12px">　67 个号 · 
+已确认核心 1（1%）</span></h2>
+<div style="font-size:13px;line-height:1.6;margin:6px 0 10px">王者荣耀等手游的娱乐向内容创作与互动社区｜成员多为王者荣耀主播/玩家及泛游戏娱乐UP主，仅1个TV系成员，整体属游戏圈而非TV系，需按游戏与泛娱乐细分。</div>
+<div style="margin-bottom:8px"><span class=tag title='神秘发电鹿'>神秘发电鹿</span><span class=tag title='Acardia1314'>Acardia131</span><span class=tag title='野良不吃鱼a'>野良不吃鱼a</span><span class=tag title='晴雪-沐'>晴雪-沐</span><span class=tag title='小狐狸宝吖'>小狐狸宝吖</span><span class=tag title='用户518848'>用户518848</span><span class=tag title='你的只只呀'>你的只只呀</span><span class=tag title='才不是时崎狂三'>才不是时崎狂三</span><span class=tag title='王者荣耀苏苏吖'>王者荣耀苏苏吖</span><span class=tag title='十亩重度依赖'>十亩重度依赖</span><span class=tag title='境虚bH_'>境虚bH_</span><span class=tag title='奈何_Official'>奈何_Officia</span><span class=tag title='故渊者乎'>故渊者乎</span><span class=tag title='一只路枝'>一只路枝</span></div>
+<div><a class=more href="review?scope=accepted&sort=fans">查看这些人 →</a></div></div><div class=card style="border-left:3px solid #8b95a7">
+<h2 style="font-size:15px">社区12·以搞笑盘点、萌宠动物、生活碎碎念和整
+<span class=muted style="font-weight:400;font-size:12px">　292 个号 · 
+已确认核心 4（1%）</span></h2>
+<div style="font-size:13px;line-height:1.6;margin:6px 0 10px">以搞笑盘点、萌宠动物、生活碎碎念和整活段子为主的泛娱乐轻内容聚合｜样本里只有「伪人研究院院长」等极少数蹭用公共命名空间的号，其余是萌宠、搞笑盘点、日常vlog类UP主，主业内容与TV系的底层受苦/猎奇围观母题无关。</div>
+<div style="margin-bottom:8px"><span class=tag title='伪人研究院院长'>伪人研究院院长</span><span class=tag title='哒粪奇'>哒粪奇</span><span class=tag title='土豆卡拉苏'>土豆卡拉苏</span><span class=tag title='摆摊传媒影视公司'>摆摊传媒影视公司</span><span class=tag title='好奇零零漆'>好奇零零漆</span><span class=tag title='FUNNY-ANIMALS'>FUNNY-ANIM</span><span class=tag title='我是智慧垃圾王'>我是智慧垃圾王</span><span class=tag title='佟林-'>佟林-</span><span class=tag title='陈晨尘呀_'>陈晨尘呀_</span><span class=tag title='坏坏的魔法师'>坏坏的魔法师</span><span class=tag title='谁说不是就行'>谁说不是就行</span><span class=tag title='张雨琪Q'>张雨琪Q</span><span class=tag title='筱筱拾光簿'>筱筱拾光簿</span><span class=tag title='呆萌中二菌'>呆萌中二菌</span></div>
+<div><a class=more href="review?scope=accepted&sort=fans">查看这些人 →</a></div></div><div class=card style="border-left:3px solid #8b95a7">
+<h2 style="font-size:15px">社区14·汽车内容社区，以车祸记录、赛车游戏、
+<span class=muted style="font-weight:400;font-size:12px">　264 个号 · 
+已确认核心 3（1%）</span></h2>
+<div style="font-size:13px;line-height:1.6;margin:6px 0 10px">汽车内容社区，以车祸记录、赛车游戏、JDM/肌肉车文化及汽车资讯为主｜成员几乎全是汽车类UP主（行车记录、赛车游戏、车圈资讯），与TV系动漫影视圈无关，应整块排除</div>
+<div style="margin-bottom:8px"><span class=tag title='微车聚'>微车聚</span><span class=tag title='春雨半衫_'>春雨半衫_</span><span class=tag title='DanceShovelSteps'>DanceShove</span><span class=tag title='一号记录车'>一号记录车</span><span class=tag title='尼克_show'>尼克_show</span><span class=tag title='车祸警示录'>车祸警示录</span><span class=tag title='爱车的Links'>爱车的Links</span><span class=tag title='AYIGAME'>AYIGAME</span><span class=tag title='烂仔派对'>烂仔派对</span><span class=tag title='TinyBear小熊资源社'>TinyBear小熊</span><span class=tag title='Demingsi'>Demingsi</span><span class=tag title='AMCC肌肉车俱乐部'>AMCC肌肉车俱乐部</span><span class=tag title='钦天监物'>钦天监物</span><span class=tag title='涡轮不增压t'>涡轮不增压t</span></div>
+<div><a class=more href="review?scope=accepted&sort=fans">查看这些人 →</a></div></div><div class=card style="border-left:3px solid #8b95a7">
+<h2 style="font-size:15px">社区10·以「类人/神人观察」为名的猎奇围观内
+<span class=muted style="font-weight:400;font-size:12px">　350 个号 · 
+已确认核心 1（0%）</span></h2>
+<div style="font-size:13px;line-height:1.6;margin:6px 0 10px">以「类人/神人观察」为名的猎奇围观内容聚合，混杂影视解说、AI 剧场与泛娱乐资讯号｜「类人TV」「神人观察编辑部」「神人抽象馆」占着 TV 系公共命名位，但同社区还有小片片说大片、天子影院等影视解说号和笑笑AI剧场等无关号，需按各号主业细分，不能整块保留或排除</div>
+<div style="margin-bottom:8px"><span class=tag title='类人TV'>类人TV</span><span class=tag title='小鱼资讯屋'>小鱼资讯屋</span><span class=tag title='神人观察编辑部'>神人观察编辑部</span><span class=tag title='大型纪录片麦克阿瑟'>大型纪录片麦克阿瑟</span><span class=tag title='好时花生鸭'>好时花生鸭</span><span class=tag title='小黄人啊丶'>小黄人啊丶</span><span class=tag title='小片片说大片'>小片片说大片</span><span class=tag title='桃木一心'>桃木一心</span><span class=tag title='瓜田C位品如姐'>瓜田C位品如姐</span><span class=tag title='吃苦db'>吃苦db</span><span class=tag title='瑾瑜小月'>瑾瑜小月</span><span class=tag title='卡紫卡紫'>卡紫卡紫</span><span class=tag title='琴瑟弦弦'>琴瑟弦弦</span><span class=tag title='电影冷知识'>电影冷知识</span></div>
+<div><a class=more href="review?scope=accepted&sort=fans">查看这些人 →</a></div></div>
+<div class=foot>本页数据全部来自 B站 公开可见的账号与视频信息，仅作网络亚文化研究用。
+封面与视频版权归原 UP 主所有。如对收录有异议，请通过页面所附账号联系删除。</div>
+</div></body></html>

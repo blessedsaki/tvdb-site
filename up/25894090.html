@@ -1,0 +1,104 @@
+<!DOCTYPE html><html lang="zh-CN"><head><base href="/tvdb-site/"><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>账号 25894090 · tvdb</title><style>
+:root{--bg:#0a0b0f;--card:#12141b;--card2:#171a23;--line:#242838;--fg:#e8ecf5;
+--dim:#8b95a7;--accent:#6aa6ff;--ok:#3ddc97;--warn:#ffb84d;--err:#ff6b6b}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);font:14px/1.55 -apple-system,
+"PingFang SC","Microsoft YaHei",sans-serif;
+background-image:radial-gradient(900px 460px at 12% -10%,rgba(46,88,165,.26) 0,transparent 60%);
+background-attachment:fixed}
+.wrap{max-width:1280px;margin:0 auto;padding:20px 18px 60px}
+a{color:var(--accent);text-decoration:none} a:hover{text-decoration:underline}
+h1{font-size:21px;margin:0 0 3px;letter-spacing:-.02em;
+background:linear-gradient(92deg,#f2f7ff,#9dc4ff 55%,#b39bff);
+-webkit-background-clip:text;background-clip:text;color:transparent}
+.sub{color:var(--dim);font-size:12.5px;margin-bottom:16px}
+nav{margin:0 0 16px;display:flex;gap:6px;flex-wrap:wrap}
+nav a{padding:7px 13px;border:1px solid var(--line);border-radius:9px;background:var(--card);
+font-size:13px;color:var(--fg)}
+nav a.on{border-color:var(--accent);color:#fff}
+.card{background:var(--card);border:1px solid var(--line);border-radius:13px;padding:15px;margin-bottom:13px}
+.card h2{font-size:12.5px;margin:0 0 11px;color:var(--dim);font-weight:600;
+letter-spacing:.06em;text-transform:uppercase}
+table{width:100%;border-collapse:collapse;font-size:12.5px}
+th,td{text-align:left;padding:7px 6px;border-bottom:1px solid var(--line);vertical-align:top}
+th{color:var(--dim);font-weight:500;font-size:11.5px}
+tr:hover td{background:rgba(106,166,255,.04)}
+.num{text-align:right;font-variant-numeric:tabular-nums}
+.muted{color:var(--dim);font-size:12px}
+.tag{font-size:11px;padding:1px 7px;border-radius:5px;background:var(--card2);
+color:var(--dim);display:inline-block;margin:1px 2px 1px 0}
+.tag.s{color:var(--accent)}
+.tag.g{color:var(--ok)} .tag.w{color:var(--warn)} .tag.e{color:var(--err)}
+.stats{display:flex;gap:22px;flex-wrap:wrap}
+.stats div{font-size:12px;color:var(--dim)}
+.stats b{display:block;font-size:19px;color:var(--fg);font-weight:600}
+input,select,button{background:var(--card2);border:1px solid var(--line);color:var(--fg);
+border-radius:8px;padding:7px 10px;font-size:13px;outline:none}
+input:focus,select:focus{border-color:var(--accent)}
+form.row{display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin-bottom:12px}
+input.grow{flex:1;min-width:180px}
+.cvrow{display:flex;gap:4px}
+a.cv{display:block;width:84px;height:48px;overflow:hidden;border-radius:4px;
+border:1px solid var(--line);background:var(--card2)}
+a.cv img{width:100%;height:100%;object-fit:cover;display:block}
+a.cv:hover{border-color:var(--accent)}
+td.covs{white-space:nowrap}
+.foot{margin:34px 0 10px;padding-top:14px;border-top:1px solid var(--line);
+color:var(--dim);font-size:12px;line-height:1.7}
+.tabrow{display:flex;gap:8px;flex-wrap:wrap;margin:4px 0 10px}
+a.tabk{padding:5px 12px;border:1px solid var(--line);border-radius:16px;
+font-size:12.5px;text-decoration:none;color:var(--dim)}
+a.tabk.sel{background:var(--accent);color:#0a0b0f;border-color:var(--accent);font-weight:600}
+a.tabk:hover{border-color:var(--accent);color:var(--accent)}
+a.tabk.sel:hover{color:#0a0b0f}
+td.act{white-space:nowrap}
+button.byes,button.bno{padding:4px 12px;border-radius:6px;border:1px solid var(--line);
+background:var(--card2);color:var(--fg);font-size:12px;cursor:pointer;margin-right:4px}
+button.byes:hover{background:#3ddc97;color:#0a0b0f;border-color:#3ddc97}
+button.bno:hover{background:#ff6b6b;color:#0a0b0f;border-color:#ff6b6b}
+.small{font-size:11px;color:var(--dim);max-width:200px}
+.avrow{display:flex;flex-wrap:wrap;gap:10px}
+.avline{display:flex;flex-direction:column;align-items:center;width:56px;gap:3px;
+text-decoration:none;color:var(--dim);font-size:10px;text-align:center}
+.avline img{width:40px;height:40px;border-radius:50%;object-fit:cover;
+background:var(--card2);border:1px solid var(--line)}
+.avline:hover{color:var(--accent)}
+.avline:hover img{border-color:var(--accent)}
+a.more{color:var(--accent);font-size:12.5px;text-decoration:none}
+a.more:hover{text-decoration:underline}
+td.av{width:44px;padding-right:0}
+td.av img{width:36px;height:36px;border-radius:50%;object-fit:cover;display:block;
+background:var(--card2);border:1px solid var(--line)}
+td.av a{display:block}
+a.upname{font-weight:600;text-decoration:none;color:var(--fg)}
+a.upname:hover{color:var(--accent);text-decoration:underline}
+a.detail{font-size:10.5px;color:var(--dim);text-decoration:none;border:1px solid var(--line);
+border-radius:4px;padding:1px 4px;margin-left:2px}
+a.detail:hover{color:var(--accent);border-color:var(--accent)}
+td.note{max-width:520px;font-size:11.5px;line-height:1.5;color:#b8c4d8}
+td.note b{color:var(--accent);font-weight:600}
+.sig{color:var(--dim);font-size:11.5px;max-width:340px;overflow:hidden;
+text-overflow:ellipsis;white-space:nowrap;display:inline-block;vertical-align:bottom}
+.warnbox{border-left:3px solid var(--warn);background:rgba(255,184,77,.07);
+padding:9px 12px;border-radius:0 8px 8px 0;font-size:12.5px;color:#e8d5b0;margin:10px 0}
+</style></head><body><div class="wrap">
+<h1>tvdb</h1><div class="sub">TV 系内容观测库 · 中国社会的一个窗口</div>
+<nav><a href="index.html">概览</a><a href="ups.html" class=on>账号</a><a href="series.html">系列</a><a href="themes.html">大主题</a><a href="community.html">圈子</a><a href="memes.html">梗</a><a href="report.html">调研报告</a></nav><div class=card><h2>Theogenes</h2>
+<table>
+<tr><th>mid</th><td><code>25894090</code></td></tr>
+<tr><th>粉丝</th><td>1803</td></tr>
+<tr><th>投稿数</th><td>73</td></tr>
+<tr><th>签名</th><td>—</td></tr>
+<tr><th>状态</th><td>正常</td></tr>
+</table></div>
+<div class=card><h2>角色判定</h2>
+<table><tr><th>角色</th><th class=num>置信度</th><th>依据</th></tr><tr><td colspan=3 class=muted>未判定</td></tr></table></div>
+<div class=card><h2>粉丝轨迹</h2>
+<table><tr><th>时间</th><th class=num>粉丝</th><th class=num>投稿</th></tr><tr><td colspan=3 class=muted>只有一次快照</td></tr></table></div>
+<div class=card><h2>投稿（20）</h2>
+<table><tr><th>标题</th><th class=num>播放</th><th class=num>时长</th><th>发布</th><th></th></tr><tr><td><a href='/video/BV1LbBPBeEXB'>声嘶力竭！李文亚教授放弃幻想，准备战斗！</a></td><td class=num>4.3万</td><td class=num>667s</td><td class=muted>2025-12-23 06:35</td><td></td></tr><tr><td><a href='/video/BV1i8qrBeEPg'>李文亚教授称赞马云是伟大的科学家、华为是伟大的科研企业！</a></td><td class=num>2.7万</td><td class=num>167s</td><td class=muted>2025-12-20 12:18</td><td></td></tr><tr><td><a href='/video/BV1JKqHBJEPm'>惊爆！李文亚教授亮出枪械，同孙笑川集团正面开战！</a></td><td class=num>17.5万</td><td class=num>259s</td><td class=muted>2025-12-18 06:11</td><td></td></tr><tr><td><a href='/video/BV19fmkBfEJ9'>传世经典：李文亚教授怒批紫金山天文台·第一弹</a></td><td class=num>6.5万</td><td class=num>265s</td><td class=muted>2025-12-15 07:18</td><td></td></tr><tr><td><a href='/video/BV1V82kBdEKv'>根本难不倒他！孙笑川伪造自己获得诺贝尔奖，却被李文亚教授轻松识破！</a></td><td class=num>11.2万</td><td class=num>588s</td><td class=muted>2025-12-08 10:20</td><td></td></tr><tr><td><a href='/video/BV1VAmFBME8W'>李文亚教授年龄之谜：他当年参与过皮豆吗？</a></td><td class=num>24.6万</td><td class=num>255s</td><td class=muted>2025-12-07 07:39</td><td></td></tr><tr><td><a href='/video/BV1RS2RB8EmH'>最激烈的一集！李文亚教授怒斥网友：你配和我战斗吗？！</a></td><td class=num>33.0万</td><td class=num>551s</td><td class=muted>2025-12-06 14:43</td><td></td></tr><tr><td><a href='/video/BV19k2jBDEqB'>波澜又起！李文亚教授怒斥美国总统是孙笑川同伙，直言美国将迎来覆灭！</a></td><td class=num>2.3万</td><td class=num>273s</td><td class=muted>2025-12-05 15:41</td><td></td></tr><tr><td><a href='/video/BV1aTSxB7E3s'>硬刚到底！李文亚教授正式向法院起诉恶势力干扰破坏他的科研工作！</a></td><td class=num>2.5万</td><td class=num>334s</td><td class=muted>2025-12-02 08:03</td><td></td></tr><tr><td><a href='/video/BV15gSTBYEJP'>李文亚教授进军化学领域，现场实验证明所谓氧化还原反应并不存在！</a></td><td class=num>35.8万</td><td class=num>757s</td><td class=muted>2025-11-30 06:03</td><td></td></tr><tr><td><a href='/video/BV1ZMSnB3E3q'>疑云再起！李文亚教授遭栽赃陷害，要求彻查外国举办者的可疑证据！</a></td><td class=num>2.2万</td><td class=num>277s</td><td class=muted>2025-11-28 16:53</td><td></td></tr><tr><td><a href='/video/BV1obSMBuEu9'>老脸通红！李文亚教授怒斥「中科院」恶势力串通家乡人曝光他的羞羞之事！</a></td><td class=num>10.8万</td><td class=num>450s</td><td class=muted>2025-11-27 10:46</td><td></td></tr><tr><td><a href='/video/BV1okUYBkE8T'>真·梦幻联动！孙笑川教授首次回应李文亚教授！</a></td><td class=num>31.0万</td><td class=num>401s</td><td class=muted>2025-11-26 08:56</td><td></td></tr><tr><td><a href='/video/BV1xPUCBJEzm'>梅开二度：李文亚教授再批孙笑川的翻冻落后理论！</a></td><td class=num>24.5万</td><td class=num>534s</td><td class=muted>2025-11-24 13:02</td><td></td></tr><tr><td><a href='/video/BV1mGUKBEEnH'>喜笑颜开！李文亚教授的影响已遍及全球！</a></td><td class=num>4.7万</td><td class=num>484s</td><td class=muted>2025-11-23 10:11</td><td></td></tr><tr><td><a href='/video/BV1TPUpBfEH3'>[助眠] 系列纪实联播《李文亚的传奇人生故事》第一集：从清洁工到花场老板，误打误撞步入科学殿堂，命运的齿轮悄然转动！</a></td><td class=num>3.1万</td><td class=num>472s</td><td class=muted>2025-11-22 07:03</td><td></td></tr><tr><td><a href='/video/BV1MuywBcEmB'>李文亚教授感叹科研工作之艰辛：我的成果是用鲜血和生命换来的！</a></td><td class=num>10.5万</td><td class=num>113s</td><td class=muted>2025-11-20 09:36</td><td></td></tr><tr><td><a href='/video/BV1W7ypBLEjh'>振聋发聩！李文亚教授宣读自己2018年在《自然》《科学》杂志发表的论文</a></td><td class=num>17.1万</td><td class=num>407s</td><td class=muted>2025-11-19 15:07</td><td></td></tr><tr><td><a href='/video/BV1tMypBHEfH'>硕果累累！李文亚教授回顾自己在《自然》《科学》杂志发表论文的始末</a></td><td class=num>24.2万</td><td class=num>490s</td><td class=muted>2025-11-19 14:39</td><td></td></tr><tr><td><a href='/video/BV1bZy7BkE38'>李文亚教授批判麻省理工学院恶势力、ETO成员大卫·戴-里昂兹</a></td><td class=num>9.3万</td><td class=num>353s</td><td class=muted>2025-11-19 07:50</td><td></td></tr></table></div>
+<div class=foot>本页数据全部来自 B站 公开可见的账号与视频信息，仅作网络亚文化研究用。
+封面与视频版权归原 UP 主所有。如对收录有异议，请通过页面所附账号联系删除。</div>
+</div></body></html>

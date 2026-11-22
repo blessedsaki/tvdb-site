@@ -1,0 +1,196 @@
+<!DOCTYPE html><html lang="zh-CN"><head><base href="/tvdb-site/"><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>大主题 · tvdb</title><style>
+:root{--bg:#0a0b0f;--card:#12141b;--card2:#171a23;--line:#242838;--fg:#e8ecf5;
+--dim:#8b95a7;--accent:#6aa6ff;--ok:#3ddc97;--warn:#ffb84d;--err:#ff6b6b}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);font:14px/1.55 -apple-system,
+"PingFang SC","Microsoft YaHei",sans-serif;
+background-image:radial-gradient(900px 460px at 12% -10%,rgba(46,88,165,.26) 0,transparent 60%);
+background-attachment:fixed}
+.wrap{max-width:1280px;margin:0 auto;padding:20px 18px 60px}
+a{color:var(--accent);text-decoration:none} a:hover{text-decoration:underline}
+h1{font-size:21px;margin:0 0 3px;letter-spacing:-.02em;
+background:linear-gradient(92deg,#f2f7ff,#9dc4ff 55%,#b39bff);
+-webkit-background-clip:text;background-clip:text;color:transparent}
+.sub{color:var(--dim);font-size:12.5px;margin-bottom:16px}
+nav{margin:0 0 16px;display:flex;gap:6px;flex-wrap:wrap}
+nav a{padding:7px 13px;border:1px solid var(--line);border-radius:9px;background:var(--card);
+font-size:13px;color:var(--fg)}
+nav a.on{border-color:var(--accent);color:#fff}
+.card{background:var(--card);border:1px solid var(--line);border-radius:13px;padding:15px;margin-bottom:13px}
+.card h2{font-size:12.5px;margin:0 0 11px;color:var(--dim);font-weight:600;
+letter-spacing:.06em;text-transform:uppercase}
+table{width:100%;border-collapse:collapse;font-size:12.5px}
+th,td{text-align:left;padding:7px 6px;border-bottom:1px solid var(--line);vertical-align:top}
+th{color:var(--dim);font-weight:500;font-size:11.5px}
+tr:hover td{background:rgba(106,166,255,.04)}
+.num{text-align:right;font-variant-numeric:tabular-nums}
+.muted{color:var(--dim);font-size:12px}
+.tag{font-size:11px;padding:1px 7px;border-radius:5px;background:var(--card2);
+color:var(--dim);display:inline-block;margin:1px 2px 1px 0}
+.tag.s{color:var(--accent)}
+.tag.g{color:var(--ok)} .tag.w{color:var(--warn)} .tag.e{color:var(--err)}
+.stats{display:flex;gap:22px;flex-wrap:wrap}
+.stats div{font-size:12px;color:var(--dim)}
+.stats b{display:block;font-size:19px;color:var(--fg);font-weight:600}
+input,select,button{background:var(--card2);border:1px solid var(--line);color:var(--fg);
+border-radius:8px;padding:7px 10px;font-size:13px;outline:none}
+input:focus,select:focus{border-color:var(--accent)}
+form.row{display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin-bottom:12px}
+input.grow{flex:1;min-width:180px}
+.cvrow{display:flex;gap:4px}
+a.cv{display:block;width:84px;height:48px;overflow:hidden;border-radius:4px;
+border:1px solid var(--line);background:var(--card2)}
+a.cv img{width:100%;height:100%;object-fit:cover;display:block}
+a.cv:hover{border-color:var(--accent)}
+td.covs{white-space:nowrap}
+.foot{margin:34px 0 10px;padding-top:14px;border-top:1px solid var(--line);
+color:var(--dim);font-size:12px;line-height:1.7}
+.tabrow{display:flex;gap:8px;flex-wrap:wrap;margin:4px 0 10px}
+a.tabk{padding:5px 12px;border:1px solid var(--line);border-radius:16px;
+font-size:12.5px;text-decoration:none;color:var(--dim)}
+a.tabk.sel{background:var(--accent);color:#0a0b0f;border-color:var(--accent);font-weight:600}
+a.tabk:hover{border-color:var(--accent);color:var(--accent)}
+a.tabk.sel:hover{color:#0a0b0f}
+td.act{white-space:nowrap}
+button.byes,button.bno{padding:4px 12px;border-radius:6px;border:1px solid var(--line);
+background:var(--card2);color:var(--fg);font-size:12px;cursor:pointer;margin-right:4px}
+button.byes:hover{background:#3ddc97;color:#0a0b0f;border-color:#3ddc97}
+button.bno:hover{background:#ff6b6b;color:#0a0b0f;border-color:#ff6b6b}
+.small{font-size:11px;color:var(--dim);max-width:200px}
+.avrow{display:flex;flex-wrap:wrap;gap:10px}
+.avline{display:flex;flex-direction:column;align-items:center;width:56px;gap:3px;
+text-decoration:none;color:var(--dim);font-size:10px;text-align:center}
+.avline img{width:40px;height:40px;border-radius:50%;object-fit:cover;
+background:var(--card2);border:1px solid var(--line)}
+.avline:hover{color:var(--accent)}
+.avline:hover img{border-color:var(--accent)}
+a.more{color:var(--accent);font-size:12.5px;text-decoration:none}
+a.more:hover{text-decoration:underline}
+td.av{width:44px;padding-right:0}
+td.av img{width:36px;height:36px;border-radius:50%;object-fit:cover;display:block;
+background:var(--card2);border:1px solid var(--line)}
+td.av a{display:block}
+a.upname{font-weight:600;text-decoration:none;color:var(--fg)}
+a.upname:hover{color:var(--accent);text-decoration:underline}
+a.detail{font-size:10.5px;color:var(--dim);text-decoration:none;border:1px solid var(--line);
+border-radius:4px;padding:1px 4px;margin-left:2px}
+a.detail:hover{color:var(--accent);border-color:var(--accent)}
+td.note{max-width:520px;font-size:11.5px;line-height:1.5;color:#b8c4d8}
+td.note b{color:var(--accent);font-weight:600}
+.sig{color:var(--dim);font-size:11.5px;max-width:340px;overflow:hidden;
+text-overflow:ellipsis;white-space:nowrap;display:inline-block;vertical-align:bottom}
+.warnbox{border-left:3px solid var(--warn);background:rgba(255,184,77,.07);
+padding:9px 12px;border-radius:0 8px 8px 0;font-size:12.5px;color:#e8d5b0;margin:10px 0}
+</style></head><body><div class="wrap">
+<h1>tvdb</h1><div class="sub">TV 系内容观测库 · 中国社会的一个窗口</div>
+<nav><a href="index.html">概览</a><a href="ups.html">账号</a><a href="series.html">系列</a><a href="themes.html" class=on>大主题</a><a href="community.html">圈子</a><a href="memes.html">梗</a><a href="report.html">调研报告</a></nav><div class=card>
+<form class=row method=get>
+<input class=grow name=q placeholder="在大主题里搜：账号名 / 备注 / 视频标题 / 系列名" value="">
+<button>搜索</button></form></div><div class=card>
+<h2>八个大主题 —— 系列之上的一层</h2>
+<div style="font-size:13.5px;line-height:1.7">
+<b>方法</b>：这个生态命名时，**选人的某一种属性，用它代替这个人**。不同系列选不同维度：
+<br><span class=tag>物种</span>智人/神人/伪人（降格成「非我族类」）　
+<span class=tag>处境</span>挂壁/赌狗/刀工（降格成「一种境遇」）　
+<span class=tag>地域</span>弗雷尔卓德/北欧（降格成「一个地方」）　
+<span class=tag>欲望</span>星欲/道馆（降格成「一种生理冲动」）　
+<span class=tag>立场</span>爱国/绿蛙（降格成「一个政治姿态」）　
+<span class=tag>圈层</span>抽象/果泥（降格成「一伙人的黑话」）
+<br><br><b>这解释了为什么名字和内容是反的</b>：享福=受苦、大神=反讽自称——
+因为命名本身是<b>降格动作</b>，不是描述。所以分类也不能按字面分，要按<b>「它在围观什么苦」</b>分。
+<br><br><span class=muted>共 503 个号已归主题（一个号可属多个）。
+系列（XX TV）那一层保留不动，见「系列」页。</span></div></div>
+<div class=card style="border-left:3px solid #6aa6ff">
+<h2><a href="theme/species.html" style="color:#6aa6ff">认知与言论（物种化围观）</a>
+<span class=muted style="font-size:12px;font-weight:400">　降格维度：物种</span></h2>
+<div style="font-size:13.5px;line-height:1.6;margin:6px 0 10px">
+  <b>看什么</b>：把同类当成另一个物种来观察——「这个人怎么会这样想」。<br>
+  <b>为什么单列</b>：**体量最大的分支**（智人TV 5,796 万 + 神人TV 1,721 万 + 伪人/类人/直立人）。手法是**物种化**：问题不问「他为什么这么做」，只问「这还算人吗」。民科TV（1,678 万）是同一逻辑的知识版——围观「谁有资格说话」。**这是唯一一套能自我繁殖的命名**：智人/神人/伪人/类人/直立人/人类，全是生物学名词，可以无限派生。</div>
+<div class=stats style="margin-bottom:10px">
+  <div><b>211</b>个号</div><div><b>13.0亿</b>播放</div></div>
+<div style="margin-bottom:8px"><span class=tag>中医TV</span><span class=tag>乙游TV</span><span class=tag>人类TV</span><span class=tag>伪人TV</span><span class=tag>伪史TV</span><span class=tag>儒家TV</span><span class=tag>初生TV</span><span class=tag>剑人TV</span><span class=tag>原友TV</span><span class=tag>唐人TV</span><span class=tag>塔罗TV</span><span class=tag>大师TV</span><span class=tag>大果TV</span><span class=tag>小登TV</span><span class=tag>智人TV</span><span class=tag>民科TV</span><span class=tag>混的人TV</span><span class=tag>直立人TV</span><span class=tag>神人TV</span><span class=tag>神棍TV</span><span class=tag>类人TV</span><span class=tag>蠢笔TV</span><span class=tag>豪人TV</span><span class=tag>追星TV</span><span class=tag>难绷TV</span><span class=tag>集美TV</span><span class=tag>鸿蒙TV</span></div>
+<div class=avrow><a href='https://space.bilibili.com/3546923162143149' target=_blank rel=noopener class=avline title='飞行社社长（84.3万粉）'><img src='https://i0.hdslb.com/bfs/face/f018d4aed22d75ef85c42fa6ebe20a238415be76.jpg' loading=lazy referrerpolicy=no-referrer onerror="this.style.visibility='hidden'"><span>飞行社社长</span></a><a href='https://space.bilibili.com/3493111367993813' target=_blank rel=noopener class=avline title='智人研究社（16.4万粉）'><img src='https://i2.hdslb.com/bfs/face/35f55c8b094df83f5a55d15ca4cdea44876e6101.jpg' loading=lazy referrerpolicy=no-referrer onerror="this.style.visibility='hidden'"><span>智人研究社</span></a><a href='https://space.bilibili.com/3546959205894969' target=_blank rel=noopener class=avline title='类人研究员（6.6万粉）'><img src='https://i0.hdslb.com/bfs/face/0afb850884a03bb5c43dc41aee6f60d665cac1dd.jpg' loading=lazy referrerpolicy=no-referrer onerror="this.style.visibility='hidden'"><span>类人研究员</span></a><a href='https://space.bilibili.com/2098224623' target=_blank rel=noopener class=avline title='虎王酱（34.1万粉）'><img src='https://i2.hdslb.com/bfs/face/70e516aae82e062320f877dc64f82bf236e5a7d3.jpg' loading=lazy referrerpolicy=no-referrer onerror="this.style.visibility='hidden'"><span>虎王酱</span></a><a href='https://space.bilibili.com/1298070528' target=_blank rel=noopener class=avline title='赌狗研究所（3.0万粉）'><img src='https://i0.hdslb.com/bfs/face/a8556df9fa69d28c8476d4f2c14ae4978424bc26.jpg' loading=lazy referrerpolicy=no-referrer onerror="this.style.visibility='hidden'"><span>赌狗研究所</span></a><a href='https://space.bilibili.com/3546558618405676' target=_blank rel=noopener class=avline title='贱人TV（16.1万粉）'><img src='https://i1.hdslb.com/bfs/face/2a6cc6e17754702879b9a1a60966e265b75b047c.jpg' loading=lazy referrerpolicy=no-referrer onerror="this.style.visibility='hidden'"><span>贱人TV</span></a><a href='https://space.bilibili.com/601789747' target=_blank rel=noopener class=avline title='重庆高级军统（7.5万粉）'><img src='https://i1.hdslb.com/bfs/face/b7a3b9e8810a281bf0422825b2dbb565b2102805.jpg' loading=lazy referrerpolicy=no-referrer onerror="this.style.visibility='hidden'"><span>重庆高级军统</span></a><a href='https://space.bilibili.com/301148628' target=_blank rel=noopener class=avline title='Mr_Bastard（3978粉）'><img src='https://i0.hdslb.com/bfs/face/540afefc3ab634ae947844f775b50f5fe206d87b.jpg' loading=lazy referrerpolicy=no-referrer onerror="this.style.visibility='hidden'"><span>Mr_Basta</span></a></div>
+<div style="margin-top:10px"><a href="theme/species.html" class=more>
+查看全部 211 个号 →</a></div></div><div class=card style="border-left:3px solid #3ddc97">
+<h2><a href="theme/labor.html" style="color:#3ddc97">劳动与贫困</a>
+<span class=muted style="font-size:12px;font-weight:400">　降格维度：处境</span></h2>
+<div style="font-size:13.5px;line-height:1.6;margin:6px 0 10px">
+  <b>看什么</b>：厂、外卖、日结、出租屋、挂壁——人在经济结构里的位置。<br>
+  <b>为什么单列</b>：这个生态的**地基**。三和/日结/挂壁这一套语汇全部来自深圳三和一带的零工群体，是十几年来唯一被持续记录的底层劳动现场。「牛马」「韭菜」是自我贬低的称谓——被观察者自己也在用。</div>
+<div class=stats style="margin-bottom:10px">
+  <div><b>121</b>个号</div><div><b>12.9亿</b>播放</div></div>
+<div style="margin-bottom:8px"><span class=tag>享福TV</span><span class=tag>坚韧TV</span><span class=tag>外卖TV</span><span class=tag>导购TV</span><span class=tag>小资TV</span><span class=tag>幸福TV</span><span class=tag>抢食TV</span><span class=tag>挂壁TV</span><span class=tag>挂逼TV</span><span class=tag>摆摊TV</span><span class=tag>泔水TV</span><span class=tag>牛马TV</span><span class=tag>解气TV</span><span class=tag>韭菜TV</span></div>
+<div class=avrow><a href='https://space.bilibili.com/3632307860670609' target=_blank rel=noopener class=avline title='地球online神人集合（6.9万粉）'><img src='https://i0.hdslb.com/bfs/face/7becb700fde3e38e52f8c82452d7dba550bc3462.jpg' loading=lazy referrerpolicy=no-referrer onerror="this.style.visibility='hidden'"><span>地球online</span></a><a href='https://space.bilibili.com/1192621311' target=_blank rel=noopener class=avline title='享福TV（7.1万粉）'><img src='https://i0.hdslb.com/bfs/face/ead159f5c689388fedee691b14ea6bc05b73493e.jpg' loading=lazy referrerpolicy=no-referrer onerror="this.style.visibility='hidden'"><span>享福TV</span></a><a href='https://space.bilibili.com/1689521691' target=_blank rel=noopener class=avline title='抽象高手孙笑川（1.8万粉）'><img src='https://i0.hdslb.com/bfs/face/8be220bd352956f141872240b1e86876d61e8f7b.jpg' loading=lazy referrerpolicy=no-referrer onerror="this.style.visibility='hidden'"><span>抽象高手孙笑川</span></a><a href='https://space.bilibili.com/271490458' target=_blank rel=noopener class=avline title='伊路穆比（1911粉）'><img src='https://i1.hdslb.com/bfs/face/2aab63b6130b3cbbf28d238ea8ecaa1857eb8b6e.jpg' loading=lazy referrerpolicy=no-referrer onerror="this.style.visibility='hidden'"><span>伊路穆比</span></a><a href='https://space.bilibili.com/32026774' target=_blank rel=noopener class=avline title='侦探许烦烦（38.3万粉）'><img src='https://i1.hdslb.com/bfs/face/12cddd8ada95dfd639100cd9ec276ce7a57643fb.jpg' loading=lazy referrerpolicy=no-referrer onerror="this.style.visibility='hidden'"><span>侦探许烦烦</span></a><a href='https://space.bilibili.com/3546984298318010' target=_blank rel=noopener class=avline title='互联网粪王（5.8万粉）'><img src='https://i2.hdslb.com/bfs/face/232da12b17efb1cab8d7bbfd4f22e9ed43a6708b.jpg' loading=lazy referrerpolicy=no-referrer onerror="this.style.visibility='hidden'"><span>互联网粪王</span></a><a href='https://space.bilibili.com/3546736549169935' target=_blank rel=noopener class=avline title='二甩哥爱老婆（7.7万粉）'><img src='https://i1.hdslb.com/bfs/face/5f7b4bd6b69e082dfa90efaf2f63b3b346ea3ce2.jpg' loading=lazy referrerpolicy=no-referrer onerror="this.style.visibility='hidden'"><span>二甩哥爱老婆</span></a><a href='https://space.bilibili.com/29744785' target=_blank rel=noopener class=avline title='理工定律（1.6万粉）'><img src='https://i1.hdslb.com/bfs/face/2b5cbc3bad09287ae780b5964401901941b7c470.jpg' loading=lazy referrerpolicy=no-referrer onerror="this.style.visibility='hidden'"><span>理工定律</span></a></div>
+<div style="margin-top:10px"><a href="theme/labor.html" class=more>
+查看全部 121 个号 →</a></div></div><div class=card style="border-left:3px solid #a29bfe">
+<h2><a href="theme/absurd.html" style="color:#a29bfe">抽象亚文化与整活</a>
+<span class=muted style="font-size:12px;font-weight:400">　降格维度：圈层</span></h2>
+<div style="font-size:13.5px;line-height:1.6;margin:6px 0 10px">
+  <b>看什么</b>：圈层黑话、缺德挑战、国家拟人、猎奇造物——共同体内部的表演。<br>
+  <b>为什么单列</b>：这部分**不完全是围观别人**，很多是圈内互相表演：剑人TV 的缺德挑战、果泥TV 的国家拟人（ch 圈）、神车TV 的改装车、抽象TV 的孙笑川谱系。暗黑TV 是其中最暗的一支（事故/暴力现场，1 个号独占 79 条 1,074 万播放）。**这一支最难判定边界**：它到底是围观，还是圈内自娱。</div>
+<div class=stats style="margin-bottom:10px">
+  <div><b>116</b>个号</div><div><b>6.1亿</b>播放</div></div>
+<div style="margin-bottom:8px"><span class=tag>七大TV</span><span class=tag>何意味TV</span><span class=tag>嘉欣TV</span><span class=tag>嘉豪TV</span><span class=tag>小红书TV</span><span class=tag>幽默TV</span><span class=tag>心蓝天TV</span><span class=tag>抽象TV</span><span class=tag>抽象TVB</span><span class=tag>搬石TV</span><span class=tag>搬石娘TV</span><span class=tag>暗黑TV</span><span class=tag>术曲TV</span><span class=tag>术萌TV</span><span class=tag>果泥TV</span><span class=tag>灾害TV</span><span class=tag>灾难TV</span><span class=tag>爱年TV</span><span class=tag>狗粪TV</span><span class=tag>猎奇TV</span><span class=tag>神车TV</span><span class=tag>福游TV</span><span class=tag>米油TV</span><span class=tag>精致TV</span><span class=tag>素食TV</span><span class=tag>红薯TV</span><span class=tag>群星TV</span><span class=tag>苦瓜TV</span><span class=tag>西贝TV</span><span class=tag>规矩TV</span><span class=tag>诡异TV</span><span class=tag>赤石TV</span><span class=tag>起飞TV</span><span class=tag>车之歌TV</span><span class=tag>迪克TV</span><span class=tag>食尸鬼TV</span><span class=tag>食腐TV</span></div>
+<div class=avrow><a href='https://space.bilibili.com/2098224623' target=_blank rel=noopener class=avline title='虎王酱（34.1万粉）'><img src='https://i2.hdslb.com/bfs/face/70e516aae82e062320f877dc64f82bf236e5a7d3.jpg' loading=lazy referrerpolicy=no-referrer onerror="this.style.visibility='hidden'"><span>虎王酱</span></a><a href='https://space.bilibili.com/3546558618405676' target=_blank rel=noopener class=avline title='贱人TV（16.1万粉）'><img src='https://i1.hdslb.com/bfs/face/2a6cc6e17754702879b9a1a60966e265b75b047c.jpg' loading=lazy referrerpolicy=no-referrer onerror="this.style.visibility='hidden'"><span>贱人TV</span></a><a href='https://space.bilibili.com/1969259616' target=_blank rel=noopener class=avline title='太史公-司马迁（7.6万粉）'><img src='https://i0.hdslb.com/bfs/face/dce2cee48367982f2aa6aed6fcfaefdd9a44ff4d.jpg' loading=lazy referrerpolicy=no-referrer onerror="this.style.visibility='hidden'"><span>太史公-司马迁</span></a><a href='https://space.bilibili.com/1689521691' target=_blank rel=noopener class=avline title='抽象高手孙笑川（1.8万粉）'><img src='https://i0.hdslb.com/bfs/face/8be220bd352956f141872240b1e86876d61e8f7b.jpg' loading=lazy referrerpolicy=no-referrer onerror="this.style.visibility='hidden'"><span>抽象高手孙笑川</span></a><a href='https://space.bilibili.com/1358495542' target=_blank rel=noopener class=avline title='糖雏里姬喵（1.9万粉）'><img src='https://i1.hdslb.com/bfs/face/92f27b5433a76ccde91e86eff949bba2d56a125c.jpg' loading=lazy referrerpolicy=no-referrer onerror="this.style.visibility='hidden'"><span>糖雏里姬喵</span></a><a href='https://space.bilibili.com/406248043' target=_blank rel=noopener class=avline title='朔夜时雨雨雨雨（3.4万粉）'><img src='https://i1.hdslb.com/bfs/face/d97eba87a1b7407be300c3c5c8cf9748c56ebf6b.jpg' loading=lazy referrerpolicy=no-referrer onerror="this.style.visibility='hidden'"><span>朔夜时雨雨雨雨</span></a><a href='https://space.bilibili.com/3546984298318010' target=_blank rel=noopener class=avline title='互联网粪王（5.8万粉）'><img src='https://i2.hdslb.com/bfs/face/232da12b17efb1cab8d7bbfd4f22e9ed43a6708b.jpg' loading=lazy referrerpolicy=no-referrer onerror="this.style.visibility='hidden'"><span>互联网粪王</span></a><a href='https://space.bilibili.com/1627253318' target=_blank rel=noopener class=avline title='难绷憨豆（5.8万粉）'><img src='https://i2.hdslb.com/bfs/face/f632dd6bab3c2963e5a786d527c1c37ee8da1c41.jpg' loading=lazy referrerpolicy=no-referrer onerror="this.style.visibility='hidden'"><span>难绷憨豆</span></a></div>
+<div style="margin-top:10px"><a href="theme/absurd.html" class=more>
+查看全部 116 个号 →</a></div></div><div class=card style="border-left:3px solid #ff6b6b">
+<h2><a href="theme/gamble.html" style="color:#ff6b6b">赌与成瘾</a>
+<span class=muted style="font-size:12px;font-weight:400">　降格维度：欲望</span></h2>
+<div style="font-size:13.5px;line-height:1.6;margin:6px 0 10px">
+  <b>看什么</b>：赌、炒、贷、槟榔、酒、药——自我毁灭的完整链条。<br>
+  <b>为什么单列</b>：播放量最高的分支（赌狗TV 2,311 万）。它是这个生态里**唯一被官方话语部分认可**的题材：搬运号会挂「反赌」免责声明。说明道德风险最低、商业价值最高。注意「炒股 / 基金」和「赌」在同一批标题里高频同现（387 / 134 次），**散户受难被当成赌狗的一种**——这是中文互联网独有的分类。</div>
+<div class=stats style="margin-bottom:10px">
+  <div><b>87</b>个号</div><div><b>8.5亿</b>播放</div></div>
+<div style="margin-bottom:8px"><span class=tag>之赌狗TV</span><span class=tag>创业TV</span><span class=tag>戒赌TV</span><span class=tag>槟榔TV</span><span class=tag>炒股TV</span><span class=tag>白银TV</span><span class=tag>赌狗TV</span></div>
+<div class=avrow><a href='https://space.bilibili.com/1298070528' target=_blank rel=noopener class=avline title='赌狗研究所（3.0万粉）'><img src='https://i0.hdslb.com/bfs/face/a8556df9fa69d28c8476d4f2c14ae4978424bc26.jpg' loading=lazy referrerpolicy=no-referrer onerror="this.style.visibility='hidden'"><span>赌狗研究所</span></a><a href='https://space.bilibili.com/399473339' target=_blank rel=noopener class=avline title='美食鉴赏频道（1.6万粉）'><img src='https://i2.hdslb.com/bfs/face/cf3b80f1af5b0d74962e3026efa279a3752b7442.jpg' loading=lazy referrerpolicy=no-referrer onerror="this.style.visibility='hidden'"><span>美食鉴赏频道</span></a><a href='https://space.bilibili.com/3493076469287369' target=_blank rel=noopener class=avline title='赛博十克郎（7.7万粉）'><img src='https://i2.hdslb.com/bfs/face/8a0da39db85428de18bb243fcbae779d80afbcbb.jpg' loading=lazy referrerpolicy=no-referrer onerror="this.style.visibility='hidden'"><span>赛博十克郎</span></a><a href='https://space.bilibili.com/40875484' target=_blank rel=noopener class=avline title='智人行为研究院院长（2.5万粉）'><img src='https://i1.hdslb.com/bfs/face/2441079e274da6a66cdef52d7c46b44cd796c86d.jpg' loading=lazy referrerpolicy=no-referrer onerror="this.style.visibility='hidden'"><span>智人行为研究院院</span></a><a href='https://space.bilibili.com/329344397' target=_blank rel=noopener class=avline title='智人洞洞主（4152粉）'><img src='https://i2.hdslb.com/bfs/face/c9f317f23d9bde0f8262bba4428627538bb44e61.jpg' loading=lazy referrerpolicy=no-referrer onerror="this.style.visibility='hidden'"><span>智人洞洞主</span></a><a href='https://space.bilibili.com/29744785' target=_blank rel=noopener class=avline title='理工定律（1.6万粉）'><img src='https://i1.hdslb.com/bfs/face/2b5cbc3bad09287ae780b5964401901941b7c470.jpg' loading=lazy referrerpolicy=no-referrer onerror="this.style.visibility='hidden'"><span>理工定律</span></a><a href='https://space.bilibili.com/3546787941976488' target=_blank rel=noopener class=avline title='收割欢笑频道（1.4万粉）'><img src='https://i0.hdslb.com/bfs/face/07a0c01b1eb88e14491ed206ff9785c2fe80b59f.jpg' loading=lazy referrerpolicy=no-referrer onerror="this.style.visibility='hidden'"><span>收割欢笑频道</span></a><a href='https://space.bilibili.com/3494376638516086' target=_blank rel=noopener class=avline title='喵喵即正义（88.2万粉）'><img src='https://i1.hdslb.com/bfs/face/80511fa44f3145485b35c1549de14bde991c64e0.jpg' loading=lazy referrerpolicy=no-referrer onerror="this.style.visibility='hidden'"><span>喵喵即正义</span></a></div>
+<div style="margin-top:10px"><a href="theme/gamble.html" class=more>
+查看全部 87 个号 →</a></div></div><div class=card style="border-left:3px solid #ffb84d">
+<h2><a href="theme/marriage.html" style="color:#ffb84d">婚恋与家庭</a>
+<span class=muted style="font-size:12px;font-weight:400">　降格维度：处境</span></h2>
+<div style="font-size:13.5px;line-height:1.6;margin:6px 0 10px">
+  <b>看什么</b>：彩礼、催婚、婆媳、育儿——亲密关系里的经济榨取。<br>
+  <b>为什么单列</b>：**刀工（力工）是这里的关键**：力工思维论把「攒钱—买房—结婚—生子」定义为人生唯一目的，然后一次性梭哈进彩礼。所以刀工TV 的表面是婚恋，内核是**劳动价值的转移**。相亲TV 439 次提及、老婆 434 次，说明这是最日常、最普遍被围观的苦。</div>
+<div class=stats style="margin-bottom:10px">
+  <div><b>83</b>个号</div><div><b>4.8亿</b>播放</div></div>
+<div style="margin-bottom:8px"><span class=tag>做题TV</span><span class=tag>催婚TV</span><span class=tag>刀工TV</span><span class=tag>力工TV</span><span class=tag>大专TV</span><span class=tag>宝妈TV</span><span class=tag>理工TV</span><span class=tag>相亲TV</span><span class=tag>职高TV</span><span class=tag>闹钟TV</span><span class=tag>高考TV</span></div>
+<div class=avrow><a href='https://space.bilibili.com/2098224623' target=_blank rel=noopener class=avline title='虎王酱（34.1万粉）'><img src='https://i2.hdslb.com/bfs/face/70e516aae82e062320f877dc64f82bf236e5a7d3.jpg' loading=lazy referrerpolicy=no-referrer onerror="this.style.visibility='hidden'"><span>虎王酱</span></a><a href='https://space.bilibili.com/32026774' target=_blank rel=noopener class=avline title='侦探许烦烦（38.3万粉）'><img src='https://i1.hdslb.com/bfs/face/12cddd8ada95dfd639100cd9ec276ce7a57643fb.jpg' loading=lazy referrerpolicy=no-referrer onerror="this.style.visibility='hidden'"><span>侦探许烦烦</span></a><a href='https://space.bilibili.com/29744785' target=_blank rel=noopener class=avline title='理工定律（1.6万粉）'><img src='https://i1.hdslb.com/bfs/face/2b5cbc3bad09287ae780b5964401901941b7c470.jpg' loading=lazy referrerpolicy=no-referrer onerror="this.style.visibility='hidden'"><span>理工定律</span></a><a href='https://space.bilibili.com/382935300' target=_blank rel=noopener class=avline title='集贸_刀工教父（5.2万粉）'><img src='https://i0.hdslb.com/bfs/face/23e2f90bcdda7630e07bc1f6eb5464a982f9ee5a.jpg' loading=lazy referrerpolicy=no-referrer onerror="this.style.visibility='hidden'"><span>集贸_刀工教父</span></a><a href='https://space.bilibili.com/3494365821405936' target=_blank rel=noopener class=avline title='sodom2dimasa（1.8万粉）'><img src='https://i0.hdslb.com/bfs/face/df89384931bb982053bdb82b7255a8d0f5ce00b8.jpg' loading=lazy referrerpolicy=no-referrer onerror="this.style.visibility='hidden'"><span>sodom2di</span></a><a href='https://space.bilibili.com/3494379394173728' target=_blank rel=noopener class=avline title='反思社（1.8万粉）'><img src='https://i2.hdslb.com/bfs/face/7b0a70a48a1463d53afaafe8aa6849db329b723d.jpg' loading=lazy referrerpolicy=no-referrer onerror="this.style.visibility='hidden'"><span>反思社</span></a><a href='https://space.bilibili.com/3706991409105136' target=_blank rel=noopener class=avline title='抽象研究专员（4708粉）'><img src='https://i1.hdslb.com/bfs/face/273d3e54d3bf6fce3270adbd9895b87dcd68bc39.jpg' loading=lazy referrerpolicy=no-referrer onerror="this.style.visibility='hidden'"><span>抽象研究专员</span></a><a href='https://space.bilibili.com/3546567367723644' target=_blank rel=noopener class=avline title='网友普顺奇（3.1万粉）'><img src='https://i0.hdslb.com/bfs/face/28ef89a3154c5aa927b79840e46f3366654fc464.jpg' loading=lazy referrerpolicy=no-referrer onerror="this.style.visibility='hidden'"><span>网友普顺奇</span></a></div>
+<div style="margin-top:10px"><a href="theme/marriage.html" class=more>
+查看全部 83 个号 →</a></div></div><div class=card style="border-left:3px solid #c56cf0">
+<h2><a href="theme/sexual.html" style="color:#c56cf0">性压抑</a>
+<span class=muted style="font-size:12px;font-weight:400">　降格维度：欲望</span></h2>
+<div style="font-size:13.5px;line-height:1.6;margin:6px 0 10px">
+  <b>看什么</b>：把人的一切行为归因于性资源的分配不均。<br>
+  <b>为什么单列</b>：这个生态唯一有**公开理论**的分支——峰哥亡命天涯的「性压抑论」，是三大理论里唯一还在活跃传播的一个。道馆（导管谐音）、星欲、压抑三个系列其实是同一件事，只是规避审查的写法不同。</div>
+<div class=stats style="margin-bottom:10px">
+  <div><b>46</b>个号</div><div><b>8.1亿</b>播放</div></div>
+<div style="margin-bottom:8px"><span class=tag>压抑TV</span><span class=tag>星欲TV</span><span class=tag>炫压抑TV</span><span class=tag>精神TV</span><span class=tag>道馆TV</span></div>
+<div class=avrow><a href='https://space.bilibili.com/1298070528' target=_blank rel=noopener class=avline title='赌狗研究所（3.0万粉）'><img src='https://i0.hdslb.com/bfs/face/a8556df9fa69d28c8476d4f2c14ae4978424bc26.jpg' loading=lazy referrerpolicy=no-referrer onerror="this.style.visibility='hidden'"><span>赌狗研究所</span></a><a href='https://space.bilibili.com/3546984298318010' target=_blank rel=noopener class=avline title='互联网粪王（5.8万粉）'><img src='https://i2.hdslb.com/bfs/face/232da12b17efb1cab8d7bbfd4f22e9ed43a6708b.jpg' loading=lazy referrerpolicy=no-referrer onerror="this.style.visibility='hidden'"><span>互联网粪王</span></a><a href='https://space.bilibili.com/35847683' target=_blank rel=noopener class=avline title='峰哥亡命天涯（331.1万粉）'><img src='https://i2.hdslb.com/bfs/face/ae439693d6fd79a55b1b5f935ed6474ae6fba35b.jpg' loading=lazy referrerpolicy=no-referrer onerror="this.style.visibility='hidden'"><span>峰哥亡命天涯</span></a><a href='https://space.bilibili.com/433004026' target=_blank rel=noopener class=avline title='卡秃噜皮君（34.9万粉）'><img src='https://i1.hdslb.com/bfs/face/24eb7074918504815ffe1d3ac4fa0521a3a8e885.jpg' loading=lazy referrerpolicy=no-referrer onerror="this.style.visibility='hidden'"><span>卡秃噜皮君</span></a><a href='https://space.bilibili.com/3493117728656046' target=_blank rel=noopener class=avline title='摩的司机徐师傅（248.3万粉）'><img src='https://i0.hdslb.com/bfs/face/5c62273a893cd5a4ddfd30d2790888250283cae2.jpg' loading=lazy referrerpolicy=no-referrer onerror="this.style.visibility='hidden'"><span>摩的司机徐师傅</span></a><a href='https://space.bilibili.com/238154202' target=_blank rel=noopener class=avline title='色霸天Se8st1an（32.2万粉）'><img src='https://i0.hdslb.com/bfs/face/16595fbc71bbcc4cd66e97e42b8ce17ccdbfd490.jpg' loading=lazy referrerpolicy=no-referrer onerror="this.style.visibility='hidden'"><span>色霸天Se8st</span></a><a href='https://space.bilibili.com/3546565962631293' target=_blank rel=noopener class=avline title='无上限卷心菜之王（3975粉）'><img src='https://i0.hdslb.com/bfs/face/fb1ca193506da0b97b9bb84802498fa94afe18d5.jpg' loading=lazy referrerpolicy=no-referrer onerror="this.style.visibility='hidden'"><span>无上限卷心菜之王</span></a><a href='https://space.bilibili.com/386735039' target=_blank rel=noopener class=avline title='峰哥小迷弟儿（1.4万粉）'><img src='https://i2.hdslb.com/bfs/face/f6c08e05f6ad5cfdad760eb3e57e4791850dc329.jpg' loading=lazy referrerpolicy=no-referrer onerror="this.style.visibility='hidden'"><span>峰哥小迷弟儿</span></a></div>
+<div style="margin-top:10px"><a href="theme/sexual.html" class=more>
+查看全部 46 个号 →</a></div></div><div class=card style="border-left:3px solid #00d2d3">
+<h2><a href="theme/region.html" style="color:#00d2d3">地域身份</a>
+<span class=muted style="font-size:12px;font-weight:400">　降格维度：地域</span></h2>
+<div style="font-size:13.5px;line-height:1.6;margin:6px 0 10px">
+  <b>看什么</b>：用寒冷地名代指东北——地方性的自我东方化。<br>
+  <b>为什么单列</b>：**两种用法并存**：①**编码**——弗雷尔卓德（LoL 极寒之地）→ 东北，北欧 → 东北，同一套逻辑用了两次；②**直白**——江南/吴越/江浙/东阳直接用真实地名，围观当地猎奇饮食（童子尿蛋、臭冬瓜、脚踩腌菜）。被观察的人自己也参与（网友地狱火 11.4 万粉，标题全是「XX这一块」），**是自嘲不是外部俯视**——这让它跟其他分支有性质差别。</div>
+<div class=stats style="margin-bottom:10px">
+  <div><b>45</b>个号</div><div><b>2.4亿</b>播放</div></div>
+<div style="margin-bottom:8px"><span class=tag>东北TV</span><span class=tag>东百TV</span><span class=tag>东阳TV</span><span class=tag>北欧TV</span><span class=tag>吴越TV</span><span class=tag>咱妈TV</span><span class=tag>弗雷尔卓德TV</span><span class=tag>彝族TV</span><span class=tag>江南TV</span><span class=tag>江浙TV</span><span class=tag>沪上TV</span><span class=tag>野球TV</span><span class=tag>鬼火TV</span></div>
+<div class=avrow><a href='https://space.bilibili.com/2098224623' target=_blank rel=noopener class=avline title='虎王酱（34.1万粉）'><img src='https://i2.hdslb.com/bfs/face/70e516aae82e062320f877dc64f82bf236e5a7d3.jpg' loading=lazy referrerpolicy=no-referrer onerror="this.style.visibility='hidden'"><span>虎王酱</span></a><a href='https://space.bilibili.com/3493076469287369' target=_blank rel=noopener class=avline title='赛博十克郎（7.7万粉）'><img src='https://i2.hdslb.com/bfs/face/8a0da39db85428de18bb243fcbae779d80afbcbb.jpg' loading=lazy referrerpolicy=no-referrer onerror="this.style.visibility='hidden'"><span>赛博十克郎</span></a><a href='https://space.bilibili.com/1969259616' target=_blank rel=noopener class=avline title='太史公-司马迁（7.6万粉）'><img src='https://i0.hdslb.com/bfs/face/dce2cee48367982f2aa6aed6fcfaefdd9a44ff4d.jpg' loading=lazy referrerpolicy=no-referrer onerror="this.style.visibility='hidden'"><span>太史公-司马迁</span></a><a href='https://space.bilibili.com/3546984298318010' target=_blank rel=noopener class=avline title='互联网粪王（5.8万粉）'><img src='https://i2.hdslb.com/bfs/face/232da12b17efb1cab8d7bbfd4f22e9ed43a6708b.jpg' loading=lazy referrerpolicy=no-referrer onerror="this.style.visibility='hidden'"><span>互联网粪王</span></a><a href='https://space.bilibili.com/3632304201140279' target=_blank rel=noopener class=avline title='抽象TVB（3.3万粉）'><img src='https://i2.hdslb.com/bfs/face/d55bf6229f16e473941952b6b62406512c46f064.jpg' loading=lazy referrerpolicy=no-referrer onerror="this.style.visibility='hidden'"><span>抽象TVB</span></a><a href='https://space.bilibili.com/2012239081' target=_blank rel=noopener class=avline title='品史大师（1144粉）'><img src='https://i1.hdslb.com/bfs/face/55eb2f4ea8e97617c4467be6cecbdd59c2b4561e.jpg' loading=lazy referrerpolicy=no-referrer onerror="this.style.visibility='hidden'"><span>品史大师</span></a><a href='https://space.bilibili.com/3493269891713363' target=_blank rel=noopener class=avline title='张知晨（2.5万粉）'><img src='https://i2.hdslb.com/bfs/face/e953d3f85247141d3ac08f7d2e68b44a8e1043ee.jpg' loading=lazy referrerpolicy=no-referrer onerror="this.style.visibility='hidden'"><span>张知晨</span></a><a href='https://space.bilibili.com/526804174' target=_blank rel=noopener class=avline title='鲱鱼小小卫（2288粉）'><img src='https://i1.hdslb.com/bfs/face/e66a475e77ae424d7d27bcb606732e80a93fbaba.jpg' loading=lazy referrerpolicy=no-referrer onerror="this.style.visibility='hidden'"><span>鲱鱼小小卫</span></a></div>
+<div style="margin-top:10px"><a href="theme/region.html" class=more>
+查看全部 45 个号 →</a></div></div><div class=card style="border-left:3px solid #ff9f43">
+<h2><a href="theme/nationalism.html" style="color:#ff9f43">民族主义反讽</a>
+<span class=muted style="font-size:12px;font-weight:400">　降格维度：立场</span></h2>
+<div style="font-size:13.5px;line-height:1.6;margin:6px 0 10px">
+  <b>看什么</b>：用夸张的爱国表演，反过来讽刺极端民族主义——名字是反的。<br>
+  <b>为什么单列</b>：「爱国TV之日本人太坏了」「打倒小日本」。标题里 **日本出现 643 次、美国 309 次**，是全部标题里最高频的两个词——但这个分支不是在骂外国，**是在围观「骂外国的人」**。和「享福=受苦」同一个反讽逻辑。「绿蛙TV」是同一手法的反向版本（针对对岸）。</div>
+<div class=stats style="margin-bottom:10px">
+  <div><b>8</b>个号</div><div><b>4149.4万</b>播放</div></div>
+<div style="margin-bottom:8px"><span class=tag>爱国TV</span><span class=tag>绿蛙TV</span><span class=tag>赢麻TV</span></div>
+<div class=avrow><a href='https://space.bilibili.com/1969259616' target=_blank rel=noopener class=avline title='太史公-司马迁（7.6万粉）'><img src='https://i0.hdslb.com/bfs/face/dce2cee48367982f2aa6aed6fcfaefdd9a44ff4d.jpg' loading=lazy referrerpolicy=no-referrer onerror="this.style.visibility='hidden'"><span>太史公-司马迁</span></a><a href='https://space.bilibili.com/3494365821405936' target=_blank rel=noopener class=avline title='sodom2dimasa（1.8万粉）'><img src='https://i0.hdslb.com/bfs/face/df89384931bb982053bdb82b7255a8d0f5ce00b8.jpg' loading=lazy referrerpolicy=no-referrer onerror="this.style.visibility='hidden'"><span>sodom2di</span></a><a href='https://space.bilibili.com/1678835814' target=_blank rel=noopener class=avline title='淳平-史学家（4388粉）'><img src='https://i0.hdslb.com/bfs/face/97164d449a740d6457014c8fada51fbe82ccdc3c.jpg' loading=lazy referrerpolicy=no-referrer onerror="this.style.visibility='hidden'"><span>淳平-史学家</span></a><a href='https://space.bilibili.com/3747567741439638' target=_blank rel=noopener class=avline title='老钟TV（1672粉）'><img src='https://i0.hdslb.com/bfs/face/238663e3dda0241ff42102464156a9956ecd9991.jpg' loading=lazy referrerpolicy=no-referrer onerror="this.style.visibility='hidden'"><span>老钟TV</span></a><a href='https://space.bilibili.com/3546848910379375' target=_blank rel=noopener class=avline title='幽默老日（65.0万粉）'><img src='https://i1.hdslb.com/bfs/face/4caffde0366d05a3893f407e24bc2dd1eef98406.jpg' loading=lazy referrerpolicy=no-referrer onerror="this.style.visibility='hidden'"><span>幽默老日</span></a><a href='https://space.bilibili.com/1812833913' target=_blank rel=noopener class=avline title='电棍258（7473粉）'><img src='https://i0.hdslb.com/bfs/face/bcc0404da449a8619acd31e41dd4338d136f8215.jpg' loading=lazy referrerpolicy=no-referrer onerror="this.style.visibility='hidden'"><span>电棍258</span></a><a href='https://space.bilibili.com/3546854975343318' target=_blank rel=noopener class=avline title='夜猫子成精擒史版（2.1万粉）'><img src='https://i0.hdslb.com/bfs/face/9a60edc94adee1cfebb44a6c618924f0215f2332.jpg' loading=lazy referrerpolicy=no-referrer onerror="this.style.visibility='hidden'"><span>夜猫子成精擒史版</span></a><a href='https://space.bilibili.com/114566894' target=_blank rel=noopener class=avline title='月之暗面与你相见（6900粉）'><img src='https://i2.hdslb.com/bfs/face/10e5b2a46506cf98bc48dbf85d6e05a525668f42.jpg' loading=lazy referrerpolicy=no-referrer onerror="this.style.visibility='hidden'"><span>月之暗面与你相见</span></a></div>
+<div style="margin-top:10px"><a href="theme/nationalism.html" class=more>
+查看全部 8 个号 →</a></div></div>
+<div class=foot>本页数据全部来自 B站 公开可见的账号与视频信息，仅作网络亚文化研究用。
+封面与视频版权归原 UP 主所有。如对收录有异议，请通过页面所附账号联系删除。</div>
+</div></body></html>

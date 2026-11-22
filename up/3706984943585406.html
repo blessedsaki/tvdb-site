@@ -1,0 +1,105 @@
+<!DOCTYPE html><html lang="zh-CN"><head><base href="/tvdb-site/"><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>账号 3706984943585406 · tvdb</title><style>
+:root{--bg:#0a0b0f;--card:#12141b;--card2:#171a23;--line:#242838;--fg:#e8ecf5;
+--dim:#8b95a7;--accent:#6aa6ff;--ok:#3ddc97;--warn:#ffb84d;--err:#ff6b6b}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);font:14px/1.55 -apple-system,
+"PingFang SC","Microsoft YaHei",sans-serif;
+background-image:radial-gradient(900px 460px at 12% -10%,rgba(46,88,165,.26) 0,transparent 60%);
+background-attachment:fixed}
+.wrap{max-width:1280px;margin:0 auto;padding:20px 18px 60px}
+a{color:var(--accent);text-decoration:none} a:hover{text-decoration:underline}
+h1{font-size:21px;margin:0 0 3px;letter-spacing:-.02em;
+background:linear-gradient(92deg,#f2f7ff,#9dc4ff 55%,#b39bff);
+-webkit-background-clip:text;background-clip:text;color:transparent}
+.sub{color:var(--dim);font-size:12.5px;margin-bottom:16px}
+nav{margin:0 0 16px;display:flex;gap:6px;flex-wrap:wrap}
+nav a{padding:7px 13px;border:1px solid var(--line);border-radius:9px;background:var(--card);
+font-size:13px;color:var(--fg)}
+nav a.on{border-color:var(--accent);color:#fff}
+.card{background:var(--card);border:1px solid var(--line);border-radius:13px;padding:15px;margin-bottom:13px}
+.card h2{font-size:12.5px;margin:0 0 11px;color:var(--dim);font-weight:600;
+letter-spacing:.06em;text-transform:uppercase}
+table{width:100%;border-collapse:collapse;font-size:12.5px}
+th,td{text-align:left;padding:7px 6px;border-bottom:1px solid var(--line);vertical-align:top}
+th{color:var(--dim);font-weight:500;font-size:11.5px}
+tr:hover td{background:rgba(106,166,255,.04)}
+.num{text-align:right;font-variant-numeric:tabular-nums}
+.muted{color:var(--dim);font-size:12px}
+.tag{font-size:11px;padding:1px 7px;border-radius:5px;background:var(--card2);
+color:var(--dim);display:inline-block;margin:1px 2px 1px 0}
+.tag.s{color:var(--accent)}
+.tag.g{color:var(--ok)} .tag.w{color:var(--warn)} .tag.e{color:var(--err)}
+.stats{display:flex;gap:22px;flex-wrap:wrap}
+.stats div{font-size:12px;color:var(--dim)}
+.stats b{display:block;font-size:19px;color:var(--fg);font-weight:600}
+input,select,button{background:var(--card2);border:1px solid var(--line);color:var(--fg);
+border-radius:8px;padding:7px 10px;font-size:13px;outline:none}
+input:focus,select:focus{border-color:var(--accent)}
+form.row{display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin-bottom:12px}
+input.grow{flex:1;min-width:180px}
+.cvrow{display:flex;gap:4px}
+a.cv{display:block;width:84px;height:48px;overflow:hidden;border-radius:4px;
+border:1px solid var(--line);background:var(--card2)}
+a.cv img{width:100%;height:100%;object-fit:cover;display:block}
+a.cv:hover{border-color:var(--accent)}
+td.covs{white-space:nowrap}
+.foot{margin:34px 0 10px;padding-top:14px;border-top:1px solid var(--line);
+color:var(--dim);font-size:12px;line-height:1.7}
+.tabrow{display:flex;gap:8px;flex-wrap:wrap;margin:4px 0 10px}
+a.tabk{padding:5px 12px;border:1px solid var(--line);border-radius:16px;
+font-size:12.5px;text-decoration:none;color:var(--dim)}
+a.tabk.sel{background:var(--accent);color:#0a0b0f;border-color:var(--accent);font-weight:600}
+a.tabk:hover{border-color:var(--accent);color:var(--accent)}
+a.tabk.sel:hover{color:#0a0b0f}
+td.act{white-space:nowrap}
+button.byes,button.bno{padding:4px 12px;border-radius:6px;border:1px solid var(--line);
+background:var(--card2);color:var(--fg);font-size:12px;cursor:pointer;margin-right:4px}
+button.byes:hover{background:#3ddc97;color:#0a0b0f;border-color:#3ddc97}
+button.bno:hover{background:#ff6b6b;color:#0a0b0f;border-color:#ff6b6b}
+.small{font-size:11px;color:var(--dim);max-width:200px}
+.avrow{display:flex;flex-wrap:wrap;gap:10px}
+.avline{display:flex;flex-direction:column;align-items:center;width:56px;gap:3px;
+text-decoration:none;color:var(--dim);font-size:10px;text-align:center}
+.avline img{width:40px;height:40px;border-radius:50%;object-fit:cover;
+background:var(--card2);border:1px solid var(--line)}
+.avline:hover{color:var(--accent)}
+.avline:hover img{border-color:var(--accent)}
+a.more{color:var(--accent);font-size:12.5px;text-decoration:none}
+a.more:hover{text-decoration:underline}
+td.av{width:44px;padding-right:0}
+td.av img{width:36px;height:36px;border-radius:50%;object-fit:cover;display:block;
+background:var(--card2);border:1px solid var(--line)}
+td.av a{display:block}
+a.upname{font-weight:600;text-decoration:none;color:var(--fg)}
+a.upname:hover{color:var(--accent);text-decoration:underline}
+a.detail{font-size:10.5px;color:var(--dim);text-decoration:none;border:1px solid var(--line);
+border-radius:4px;padding:1px 4px;margin-left:2px}
+a.detail:hover{color:var(--accent);border-color:var(--accent)}
+td.note{max-width:520px;font-size:11.5px;line-height:1.5;color:#b8c4d8}
+td.note b{color:var(--accent);font-weight:600}
+.sig{color:var(--dim);font-size:11.5px;max-width:340px;overflow:hidden;
+text-overflow:ellipsis;white-space:nowrap;display:inline-block;vertical-align:bottom}
+.warnbox{border-left:3px solid var(--warn);background:rgba(255,184,77,.07);
+padding:9px 12px;border-radius:0 8px 8px 0;font-size:12.5px;color:#e8d5b0;margin:10px 0}
+</style></head><body><div class="wrap">
+<h1>tvdb</h1><div class="sub">TV 系内容观测库 · 中国社会的一个窗口</div>
+<nav><a href="index.html">概览</a><a href="ups.html" class=on>账号</a><a href="series.html">系列</a><a href="themes.html">大主题</a><a href="community.html">圈子</a><a href="memes.html">梗</a><a href="report.html">调研报告</a></nav><div class=card><h2>DReel</h2>
+<table>
+<tr><th>mid</th><td><code>3706984943585406</code></td></tr>
+<tr><th>粉丝</th><td>3675</td></tr>
+<tr><th>投稿数</th><td>138</td></tr>
+<tr><th>签名</th><td>素材来源于网络，侵删
+欢迎投稿</td></tr>
+<tr><th>状态</th><td>正常</td></tr>
+</table></div>
+<div class=card><h2>角色判定</h2>
+<table><tr><th>角色</th><th class=num>置信度</th><th>依据</th></tr><tr><td>搬运号 <span class=muted>reposter</span></td><td class=num>0.95</td><td class=muted>4 条样本，TV 标题占比 100%，签名含 [&#x27;投稿&#x27;]</td></tr></table></div>
+<div class=card><h2>粉丝轨迹</h2>
+<table><tr><th>时间</th><th class=num>粉丝</th><th class=num>投稿</th></tr><tr><td class=muted>2026-11-21 09:15</td><td class=num>3675</td><td class=num>138</td></tr></table></div>
+<div class=card><h2>投稿（41）</h2>
+<table><tr><th>标题</th><th class=num>播放</th><th class=num>时长</th><th>发布</th><th></th></tr><tr><td><a href='/video/BV1mcsi6yEFB'>剑人TV之空手出超市教程</a></td><td class=num>2737</td><td class=num>3:52s</td><td class=muted>2026-11-20 02:03</td><td></td></tr><tr><td><a href='/video/BV1Sosv67ETt'>剑人TV之买奇怪的胖次</a></td><td class=num>3105</td><td class=num>4:18s</td><td class=muted>2026-11-20 02:00</td><td></td></tr><tr><td><a href='/video/BV14ssx6EEGy'>剑人TV之去童装店说给自己女朋友买衣服</a></td><td class=num>1.4万</td><td class=num>262s</td><td class=muted>2026-11-18 21:01</td><td></td></tr><tr><td><a href='/video/BV1TJsG6LEqp'>剑人TV之跟踪外卖员到家</a></td><td class=num>3.3万</td><td class=num>4:27s</td><td class=muted>2026-11-14 07:48</td><td></td></tr><tr><td><a href='/video/BV16SWx6MErk'>剑人TV之问路人有没有一块钱然后给他一块</a></td><td class=num>1.7万</td><td class=num>219s</td><td class=muted>2026-11-09 06:58</td><td></td></tr><tr><td><a href='/video/BV1ah4x6wEz2'>剑人TV之给路人发神人传单</a></td><td class=num>7443</td><td class=num>301s</td><td class=muted>2026-11-08 01:28</td><td></td></tr><tr><td><a href='/video/BV1HD456UEj5'>剑人TV之在超市买滚木</a></td><td class=num>3.8万</td><td class=num>3:55s</td><td class=muted>2026-11-07 00:30</td><td></td></tr><tr><td><a href='/video/BV16m4Y6YEWv'>剑人TV之在别人上厕所时偷玩他的电脑</a></td><td class=num>1.3万</td><td class=num>212s</td><td class=muted>2026-11-06 02:12</td><td></td></tr><tr><td><a href='/video/BV1Pqxm6CEbB'>剑人TV之在收银员扫完商品后直接离开</a></td><td class=num>2.1万</td><td class=num>278s</td><td class=muted>2026-11-04 00:08</td><td></td></tr><tr><td><a href='/video/BV1wj4T6fEuM'>剑人TV之点单时一直说换一个最后不要了</a></td><td class=num>1.3万</td><td class=num>283s</td><td class=muted>2026-11-03 00:23</td><td></td></tr><tr><td><a href='/video/BV1tHxa6BE6z'>剑人TV之找两个路人扮演护士给人打针</a></td><td class=num>1.4万</td><td class=num>533s</td><td class=muted>2026-11-02 00:27</td><td></td></tr><tr><td><a href='/video/BV1bfxn6CEsD'>剑人TV之去零食店每种称重零食买两包去结账</a></td><td class=num>1.2万</td><td class=num>290s</td><td class=muted>2026-10-31 23:15</td><td></td></tr><tr><td><a href='/video/BV1Udxz6tEAY'>剑人TV之在超市里玩碰碰车</a></td><td class=num>7573</td><td class=num>208s</td><td class=muted>2026-10-30 22:55</td><td></td></tr><tr><td><a href='/video/BV1wPsR6xEir'>当着coser的面和路人集邮</a></td><td class=num>15.2万</td><td class=num>231s</td><td class=muted>2026-10-28 23:00</td><td></td></tr><tr><td><a href='/video/BV1YFHc6mE1d'>剑人TV之躲在垃圾桶里放猫叫声吓路人</a></td><td class=num>2.5万</td><td class=num>258s</td><td class=muted>2026-10-26 23:23</td><td></td></tr><tr><td><a href='/video/BV18SnS6yEAd'>剑人TV之去图书馆买滚木</a></td><td class=num>2.6万</td><td class=num>273s</td><td class=muted>2026-10-25 23:30</td><td></td></tr><tr><td><a href='/video/BV16wHu6EEj1'>剑人TV之在水产超市钓鱼</a></td><td class=num>1.2万</td><td class=num>276s</td><td class=muted>2026-10-24 23:08</td><td></td></tr><tr><td><a href='/video/BV1WFnt6zEJ9'>剑人TV之假装狂犬病</a></td><td class=num>1.6万</td><td class=num>250s</td><td class=muted>2026-10-23 02:23</td><td></td></tr><tr><td><a href='/video/BV1Fqny6EEyH'>剑人TV之用喷壶假装打喷嚏看路人反应</a></td><td class=num>1.5万</td><td class=num>282s</td><td class=muted>2026-10-21 23:46</td><td></td></tr><tr><td><a href='/video/BV1qKnv6mEEC'>剑人TV之躲在超市货架里装猫咪直到被发现</a></td><td class=num>8590</td><td class=num>315s</td><td class=muted>2026-10-21 03:33</td><td></td></tr><tr><td><a href='/video/BV1xwJZ6dExV'>剑人TV之叫路人爸爸</a></td><td class=num>1.4万</td><td class=num>211s</td><td class=muted>2026-10-20 00:12</td><td></td></tr><tr><td><a href='/video/BV1utnj6DEmM'>剑人TV之买水果把老板的收银机藏起来</a></td><td class=num>2.5万</td><td class=num>205s</td><td class=muted>2026-10-19 00:12</td><td></td></tr><tr><td><a href='/video/BV1psJe6XECd'>剑人TV之一直买同样的东西</a></td><td class=num>8.7万</td><td class=num>505s</td><td class=muted>2026-10-17 09:08</td><td></td></tr><tr><td><a href='/video/BV11DJt66ETH'>剑人TV之跟踪一条狗，让它感觉莫名其妙</a></td><td class=num>1.3万</td><td class=num>441s</td><td class=muted>2026-10-16 10:49</td><td></td></tr><tr><td><a href='/video/BV1oXJk6vEDy'>剑人TV之假装盒马员工去其他超市挖人</a></td><td class=num>1.0万</td><td class=num>470s</td><td class=muted>2026-10-15 06:17</td><td></td></tr><tr><td><a href='/video/BV1zUpS6AEP2'>美食TV之蛆虫大餐</a></td><td class=num>3.3万</td><td class=num>2:45s</td><td class=muted>2026-10-12 01:17</td><td></td></tr><tr><td><a href='/video/BV113px6gEbR'>剑人TV之找人集邮然后走掉</a></td><td class=num>33.5万</td><td class=num>296s</td><td class=muted>2026-10-09 02:28</td><td></td></tr><tr><td><a href='/video/BV1zKan6rESt'>剑人TV之骗路人给弟弟补课</a></td><td class=num>1.8万</td><td class=num>662s</td><td class=muted>2026-09-29 06:12</td><td></td></tr><tr><td><a href='/video/BV1GDaq61EZb'>剑人TV之假装高度近视去眼镜店</a></td><td class=num>1.6万</td><td class=num>406s</td><td class=muted>2026-09-28 01:51</td><td></td></tr><tr><td><a href='/video/BV1gSac66ESx'>剑人TV之士兵男孩这一块</a></td><td class=num>2.9万</td><td class=num>428s</td><td class=muted>2026-09-24 04:59</td><td></td></tr><tr><td><a href='/video/BV1Xwe16ME4i'>剑人TV之假装捡工地上的冰红茶给路人喝</a></td><td class=num>3.7万</td><td class=num>317s</td><td class=muted>2026-09-18 08:02</td><td></td></tr><tr><td><a href='/video/BV1U1Y56CESQ'>剑人TV之在超市里狩猎</a></td><td class=num>2.9万</td><td class=num>397s</td><td class=muted>2026-09-11 01:35</td><td></td></tr><tr><td><a href='/video/BV1s8t267Ed9'>剑人TV之混进婚礼吃席</a></td><td class=num>3.6万</td><td class=num>265s</td><td class=muted>2026-09-05 09:50</td><td></td></tr><tr><td><a href='/video/BV1UTtP6wE5W'>剑人TV之叫不认识的老人小宝贝</a></td><td class=num>3.2万</td><td class=num>424s</td><td class=muted>2026-08-28 08:37</td><td></td></tr><tr><td><a href='/video/BV1ushG6eEUC'>剑人TV之在手机店小孩玩哪个就看哪个</a></td><td class=num>8.2万</td><td class=num>370s</td><td class=muted>2026-08-25 10:24</td><td></td></tr><tr><td><a href='/video/BV1rqbr6FEPX'>剑人TV之假装肌无力摔倒测试路人善良程度</a></td><td class=num>4.2万</td><td class=num>288s</td><td class=muted>2026-08-18 04:14</td><td></td></tr><tr><td><a href='/video/BV1eKbD6GEzd'>剑人TV之在别人打牌时把他们的牌全报出来</a></td><td class=num>4.0万</td><td class=num>261s</td><td class=muted>2026-08-16 01:17</td><td></td></tr><tr><td><a href='/video/BV1PUg36iEWy'>剑人TV但是国服版</a></td><td class=num>11.1万</td><td class=num>5:30s</td><td class=muted>2026-08-15 02:07</td><td></td></tr><tr><td><a href='/video/BV1MYMS6VEPm'>美食TV之南北战争</a></td><td class=num>89.2万</td><td class=num>8:0s</td><td class=muted>2026-08-06 02:00</td><td></td></tr><tr><td><a href='/video/BV1bS8X6yEZt'>剑人TV之去公园给老人送钟</a></td><td class=num>19.7万</td><td class=num>276s</td><td class=muted>—</td><td></td></tr><tr><td><a href='/video/BV1GPbZ6oEgA'>剑人tvTV之假装美国人入住酒店</a></td><td class=num>1.9万</td><td class=num>310s</td><td class=muted>—</td><td></td></tr></table></div>
+<div class=foot>本页数据全部来自 B站 公开可见的账号与视频信息，仅作网络亚文化研究用。
+封面与视频版权归原 UP 主所有。如对收录有异议，请通过页面所附账号联系删除。</div>
+</div></body></html>

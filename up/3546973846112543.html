@@ -1,0 +1,104 @@
+<!DOCTYPE html><html lang="zh-CN"><head><base href="/tvdb-site/"><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>账号 3546973846112543 · tvdb</title><style>
+:root{--bg:#0a0b0f;--card:#12141b;--card2:#171a23;--line:#242838;--fg:#e8ecf5;
+--dim:#8b95a7;--accent:#6aa6ff;--ok:#3ddc97;--warn:#ffb84d;--err:#ff6b6b}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);font:14px/1.55 -apple-system,
+"PingFang SC","Microsoft YaHei",sans-serif;
+background-image:radial-gradient(900px 460px at 12% -10%,rgba(46,88,165,.26) 0,transparent 60%);
+background-attachment:fixed}
+.wrap{max-width:1280px;margin:0 auto;padding:20px 18px 60px}
+a{color:var(--accent);text-decoration:none} a:hover{text-decoration:underline}
+h1{font-size:21px;margin:0 0 3px;letter-spacing:-.02em;
+background:linear-gradient(92deg,#f2f7ff,#9dc4ff 55%,#b39bff);
+-webkit-background-clip:text;background-clip:text;color:transparent}
+.sub{color:var(--dim);font-size:12.5px;margin-bottom:16px}
+nav{margin:0 0 16px;display:flex;gap:6px;flex-wrap:wrap}
+nav a{padding:7px 13px;border:1px solid var(--line);border-radius:9px;background:var(--card);
+font-size:13px;color:var(--fg)}
+nav a.on{border-color:var(--accent);color:#fff}
+.card{background:var(--card);border:1px solid var(--line);border-radius:13px;padding:15px;margin-bottom:13px}
+.card h2{font-size:12.5px;margin:0 0 11px;color:var(--dim);font-weight:600;
+letter-spacing:.06em;text-transform:uppercase}
+table{width:100%;border-collapse:collapse;font-size:12.5px}
+th,td{text-align:left;padding:7px 6px;border-bottom:1px solid var(--line);vertical-align:top}
+th{color:var(--dim);font-weight:500;font-size:11.5px}
+tr:hover td{background:rgba(106,166,255,.04)}
+.num{text-align:right;font-variant-numeric:tabular-nums}
+.muted{color:var(--dim);font-size:12px}
+.tag{font-size:11px;padding:1px 7px;border-radius:5px;background:var(--card2);
+color:var(--dim);display:inline-block;margin:1px 2px 1px 0}
+.tag.s{color:var(--accent)}
+.tag.g{color:var(--ok)} .tag.w{color:var(--warn)} .tag.e{color:var(--err)}
+.stats{display:flex;gap:22px;flex-wrap:wrap}
+.stats div{font-size:12px;color:var(--dim)}
+.stats b{display:block;font-size:19px;color:var(--fg);font-weight:600}
+input,select,button{background:var(--card2);border:1px solid var(--line);color:var(--fg);
+border-radius:8px;padding:7px 10px;font-size:13px;outline:none}
+input:focus,select:focus{border-color:var(--accent)}
+form.row{display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin-bottom:12px}
+input.grow{flex:1;min-width:180px}
+.cvrow{display:flex;gap:4px}
+a.cv{display:block;width:84px;height:48px;overflow:hidden;border-radius:4px;
+border:1px solid var(--line);background:var(--card2)}
+a.cv img{width:100%;height:100%;object-fit:cover;display:block}
+a.cv:hover{border-color:var(--accent)}
+td.covs{white-space:nowrap}
+.foot{margin:34px 0 10px;padding-top:14px;border-top:1px solid var(--line);
+color:var(--dim);font-size:12px;line-height:1.7}
+.tabrow{display:flex;gap:8px;flex-wrap:wrap;margin:4px 0 10px}
+a.tabk{padding:5px 12px;border:1px solid var(--line);border-radius:16px;
+font-size:12.5px;text-decoration:none;color:var(--dim)}
+a.tabk.sel{background:var(--accent);color:#0a0b0f;border-color:var(--accent);font-weight:600}
+a.tabk:hover{border-color:var(--accent);color:var(--accent)}
+a.tabk.sel:hover{color:#0a0b0f}
+td.act{white-space:nowrap}
+button.byes,button.bno{padding:4px 12px;border-radius:6px;border:1px solid var(--line);
+background:var(--card2);color:var(--fg);font-size:12px;cursor:pointer;margin-right:4px}
+button.byes:hover{background:#3ddc97;color:#0a0b0f;border-color:#3ddc97}
+button.bno:hover{background:#ff6b6b;color:#0a0b0f;border-color:#ff6b6b}
+.small{font-size:11px;color:var(--dim);max-width:200px}
+.avrow{display:flex;flex-wrap:wrap;gap:10px}
+.avline{display:flex;flex-direction:column;align-items:center;width:56px;gap:3px;
+text-decoration:none;color:var(--dim);font-size:10px;text-align:center}
+.avline img{width:40px;height:40px;border-radius:50%;object-fit:cover;
+background:var(--card2);border:1px solid var(--line)}
+.avline:hover{color:var(--accent)}
+.avline:hover img{border-color:var(--accent)}
+a.more{color:var(--accent);font-size:12.5px;text-decoration:none}
+a.more:hover{text-decoration:underline}
+td.av{width:44px;padding-right:0}
+td.av img{width:36px;height:36px;border-radius:50%;object-fit:cover;display:block;
+background:var(--card2);border:1px solid var(--line)}
+td.av a{display:block}
+a.upname{font-weight:600;text-decoration:none;color:var(--fg)}
+a.upname:hover{color:var(--accent);text-decoration:underline}
+a.detail{font-size:10.5px;color:var(--dim);text-decoration:none;border:1px solid var(--line);
+border-radius:4px;padding:1px 4px;margin-left:2px}
+a.detail:hover{color:var(--accent);border-color:var(--accent)}
+td.note{max-width:520px;font-size:11.5px;line-height:1.5;color:#b8c4d8}
+td.note b{color:var(--accent);font-weight:600}
+.sig{color:var(--dim);font-size:11.5px;max-width:340px;overflow:hidden;
+text-overflow:ellipsis;white-space:nowrap;display:inline-block;vertical-align:bottom}
+.warnbox{border-left:3px solid var(--warn);background:rgba(255,184,77,.07);
+padding:9px 12px;border-radius:0 8px 8px 0;font-size:12.5px;color:#e8d5b0;margin:10px 0}
+</style></head><body><div class="wrap">
+<h1>tvdb</h1><div class="sub">TV 系内容观测库 · 中国社会的一个窗口</div>
+<nav><a href="index.html">概览</a><a href="ups.html" class=on>账号</a><a href="series.html">系列</a><a href="themes.html">大主题</a><a href="community.html">圈子</a><a href="memes.html">梗</a><a href="report.html">调研报告</a></nav><div class=card><h2>神人TV频道</h2>
+<table>
+<tr><th>mid</th><td><code>3546973846112543</code></td></tr>
+<tr><th>粉丝</th><td>5.8万</td></tr>
+<tr><th>投稿数</th><td>120</td></tr>
+<tr><th>签名</th><td>《寻史记》</td></tr>
+<tr><th>状态</th><td>正常</td></tr>
+</table></div>
+<div class=card><h2>角色判定</h2>
+<table><tr><th>角色</th><th class=num>置信度</th><th>依据</th></tr><tr><td>搬运号 <span class=muted>reposter</span></td><td class=num>0.85</td><td class=muted>10 条样本，TV 标题占比 90%</td></tr></table></div>
+<div class=card><h2>粉丝轨迹</h2>
+<table><tr><th>时间</th><th class=num>粉丝</th><th class=num>投稿</th></tr><tr><td class=muted>2026-11-21 09:08</td><td class=num>5.8万</td><td class=num>120</td></tr></table></div>
+<div class=card><h2>投稿（34）</h2>
+<table><tr><th>标题</th><th class=num>播放</th><th class=num>时长</th><th>发布</th><th></th></tr><tr><td><a href='/video/BV1YyWi6HELY'>【神人TV】吹牛B呢！吃过地饺吗你！</a></td><td class=num>3.8万</td><td class=num>458s</td><td class=muted>2026-11-13 10:54</td><td></td></tr><tr><td><a href='/video/BV1mGs96cEBh'>【神人TV】宝宝抓紧脐带，妈妈要开始蹦迪了哦</a></td><td class=num>4559</td><td class=num>7:51s</td><td class=muted>2026-10-28 14:48</td><td></td></tr><tr><td><a href='/video/BV1GShb6nEb5'>【神人TV】我有点恐♂</a></td><td class=num>3.6万</td><td class=num>7:11s</td><td class=muted>2026-09-23 15:23</td><td></td></tr><tr><td><a href='/video/BV1GYez6XE3P'>【神人TV】我的拳头想喝血了！</a></td><td class=num>23.8万</td><td class=num>461s</td><td class=muted>2026-09-20 13:09</td><td></td></tr><tr><td><a href='/video/BV1YXYR6wEMf'>【神人TV】东北身高183男孩，在广东走哪都显得我高大威猛！</a></td><td class=num>4.7万</td><td class=num>428s</td><td class=muted>2026-09-12 14:08</td><td></td></tr><tr><td><a href='/video/BV1jZY76AEiA'>【神人TV】蟑螂蒸饺好吃捏</a></td><td class=num>31.0万</td><td class=num>356s</td><td class=muted>2026-09-11 10:36</td><td></td></tr><tr><td><a href='/video/BV1MibP6KEAP'>【智人TV】＃40｜一眼望不到人类的未来。</a></td><td class=num>3.1万</td><td class=num>291s</td><td class=muted>2026-09-07 06:23</td><td></td></tr><tr><td><a href='/video/BV1PLNz6PEj4'>国外抽象难绷集锦｜EP.25</a></td><td class=num>5.5万</td><td class=num>238s</td><td class=muted>2026-07-15 13:00</td><td></td></tr><tr><td><a href='/video/BV1f4j363EkG'>每日一遍，防止抑郁｜EP.21</a></td><td class=num>47.5万</td><td class=num>612s</td><td class=muted>2026-06-16 10:52</td><td></td></tr><tr><td><a href='/video/BV1ezVP6uEvN'>【智人TV】＃37｜一眼望不到人类的未来。</a></td><td class=num>13.3万</td><td class=num>348s</td><td class=muted>2026-05-26 07:42</td><td></td></tr><tr><td><a href='/video/BV1NaLm6DE3B'>每日一遍，防止抑郁｜EP.20</a></td><td class=num>26.4万</td><td class=num>685s</td><td class=muted>2026-05-20 12:30</td><td></td></tr><tr><td><a href='/video/BV1SA5Q6AETy'>每日一遍，防止抑郁｜EP.18</a></td><td class=num>41.7万</td><td class=num>944s</td><td class=muted>2026-05-14 07:54</td><td></td></tr><tr><td><a href='/video/BV1PeR9BwEz1'>每日一遍，防止抑郁｜EP.17</a></td><td class=num>50.0万</td><td class=num>895s</td><td class=muted>2026-05-09 11:33</td><td></td></tr><tr><td><a href='/video/BV1CmdFB1E5h'>每日一遍，防止抑郁｜EP.16</a></td><td class=num>49.9万</td><td class=num>711s</td><td class=muted>2026-05-07 04:29</td><td></td></tr><tr><td><a href='/video/BV1reR7BsEkj'>【智人TV】＃34｜一眼望不到人类的未来。</a></td><td class=num>62.9万</td><td class=num>555s</td><td class=muted>2026-05-02 11:59</td><td><span class="tag g">已备份</span></td></tr><tr><td><a href='/video/BV1Ztd6BDEmg'>【智人TV】自己亲生的小猫，胳膊被挠破皮也得忍着!</a></td><td class=num>9.9万</td><td class=num>419s</td><td class=muted>2026-04-20 14:50</td><td></td></tr><tr><td><a href='/video/BV19PdHBsEpL'>【智人TV】把发霉的橘子皮放到牛奶里，看看能不能制成酸奶</a></td><td class=num>5.0万</td><td class=num>439s</td><td class=muted>2026-04-18 04:47</td><td></td></tr><tr><td><a href='/video/BV1tCQnBNEVz'>【智人TV】我怀孕怎么了？怀孕就不能相亲了吗？</a></td><td class=num>19.2万</td><td class=num>454s</td><td class=muted>2026-04-15 12:18</td><td></td></tr><tr><td><a href='/video/BV1peQgBhEnh'>【智人TV】人类文明这次看来是凶多吉少了</a></td><td class=num>1.5万</td><td class=num>465s</td><td class=muted>2026-04-14 11:05</td><td></td></tr><tr><td><a href='/video/BV1TLDCBfE7D'>【智人TV】网上笑笑得了，现实见到这种谁不想急头白脸的上前要微信去。</a></td><td class=num>13.0万</td><td class=num>424s</td><td class=muted>2026-04-11 09:10</td><td></td></tr><tr><td><a href='/video/BV1aN9EBgEyH'>【智人TV】依旧用生命出片这一块/</a></td><td class=num>32.8万</td><td class=num>455s</td><td class=muted>2026-04-01 15:54</td><td></td></tr><tr><td><a href='/video/BV1QrPWzjEWR'>“神人”TV ❺｜小蝌蚪当珍珠奶茶喝这一块/全菌出击这一块</a></td><td class=num>20.0万</td><td class=num>461s</td><td class=muted>2026-03-06 11:49</td><td></td></tr><tr><td><a href='/video/BV1K4PFzzEun'>抽象 勾史 土味视频合集 ❶❷｜符纸被当做厕纸用了/黑狗血被当可乐喝了</a></td><td class=num>12.6万</td><td class=num>712s</td><td class=muted>2026-03-03 12:08</td><td></td></tr><tr><td><a href='/video/BV11cZvBQEJM'>“神人”TV ❹｜神人放炮把自己祖宗的墓炸没了。</a></td><td class=num>48.7万</td><td class=num>838s</td><td class=muted>2026-02-19 09:48</td><td></td></tr><tr><td><a href='/video/BV1U5Z3BREw5'>抽象 构思 逆天短剧 ❹【春晚特辑30分钟】｜冷知识视频中的都是人类。</a></td><td class=num>113.0万</td><td class=num>1804s</td><td class=muted>2026-02-16 16:32</td><td></td></tr><tr><td><a href='/video/BV1NMcvzZEuc'>“神人”TV ❸｜男子打牌玩炸金花输一万六千块钱，竟拨打110试图让警察帮他追回。</a></td><td class=num>23.9万</td><td class=num>427s</td><td class=muted>2026-02-12 11:56</td><td></td></tr><tr><td><a href='/video/BV1rqcwzfEP5'>猎奇 抽象 构思 土味大杂烩 ❿｜11分钟災厄难度！看完两个福瑞朝我走来了。</a></td><td class=num>1.1万</td><td class=num>662s</td><td class=muted>2026-02-08 13:19</td><td></td></tr><tr><td><a href='/video/BV1sXFhzEE2E'>抽象 构思 逆天短剧合集 ❸｜谁说国产没有好剧情的？</a></td><td class=num>22.0万</td><td class=num>476s</td><td class=muted>2026-02-05 04:14</td><td></td></tr><tr><td><a href='/video/BV16ammBXEP7'>能绷住的都是神人</a></td><td class=num>23.4万</td><td class=num>98s</td><td class=muted>2025-12-12 11:48</td><td></td></tr><tr><td><a href='/video/BV1CwoLBxEXd'>【智人TV】｜你们染头发的人就是民族败类</a></td><td class=num>5.8万</td><td class=num>388s</td><td class=muted>—</td><td></td></tr><tr><td><a href='/video/BV1YJGJ65EiL'>【智人TV】＃36｜一眼望不到人类的未来。</a></td><td class=num>31.3万</td><td class=num>328s</td><td class=muted>—</td><td></td></tr><tr><td><a href='/video/BV1P89eBuEda'>【智人TV】＃33｜一眼望不到人类的未来。</a></td><td class=num>12.3万</td><td class=num>548s</td><td class=muted>—</td><td></td></tr><tr><td><a href='/video/BV1nqVH6eERM'>【智人TV】＃38｜一眼望不到人类的未来。</a></td><td class=num>11.4万</td><td class=num>322s</td><td class=muted>—</td><td></td></tr><tr><td><a href='/video/BV1RQG46vEPP'>【智人TV】＃35｜一眼望不到人类的未来。</a></td><td class=num>16.1万</td><td class=num>299s</td><td class=muted>—</td><td></td></tr></table></div>
+<div class=foot>本页数据全部来自 B站 公开可见的账号与视频信息，仅作网络亚文化研究用。
+封面与视频版权归原 UP 主所有。如对收录有异议，请通过页面所附账号联系删除。</div>
+</div></body></html>
